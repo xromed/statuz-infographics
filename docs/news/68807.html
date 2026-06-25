@@ -6,22 +6,50 @@
 <title>РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
-.wrap{max-width:720px;margin:0 auto;padding:20px 16px 48px}
-.back{display:inline-flex;align-items:center;gap:6px;color:#7b1fa2;font-size:14px;font-weight:600;text-decoration:none;margin-bottom:16px;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      background:#f0f2f5;color:#1a1a2e;min-height:100vh}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 56px}
+.back{display:inline-flex;align-items:center;gap:6px;color:#7b1fa2;font-size:13px;
+       font-weight:600;text-decoration:none;margin-bottom:14px}
 .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.07)}
-.header{background:#7b1fa2;padding:22px 24px 20px;}
-.cat-badge{display:inline-block;background:rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.4px;margin-bottom:10px}
-.headline{color:#fff;font-size:20px;font-weight:700;line-height:1.35}
-.period{color:rgba(255,255,255,.7);font-size:13px;margin-top:6px}
-.body{padding:24px 24px 28px}
-.main-stat{background:#7b1fa212;border-radius:12px;padding:18px 20px;margin-bottom:20px;}
-.main-val{font-size:42px;font-weight:800;color:#7b1fa2;line-height:1}
-.main-unit{font-size:16px;font-weight:600;color:#7b1fa2;opacity:.75}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:20px}
-.footer{border-top:1px solid #eceff1;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center}
-.footer a{color:#7b1fa2;font-size:13px;font-weight:600;text-decoration:none}
-.footer a:hover{text-decoration:underline}
+
+/* Шапка */
+.hdr{background:#7b1fa2;padding:24px 26px 20px}
+.badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;
+        font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;
+        letter-spacing:.5px;margin-bottom:10px}
+.hdr h1{color:#fff;font-size:21px;font-weight:700;line-height:1.35}
+.period{color:rgba(255,255,255,.7);font-size:13px;margin-top:7px}
+
+/* Тело */
+.body{padding:22px 24px 26px}
+
+/* Главная цифра */
+.main-box{background:#7b1fa214;border-radius:12px;padding:16px 20px;
+           margin-bottom:22px;display:flex;align-items:baseline;gap:10px}
+.main-num{font-size:52px;font-weight:800;color:#7b1fa2;line-height:1}
+.main-unit{font-size:18px;color:#7b1fa2;opacity:.75;font-weight:600}
+
+/* Диаграмма */
+.chart-section{margin-bottom:22px}
+.section-title{font-size:12px;font-weight:700;color:#90a4ae;
+                letter-spacing:.6px;text-transform:uppercase;margin-bottom:10px}
+
+/* Прогресс-бары */
+.pbar-list{margin-bottom:22px}
+.pbar-row{margin-bottom:10px}
+.pbar-meta{display:flex;justify-content:space-between;align-items:baseline;
+            margin-bottom:4px}
+.pbar-label{font-size:12px;color:#546e7a;max-width:65%}
+.pbar-val{font-size:13px;font-weight:700;color:#7b1fa2;white-space:nowrap}
+.pbar-track{background:#f0f2f5;border-radius:6px;height:7px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:6px;transition:width .6s ease}
+
+/* Подвал */
+.foot{border-top:1px solid #eceff1;padding-top:14px;
+       display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center}
+.foot a{color:#7b1fa2;font-size:13px;font-weight:600;text-decoration:none}
+.foot a:hover{text-decoration:underline}
 .date{font-size:12px;color:#90a4ae}
 </style>
 </head>
@@ -29,86 +57,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <div class="wrap">
   <a class="back" href="../index.html">← Все новости</a>
   <div class="card">
-    <div class="header">
-      <div class="cat-badge">Демография</div>
-      <h1 class="headline">РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</h1>
+    <div class="hdr">
+      <div class="badge">Демография</div>
+      <h1>РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</h1>
       <div class='period'>июня 2026</div>
     </div>
     <div class="body">
-      <div class='main-stat'><div class='main-val'>4,9 <span class='main-unit'>млн</span></div></div>
-      <div class="stats-grid">
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          4,9 <span style="font-size:13px;opacity:.75">млн</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">тных средств, принадлежащих населению Узбекистана, превысило</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div>
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          4903,1 <span style="font-size:13px;opacity:.75">тыс. автотранспортных сре</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">стоянию на 1 апреля 2026 года в Узбекистане зарегистрировано</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div>
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          92,8 <span style="font-size:13px;opacity:.75">%</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">их часть составляют легковые автомобили (доля в общем объеме</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div>
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          344,6 <span style="font-size:13px;opacity:.75">тыс ячи</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">щим периодом 2025 года количество автомобилей увеличилось на</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div>
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          4552,3 <span style="font-size:13px;opacity:.75">тыс. штук</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">- легковых автомобилей -</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div>
-      <div style="background:#7b1fa212;border-radius:12px;padding:16px 14px;position:relative;">
-        <div style="font-size:22px;font-weight:700;color:#7b1fa2;line-height:1.1;">
-          330,3 <span style="font-size:13px;opacity:.75">тыс. единиц</span>
-        </div>
-        <div style="font-size:12px;color:#607d8b;margin-top:5px;line-height:1.3;">- грузовые автомобили -</div>
-        <div style="position:absolute;top:12px;right:12px;font-size:16px;font-weight:700;color:#78909c">→</div>
-      </div></div>
+      <div class='main-box'><span class='main-num'>4,9</span><span class='main-unit'>млн</span></div>
       
-<div style="margin-top:24px;">
-  <canvas id="chart" style="max-height:260px;"></canvas>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script>
-new Chart(document.getElementById('chart'), {
-  type: 'bar',
-  data: {
-    labels: ["тных средств, принадлежащих на", "стоянию на 1 апреля 2026 года ", "их часть составляют легковые а", "щим периодом 2025 года количес", "- легковых автомобилей -", "- грузовые автомобили -"],
-    datasets: [{
-      data: [4.9, 4903.1, 92.8, 344.6, 4552.3, 330.3],
-      backgroundColor: '#7b1fa2cc',
-      borderColor: '#7b1fa2',
-      borderWidth: 1,
-      borderRadius: 6,
-    }]
-  },
-  options: {
-    indexAxis: "y",
-    responsive: true,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { color: '#f0f0f0' }, ticks: { font: { size: 11 } } },
-      y: { grid: { display: false }, ticks: { font: { size: 11 } } }
-    }
-  }
-});
-</script>
-      <div class="footer">
+      
+      <div class="foot">
         <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68807-zbekistonda-a-oliga-tegishli-avtotransport-vositalari-soni-4-9-mlntadan-oshdi-3" target="_blank">Источник: stat.uz →</a>
         <span class="date"></span>
       </div>

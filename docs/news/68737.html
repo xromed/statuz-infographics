@@ -9,12 +9,12 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       background:#f0f2f5;color:#1a1a2e;min-height:100vh}
 .wrap{max-width:780px;margin:0 auto;padding:20px 16px 56px}
-.back{display:inline-flex;align-items:center;gap:6px;color:#0d47a1;font-size:13px;
+.back{display:inline-flex;align-items:center;gap:6px;color:#37474f;font-size:13px;
        font-weight:600;text-decoration:none;margin-bottom:14px}
 .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.07)}
 
 /* Шапка */
-.hdr{background:#0d47a1;padding:24px 26px 20px}
+.hdr{background:#37474f;padding:24px 26px 20px}
 .badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;
         font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;
         letter-spacing:.5px;margin-bottom:10px}
@@ -25,10 +25,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 .body{padding:22px 24px 26px}
 
 /* Главная цифра */
-.main-box{background:#0d47a114;border-radius:12px;padding:16px 20px;
+.main-box{background:#37474f14;border-radius:12px;padding:16px 20px;
            margin-bottom:22px;display:flex;align-items:baseline;gap:10px}
-.main-num{font-size:52px;font-weight:800;color:#0d47a1;line-height:1}
-.main-unit{font-size:18px;color:#0d47a1;opacity:.75;font-weight:600}
+.main-num{font-size:52px;font-weight:800;color:#37474f;line-height:1}
+.main-unit{font-size:18px;color:#37474f;opacity:.75;font-weight:600}
 
 /* Диаграмма */
 .chart-section{margin-bottom:22px}
@@ -41,14 +41,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 .pbar-meta{display:flex;justify-content:space-between;align-items:baseline;
             margin-bottom:4px}
 .pbar-label{font-size:12px;color:#546e7a;max-width:65%}
-.pbar-val{font-size:13px;font-weight:700;color:#0d47a1;white-space:nowrap}
+.pbar-val{font-size:13px;font-weight:700;color:#37474f;white-space:nowrap}
 .pbar-track{background:#f0f2f5;border-radius:6px;height:7px;overflow:hidden}
 .pbar-fill{height:100%;border-radius:6px;transition:width .6s ease}
 
 /* Подвал */
 .foot{border-top:1px solid #eceff1;padding-top:14px;
        display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center}
-.foot a{color:#0d47a1;font-size:13px;font-weight:600;text-decoration:none}
+.foot a{color:#37474f;font-size:13px;font-weight:600;text-decoration:none}
 .foot a:hover{text-decoration:underline}
 .date{font-size:12px;color:#90a4ae}
 </style>
@@ -58,12 +58,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   <a class="back" href="../index.html">← Все новости</a>
   <div class="card">
     <div class="hdr">
-      <div class="badge">Занятость</div>
+      <div class="badge">Статистика</div>
       <h1>РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</h1>
       <div class='period'>июня 2026</div>
     </div>
     <div class="body">
-      <div class='main-box'><span class='main-num'>15</span><span class='main-unit'>%</span></div>
+      <div class='main-box'><span class='main-num'>65.6</span><span class='main-unit'>трлн сумов</span></div>
       
 <div class="chart-section">
   <div class="section-title">Структура показателей</div>
@@ -72,9 +72,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 (function() {
-  const labels = ["троительство объектов гражданского ", "Этот показатель увеличился на", "Андижанская область -"];
-  const values = [15.0, 15.0, 654.0];
-  const color  = "#0d47a1";
+  const labels = ["совые услуги, кроме услуг страхован", "страховые услуги -", "вспомогательные финансовые услуги -"];
+  const values = [88.4, 7.2, 4.4];
+  const color  = "#37474f";
   const canvas = document.getElementById('mainChart');
   canvas.style.maxHeight = (labels.length > 4 ? 280 : 200) + 'px';
   new Chart(canvas, {
@@ -97,7 +97,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
         legend: { display: false },
         tooltip: {
           callbacks: {
-            label: ctx => ' ' + ctx.raw.toLocaleString('ru-RU') + ' %'
+            label: ctx => ' ' + ctx.raw.toLocaleString('ru-RU') + ' процента'
           }
         }
       },
@@ -112,28 +112,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       <div class="section-title">Ключевые показатели</div><div class="pbar-list">
     <div class="pbar-row">
       <div class="pbar-meta">
-        <span class="pbar-label">троительство объектов гражданского назначения увеличило</span>
-        <span class="pbar-val">15 % <span style="color:#78909c;font-size:12px">→</span></span>
+        <span class="pbar-label">ре-апреле 2026 года объем финансовых услуг в Узбекистан</span>
+        <span class="pbar-val">65.6 трлн сумов <span style="color:#78909c;font-size:12px">→</span></span>
       </div>
-      <div class="pbar-track"><div class="pbar-fill" style="width:2%;background:#0d47a1"></div></div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:74%;background:#37474f"></div></div>
     </div>
     <div class="pbar-row">
       <div class="pbar-meta">
         <span class="pbar-label">Этот показатель увеличился на</span>
-        <span class="pbar-val">15 % по сравнению с соотв <span style="color:#78909c;font-size:12px">→</span></span>
+        <span class="pbar-val">23.8 % по сравнению с соответств <span style="color:#2e7d32;font-size:12px">↑</span></span>
       </div>
-      <div class="pbar-track"><div class="pbar-fill" style="width:2%;background:#0d47a1"></div></div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:27%;background:#37474f"></div></div>
     </div>
     <div class="pbar-row">
       <div class="pbar-meta">
-        <span class="pbar-label">Андижанская область -</span>
-        <span class="pbar-val">654 млрд сумов
-Бухарская обла <span style="color:#78909c;font-size:12px">→</span></span>
+        <span class="pbar-label">совые услуги, кроме услуг страхования и пенсионного обе</span>
+        <span class="pbar-val">88.4 процента <span style="color:#78909c;font-size:12px">→</span></span>
       </div>
-      <div class="pbar-track"><div class="pbar-fill" style="width:100%;background:#0d47a1"></div></div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:100%;background:#37474f"></div></div>
+    </div>
+    <div class="pbar-row">
+      <div class="pbar-meta">
+        <span class="pbar-label">страховые услуги -</span>
+        <span class="pbar-val">7.2 процента <span style="color:#78909c;font-size:12px">→</span></span>
+      </div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:8%;background:#37474f"></div></div>
+    </div>
+    <div class="pbar-row">
+      <div class="pbar-meta">
+        <span class="pbar-label">вспомогательные финансовые услуги -</span>
+        <span class="pbar-val">4.4 процента <span style="color:#78909c;font-size:12px">→</span></span>
+      </div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:5%;background:#37474f"></div></div>
     </div></div>
       <div class="foot">
-        <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68853-fu-arolik-obektlari-urilishi-15-foizga-oshgan-3" target="_blank">Источник: stat.uz →</a>
+        <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68737-zbekistonda-moliyavij-khizmatlar-zhadal-smo-da-3" target="_blank">Источник: stat.uz →</a>
         <span class="date"></span>
       </div>
     </div>

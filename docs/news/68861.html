@@ -3,78 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta property="og:image" content="img/68861.png">
 <title>РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;color:#1a1a2e}
-.wrap{max-width:700px;margin:0 auto;padding:16px}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08)}
-.body{padding:24px}
-.cat{display:inline-block;background:#b5451b18;color:#b5451b;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:12px}
-h1{font-size:20px;font-weight:700;line-height:1.35;margin-bottom:8px}
-.period{font-size:13px;color:#90a4ae;margin-bottom:16px}
-.big-stat{background:#b5451b12;border-radius:12px;padding:16px 20px;margin-bottom:20px}
-.big-val{font-size:36px;font-weight:800;color:#b5451b}
-.big-unit{font-size:16px;font-weight:600;color:#b5451b;opacity:.8}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:20px}
-.footer{border-top:1px solid #eceff1;padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.footer a{color:#b5451b;font-size:13px;font-weight:600;text-decoration:none}
-.back{display:inline-block;margin-bottom:16px;color:#b5451b;font-size:14px;font-weight:600;text-decoration:none}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      background:#f0f2f5;color:#1a1a2e;min-height:100vh}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 56px}
+.back{display:inline-flex;align-items:center;gap:6px;color:#bf360c;font-size:13px;
+       font-weight:600;text-decoration:none;margin-bottom:14px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 20px rgba(0,0,0,.07)}
+
+/* Шапка */
+.hdr{background:#bf360c;padding:24px 26px 20px}
+.badge{display:inline-block;background:rgba(255,255,255,.22);color:#fff;
+        font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;
+        letter-spacing:.5px;margin-bottom:10px}
+.hdr h1{color:#fff;font-size:21px;font-weight:700;line-height:1.35}
+.period{color:rgba(255,255,255,.7);font-size:13px;margin-top:7px}
+
+/* Тело */
+.body{padding:22px 24px 26px}
+
+/* Главная цифра */
+.main-box{background:#bf360c14;border-radius:12px;padding:16px 20px;
+           margin-bottom:22px;display:flex;align-items:baseline;gap:10px}
+.main-num{font-size:52px;font-weight:800;color:#bf360c;line-height:1}
+.main-unit{font-size:18px;color:#bf360c;opacity:.75;font-weight:600}
+
+/* Диаграмма */
+.chart-section{margin-bottom:22px}
+.section-title{font-size:12px;font-weight:700;color:#90a4ae;
+                letter-spacing:.6px;text-transform:uppercase;margin-bottom:10px}
+
+/* Прогресс-бары */
+.pbar-list{margin-bottom:22px}
+.pbar-row{margin-bottom:10px}
+.pbar-meta{display:flex;justify-content:space-between;align-items:baseline;
+            margin-bottom:4px}
+.pbar-label{font-size:12px;color:#546e7a;max-width:65%}
+.pbar-val{font-size:13px;font-weight:700;color:#bf360c;white-space:nowrap}
+.pbar-track{background:#f0f2f5;border-radius:6px;height:7px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:6px;transition:width .6s ease}
+
+/* Подвал */
+.foot{border-top:1px solid #eceff1;padding-top:14px;
+       display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center}
+.foot a{color:#bf360c;font-size:13px;font-weight:600;text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.date{font-size:12px;color:#90a4ae}
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back" href="../index.html">← Все новости</a>
   <div class="card">
-    <img src="img/68861.png" alt="" style="width:100%;border-radius:12px 12px 0 0;display:block;max-height:340px;object-fit:cover;">
-    <div class="body">
-      <div class="cat">Промышленность</div>
+    <div class="hdr">
+      <div class="badge">Промышленность</div>
       <h1>РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ</h1>
-      <div class="period">июня 2026</div>
-
-      <div class='big-stat'><div class='big-val'>3 <span class='big-unit'>трлн сумов</span></div></div>
-
-      <div class="grid">
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">3 <span style="font-size:13px;opacity:.7">трлн сумов</span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">За 4 месяца произведено бумажной продукции на</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div>
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">3 <span style="font-size:13px;opacity:.7">трлн сумов</span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">ыми предприятиями произведено бумаги и бумажной продукции на</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div>
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">17,3 <span style="font-size:13px;opacity:.7">% по сравнению с соотв</span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">Этот показатель увеличился на</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div>
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">1,3 <span style="font-size:13px;opacity:.7">трлн сумов
-Ташкентская об</span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">Город Ташкент -</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div>
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">849,6 <span style="font-size:13px;opacity:.7">млрд сумов
-Андижанская об</span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">Ташкентская область -</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div>
-        <div style="background:#f5f7fa;border-radius:10px;padding:14px 12px;position:relative;">
-          <div style="font-size:22px;font-weight:700;color:#b5451b;">241,4 <span style="font-size:13px;opacity:.7">млрд сумов
-Самаркандская </span></div>
-          <div style="font-size:12px;color:#546e7a;margin-top:4px;">Андижанская область -</div>
-          <div style="position:absolute;top:10px;right:10px;font-size:16px;font-weight:700;color:#546e7a">→</div>
-        </div></div>
-
-      <div class="footer">
+      <div class='period'>июня 2026</div>
+    </div>
+    <div class="body">
+      <div class='main-box'><span class='main-num'>3</span><span class='main-unit'>трлн сумов</span></div>
+      
+<div class="chart-section">
+  <div class="section-title">Структура показателей</div>
+  <canvas id="mainChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+(function() {
+  const labels = ["За 4 месяца произведено бумажной пр", "ыми предприятиями произведено бумаг"];
+  const values = [3.0, 3.0];
+  const color  = "#bf360c";
+  const canvas = document.getElementById('mainChart');
+  canvas.style.maxHeight = (labels.length > 4 ? 280 : 200) + 'px';
+  new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: color + 'bb',
+        borderColor: color,
+        borderWidth: 1.5,
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: 'x',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + ctx.raw.toLocaleString('ru-RU') + ' трлн'
+          }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11 } } },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+      }
+    }
+  });
+})();
+</script>
+      <div class="section-title">Ключевые показатели</div><div class="pbar-list">
+    <div class="pbar-row">
+      <div class="pbar-meta">
+        <span class="pbar-label">За 4 месяца произведено бумажной продукции на</span>
+        <span class="pbar-val">3 трлн сумов <span style="color:#78909c;font-size:12px">→</span></span>
+      </div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:100%;background:#bf360c"></div></div>
+    </div>
+    <div class="pbar-row">
+      <div class="pbar-meta">
+        <span class="pbar-label">ыми предприятиями произведено бумаги и бумажной продукц</span>
+        <span class="pbar-val">3 трлн сумов <span style="color:#78909c;font-size:12px">→</span></span>
+      </div>
+      <div class="pbar-track"><div class="pbar-fill" style="width:100%;background:#bf360c"></div></div>
+    </div></div>
+      <div class="foot">
         <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68861-4-ojda-3-trln-s-mlik-o-oz-ma-sulotlari-ishlab-chi-arilgan-3" target="_blank">Источник: stat.uz →</a>
-        <span style="font-size:12px;color:#90a4ae"></span>
+        <span class="date"></span>
       </div>
     </div>
   </div>
 </div>
-</body></html>
+</body>
+</html>

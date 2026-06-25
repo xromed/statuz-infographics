@@ -1631,5 +1631,339 @@
       "chart_type": "bar",
       "img_path": "img/68761.png"
     }
+  },
+  {
+    "id": "68757",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68757-zbekistonda-faoliyat-yuritajotgan-korkhona-va-tashkilotlar-soni-586-2-mingtaga-etdi-3",
+    "title": "Число действующих предприятий и организаций в Узбекистане достигло 586,2 тыс",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "586.2",
+      "main_unit": "тыс",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "586.2",
+          "unit": "тыс",
+          "label": "исло действующих предприятий и организаций в Узбекистане достигло",
+          "trend": "neutral"
+        },
+        {
+          "value": "37.5",
+          "unit": "тыс",
+          "label": " с соответствующим периодом прошлого года их число увеличилось на",
+          "trend": "up"
+        },
+        {
+          "value": "6.8",
+          "unit": "процента",
+          "label": "м периодом прошлого года их число увеличилось на 37,5 тыс, или на",
+          "trend": "up"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "586.2",
+          "unit": "тыс",
+          "label": "исло действующих предприятий и организаций в Узбекистане достигло",
+          "trend": "neutral"
+        },
+        {
+          "value": "37.5",
+          "unit": "тыс",
+          "label": " с соответствующим периодом прошлого года их число увеличилось на",
+          "trend": "up"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68757.png"
+    }
+  },
+  {
+    "id": "68745",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68745-registr-15-06-2026",
+    "title": "Информация о демографии предприятий и организаций в Республике Узбекистан",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июня 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/68745.png"
+    }
+  },
+  {
+    "id": "68741",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68741-talim-so-asidagi-tadbirkorlik-subektlari-soni-8-5-mingtadan-oshdi-3",
+    "title": "Количество субъектов предпринимательства в сфере образования превысило 8,5 тысячи",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Образование",
+      "main_value": "8.5",
+      "main_unit": "тыс ячи",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "8.5",
+          "unit": "тыс ячи",
+          "label": "ество субъектов предпринимательства в сфере образования превысило",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.2",
+          "unit": "тыс ячи или на",
+          "label": "Этот показатель увеличился почти на",
+          "trend": "up"
+        },
+        {
+          "value": "34.1",
+          "unit": "процента по сравнению с соответств",
+          "label": "Этот показатель увеличился почти на 2,2 тысячи или на",
+          "trend": "up"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "8.5",
+          "unit": "тыс ячи",
+          "label": "ество субъектов предпринимательства в сфере образования превысило",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.2",
+          "unit": "тыс ячи или на",
+          "label": "Этот показатель увеличился почти на",
+          "trend": "up"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68741.png"
+    }
+  },
+  {
+    "id": "68737",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68737-zbekistonda-moliyavij-khizmatlar-zhadal-smo-da-3",
+    "title": "В Узбекистане стремительно растут финансовые услуги",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Статистика",
+      "main_value": "65.6",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "65.6",
+          "unit": "трлн сумов",
+          "label": "ре-апреле 2026 года объем финансовых услуг в Узбекистане составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "23.8",
+          "unit": "% по сравнению с соответств",
+          "label": "Этот показатель увеличился на",
+          "trend": "up"
+        },
+        {
+          "value": "88.4",
+          "unit": "процента",
+          "label": "совые услуги, кроме услуг страхования и пенсионного обеспечения -",
+          "trend": "neutral"
+        },
+        {
+          "value": "7.2",
+          "unit": "процента",
+          "label": "страховые услуги -",
+          "trend": "neutral"
+        },
+        {
+          "value": "4.4",
+          "unit": "процента",
+          "label": "вспомогательные финансовые услуги -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "88.4",
+          "unit": "процента",
+          "label": "совые услуги, кроме услуг страхования и пенсионного обеспечения -",
+          "trend": "neutral"
+        },
+        {
+          "value": "7.2",
+          "unit": "процента",
+          "label": "страховые услуги -",
+          "trend": "neutral"
+        },
+        {
+          "value": "4.4",
+          "unit": "процента",
+          "label": "вспомогательные финансовые услуги -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68737.png"
+    }
+  },
+  {
+    "id": "68733",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68733-5-ojda-zbekistonga-5-mln-nafardan-orti-turist-tashrif-buyurdi-3",
+    "title": "За 5 месяцев Узбекистан посетили более 5 млн туристов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Туризм",
+      "main_value": "5",
+      "main_unit": "млн туристов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "5",
+          "unit": "млн туристов",
+          "label": "За 5 месяцев Узбекистан посетили более",
+          "trend": "neutral"
+        },
+        {
+          "value": "1.1",
+          "unit": "млн человек или на",
+          "label": "Этот показатель увеличился на",
+          "trend": "up"
+        },
+        {
+          "value": "27.3",
+          "unit": "% по сравнению с соответств",
+          "label": "Этот показатель увеличился на 1,1 млн человек или на",
+          "trend": "up"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "5",
+          "unit": "млн туристов",
+          "label": "За 5 месяцев Узбекистан посетили более",
+          "trend": "neutral"
+        },
+        {
+          "value": "1.1",
+          "unit": "млн человек или на",
+          "label": "Этот показатель увеличился на",
+          "trend": "up"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68733.png"
+    }
+  },
+  {
+    "id": "68729",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68729-35-jilda-urilish-ishlari-12-3-barobarga-oshdi-3",
+    "title": "За 35 лет строительные работы увеличились в 12,3 раза",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Статистика",
+      "main_value": "313.9",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "313.9",
+          "unit": "трлн сумов",
+          "label": "стике, в Узбекистане в 2025 году выполнены строительные работы на",
+          "trend": "neutral"
+        },
+        {
+          "value": "6.2",
+          "unit": "млрд рублей",
+          "label": "1991 год —",
+          "trend": "neutral"
+        },
+        {
+          "value": "40.5",
+          "unit": "млрд сумов",
+          "label": "1995 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "388.4",
+          "unit": "млрд сумов",
+          "label": "2000 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1453.1",
+          "unit": "млрд сумов",
+          "label": "2005 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8245.8",
+          "unit": "млрд сумов",
+          "label": "2010 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25423.1",
+          "unit": "млрд сумов",
+          "label": "2015 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "88130.3",
+          "unit": "млрд сумов",
+          "label": "2020 год -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "6.2",
+          "unit": "млрд рублей",
+          "label": "1991 год —",
+          "trend": "neutral"
+        },
+        {
+          "value": "40.5",
+          "unit": "млрд сумов",
+          "label": "1995 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "388.4",
+          "unit": "млрд сумов",
+          "label": "2000 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1453.1",
+          "unit": "млрд сумов",
+          "label": "2005 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8245.8",
+          "unit": "млрд сумов",
+          "label": "2010 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25423.1",
+          "unit": "млрд сумов",
+          "label": "2015 год -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68729.png"
+    }
   }
 ]
