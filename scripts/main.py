@@ -25,10 +25,28 @@ def known_ids(articles: list) -> set:
     return {a["id"] for a in articles}
 
 
+def rebuild_all_pages(db: list):
+    """Пересобирает HTML для всех статей (дизайн мог обновиться)."""
+    print("Пересобираем страницы с новым дизайном...")
+    for a in db:
+        an = a.get("analysis", {})
+        if an:
+            try:
+                site_builder.build_article_page(a, an)
+            except Exception as e:
+                print(f"  [rebuild] {a['id']}: {e}")
+    if db:
+        site_builder.build_index(db)
+    print(f"  ✓ {len(db)} страниц")
+
+
 def run():
     print("=== StatUZ Updater ===")
     db = load_db()
     ids = known_ids(db)
+
+    # Всегда пересобираем страницы — дизайн мог обновиться
+    rebuild_all_pages(db)
 
     # Находим новые статьи
     fresh = scraper.fetch_news_list(pages=2)
