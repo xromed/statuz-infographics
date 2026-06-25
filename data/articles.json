@@ -454,5 +454,474 @@
       "chart_type": "none",
       "img_path": "img/68844.png"
     }
+  },
+  {
+    "id": "68840",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68840-4-ojda-yashash-va-ov-atlanish-khizmatlari-azhmi-69-1-trln-s-mga-etdi-3",
+    "title": "За 4 месяца объем услуг по проживанию и питанию достиг 69,1 трлн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Торговля",
+      "main_value": "69,1",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "69,1",
+          "unit": "трлн сумов",
+          "label": "За 4 месяца объем услуг по проживанию и питанию достиг",
+          "trend": "neutral"
+        },
+        {
+          "value": "69,1",
+          "unit": "трлн сумов",
+          "label": "а объем услуг по проживанию и питанию в Узбекистане составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "14",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "12,7",
+          "unit": "трлн сумов\nСамаркандская ",
+          "label": "Город Ташкент -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8,4",
+          "unit": "трлн сумов\nНаманганская о",
+          "label": "Самаркандская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "7,1",
+          "unit": "трлн сумов\nФерганская обл",
+          "label": "Наманганская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68840.png"
+    }
+  },
+  {
+    "id": "68836",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68836-a-olisi-eng-kam-b-lgan-tuman-va-sha-arlar-top-10-taligi-3",
+    "title": "ТОП-10 районов и городов с наименьшей численностью населения",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Демография",
+      "main_value": "9,5",
+      "main_unit": "тыс. человек",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "9,5",
+          "unit": "тыс. человек",
+          "label": "ием в Узбекистане является город Газган, в котором проживает",
+          "trend": "neutral"
+        },
+        {
+          "value": "9,5",
+          "unit": "тыс. человек",
+          "label": "Город Газган -",
+          "trend": "neutral"
+        },
+        {
+          "value": "15,3",
+          "unit": "тыс. человек",
+          "label": "Тамдынский район -",
+          "trend": "neutral"
+        },
+        {
+          "value": "19,4",
+          "unit": "тыс. человек",
+          "label": "Город Ширин -",
+          "trend": "neutral"
+        },
+        {
+          "value": "20,7",
+          "unit": "тыс. человек",
+          "label": "Караулбазарский район -",
+          "trend": "neutral"
+        },
+        {
+          "value": "21,8",
+          "unit": "тыс. человек",
+          "label": "Бозатауский район -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68836.png"
+    }
+  },
+  {
+    "id": "68832",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68832-zbekistonda-elektromobillar-soni-109-2-mingtaga-etdi-3",
+    "title": "Количество электромобилей в Узбекистане достигло 109,2 тыс.",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Статистика",
+      "main_value": "109,2",
+      "main_unit": "тыс.",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "109,2",
+          "unit": "тыс.",
+          "label": "Количество электромобилей в Узбекистане достигло",
+          "trend": "neutral"
+        },
+        {
+          "value": "109,2",
+          "unit": "тыс ячи электромобилей",
+          "label": "стоянию на 1 апреля 2026 года в Узбекистане зарегистрировано",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "none",
+      "img_path": "img/68832.png"
+    }
+  },
+  {
+    "id": "68827",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68827-zbekiston-importidagi-top-10-davlatlar-6",
+    "title": "ТОП-10 стран по импорту из Узбекистана",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Торговля",
+      "main_value": "16,4",
+      "main_unit": "млрд долларов США",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "16,4",
+          "unit": "млрд долларов США",
+          "label": "в январе-апреле 2026 года объем импорта Узбекистана составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "26,7",
+          "unit": "% по сравнению с соотв",
+          "label": "Объем импорта увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "5,3",
+          "unit": "млрд",
+          "label": "- Китай -",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,1",
+          "unit": "млрд",
+          "label": "- Россия -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,4",
+          "unit": "млрд",
+          "label": "- Казахстан -",
+          "trend": "neutral"
+        },
+        {
+          "value": "620,9",
+          "unit": "млн",
+          "label": "- Республика Корея -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68827.png"
+    }
+  },
+  {
+    "id": "68823",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68823-ajsi-ududda-yangi-korkhona-va-tashkilotlar-k-pro-tashkil-etilmo-da-3",
+    "title": "В каком регионе создается больше новых предприятий и организаций?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июня 2026",
+      "key_stats": [],
+      "chart_type": "none",
+      "img_path": "img/68823.png"
+    }
+  },
+  {
+    "id": "68819",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68819-kijim-ishlab-chi-arish-b-jicha-ajsi-ududlar-pesh-adam-3",
+    "title": "Какие регионы лидируют по производству одежды?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "12,9",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "12,9",
+          "unit": "трлн сумов",
+          "label": "а в Узбекистане крупными предприятиями произведено одежды на",
+          "trend": "neutral"
+        },
+        {
+          "value": "12,5",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "5,4",
+          "unit": "трлн сумов",
+          "label": "Андижанская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,4",
+          "unit": "трлн сумов",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,1",
+          "unit": "трлн сумов",
+          "label": "Наманганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1",
+          "unit": "трлн сумов",
+          "label": "Ферганская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68819.png"
+    }
+  },
+  {
+    "id": "68815",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68815-urilish-ishlarida-norasmij-sektor-ulushi-27-5-foizga-etdi-3",
+    "title": "Доля неформального сектора в строительных работах достигла 27,5 %",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "27,5",
+      "main_unit": "%",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "27,5",
+          "unit": "%",
+          "label": "Доля неформального сектора в строительных работах достигла",
+          "trend": "neutral"
+        },
+        {
+          "value": "23,2",
+          "unit": "трлн сумов",
+          "label": "неформальным сектором выполнены строительные работы на сумму",
+          "trend": "neutral"
+        },
+        {
+          "value": "14,4",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "39,6",
+          "unit": "трлн сумов",
+          "label": "малые предприятия и микрофирмы -",
+          "trend": "neutral"
+        },
+        {
+          "value": "46,9",
+          "unit": "%",
+          "label": "малые предприятия и микрофирмы - 39,6 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "23,2",
+          "unit": "трлн сумов",
+          "label": "неформальный сектор -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68815.png"
+    }
+  },
+  {
+    "id": "68811",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68811-4-ojda-9-1-trln-s-mlik-ichimliklar-ishlab-chi-arilgan-3",
+    "title": "За 4 месяца произведено напитков на 9,1 трлн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "9,1",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "9,1",
+          "unit": "трлн сумов",
+          "label": "За 4 месяца произведено напитков на",
+          "trend": "neutral"
+        },
+        {
+          "value": "9,1",
+          "unit": "трлн сумов",
+          "label": "татистике, за 4 месяца в Узбекистане произведено напитков на",
+          "trend": "neutral"
+        },
+        {
+          "value": "15,2",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "5,9",
+          "unit": "трлн сумов\nТашкентская об",
+          "label": "Город Ташкент -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,3",
+          "unit": "трлн сумов\nХорезмская обл",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "650,1",
+          "unit": "млрд сумов\nНаманганская о",
+          "label": "Хорезмская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68811.png"
+    }
+  },
+  {
+    "id": "68807",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68807-zbekistonda-a-oliga-tegishli-avtotransport-vositalari-soni-4-9-mlntadan-oshdi-3",
+    "title": "Количество автотранспортных средств, принадлежащих населению Узбекистана, превысило 4,9 млн",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Демография",
+      "main_value": "4,9",
+      "main_unit": "млн",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "4,9",
+          "unit": "млн",
+          "label": "тных средств, принадлежащих населению Узбекистана, превысило",
+          "trend": "neutral"
+        },
+        {
+          "value": "4903,1",
+          "unit": "тыс. автотранспортных сре",
+          "label": "стоянию на 1 апреля 2026 года в Узбекистане зарегистрировано",
+          "trend": "neutral"
+        },
+        {
+          "value": "92,8",
+          "unit": "%",
+          "label": "их часть составляют легковые автомобили (доля в общем объеме",
+          "trend": "neutral"
+        },
+        {
+          "value": "344,6",
+          "unit": "тыс ячи",
+          "label": "щим периодом 2025 года количество автомобилей увеличилось на",
+          "trend": "neutral"
+        },
+        {
+          "value": "4552,3",
+          "unit": "тыс. штук",
+          "label": "- легковых автомобилей -",
+          "trend": "neutral"
+        },
+        {
+          "value": "330,3",
+          "unit": "тыс. единиц",
+          "label": "- грузовые автомобили -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68807.png"
+    }
+  },
+  {
+    "id": "68801",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68801-farmatsevtika-ma-sulotlari-ishlab-chi-arish-azhmi-30-foizga-oshdi-3",
+    "title": "Объём производства фармацевтической продукции вырос на 30%",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "30",
+      "main_unit": "%",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "30",
+          "unit": "%",
+          "label": "Объём производства фармацевтической продукции вырос на",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,9",
+          "unit": "трлн сумов",
+          "label": "овной фармацевтической продукции и препаратов на сумму почти",
+          "trend": "neutral"
+        },
+        {
+          "value": "30",
+          "unit": "% по сравнению с анало",
+          "label": "Этот показатель вырос на",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,2",
+          "unit": "трлн сумов",
+          "label": "город Ташкент —",
+          "trend": "neutral"
+        },
+        {
+          "value": "261,5",
+          "unit": "млрд сумов",
+          "label": "Сырдарьинская область —",
+          "trend": "neutral"
+        },
+        {
+          "value": "123,5",
+          "unit": "млрд сумов",
+          "label": "Ташкентская область —",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68801.png"
+    }
   }
 ]
