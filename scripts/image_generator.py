@@ -1,8 +1,7 @@
 """
-Генерирует инфографику как PNG через matplotlib.
-Никакого DALL-E — только GPT для данных + Python для рендера.
+Генерирует чистую PNG-карточку для Telegram.
+Дизайн: цветная шапка, большая цифра, мини-таблица показателей.
 """
-import os
 import textwrap
 from pathlib import Path
 
@@ -11,23 +10,27 @@ IMG_DIR.mkdir(parents=True, exist_ok=True)
 
 CATEGORY_COLOR = {
     "Демография":      "#7b1fa2",
-    "Экономика":       "#0d652d",
-    "Промышленность":  "#b5451b",
-    "Цены":            "#e37400",
-    "Торговля":        "#0d652d",
-    "Здравоохранение": "#c62828",
-    "Образование":     "#0277bd",
+    "Экономика":       "#1b5e20",
+    "Промышленность":  "#bf360c",
+    "Цены":            "#e65100",
+    "Торговля":        "#1b5e20",
+    "Здравоохранение": "#b71c1c",
+    "Образование":     "#01579b",
     "Спорт":           "#2e7d32",
-    "Туризм":          "#00695c",
-    "Статистика":      "#37474f",
+    "Туризм":          "#004d40",
+    "Статистика":      "#263238",
+    "Занятость":       "#0d47a1",
 }
+
+W, H = 1200, 630   # соотношение 1.9:1 — идеально для Telegram превью
+
+
+def hex_to_rgb(h: str) -> tuple:
+    h = h.lstrip("#")
+    return tuple(int(h[i:i+2], 16) / 255 for i in (0, 2, 4))
 
 
 def generate(article_id: str, analysis: dict) -> str | None:
-    """
-    Строит PNG инфографику из analysis-данных.
-    Возвращает относительный путь img/ID.png или None.
-    """
     out_path = IMG_DIR / f"{article_id}.png"
     if out_path.exists():
         return f"img/{article_id}.png"
@@ -42,104 +45,127 @@ def generate(article_id: str, analysis: dict) -> str | None:
         print("[image] matplotlib не установлен")
         return None
 
-    color = CATEGORY_COLOR.get(analysis.get("category", ""), "#37474f")
-    headline = analysis.get("headline", "Статистика")
-    category = analysis.get("category", "Статистика")
-    main_value = analysis.get("main_value", "")
+    color_hex = CATEGORY_COLOR.get(analysis.get("category", ""), "#263238")
+    color_rgb = hex_to_rgb(color_hex)
+    color_light = tuple(min(1.0, c + 0.45) for c in color_rgb)  # осветлённый фон
+
+    headline  = analysis.get("headline", "Статистика Узбекистана")
+    category  = analysis.get("category", "Статистика")
+    main_val  = analysis.get("main_value", "")
     main_unit = analysis.get("main_unit", "")
-    period = analysis.get("period", "")
-    key_stats = analysis.get("key_stats", [])
+    period    = analysis.get("period", "")
+    key_stats = analysis.get("key_stats", [])[:4]
 
-    fig = plt.figure(figsize=(9, 5), facecolor="white")
-    fig.patch.set_facecolor("white")
+    # ── Создаём canvas ───────────────────────────────────────────────
+    dpi = 150
+    fig_w, fig_h = W / dpi, H / dpi
+    fig = plt.figure(figsize=(fig_w, fig_h), dpi=dpi, facecolor="white")
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, W); ax.set_ylim(0, H)
+    ax.axis("off")
+    ax.set_facecolor("white")
 
-    # ── Верхняя полоса (заголовок) ──────────────────────────────────
-    ax_head = fig.add_axes([0, 0.78, 1, 0.22])
-    ax_head.set_xlim(0, 1); ax_head.set_ylim(0, 1)
-    ax_head.axis("off")
-    ax_head.add_patch(plt.Rectangle((0, 0), 1, 1, color=color, zorder=0))
+    # ── Цветная шапка (верхние 38%) ──────────────────────────────────
+    header_h = int(H * 0.38)
+    ax.add_patch(plt.Rectangle((0, H - header_h), W, header_h,
+                                color=color_rgb, zorder=1))
 
-    # Категория
-    ax_head.text(0.03, 0.82, category.upper(),
-                 color="white", fontsize=9, fontweight="bold",
-                 alpha=0.75, va="top", transform=ax_head.transAxes)
+    # Тонкая полоска под шапкой (акцент)
+    ax.add_patch(plt.Rectangle((0, H - header_h - 4), W, 4,
+                                color=color_light, zorder=1))
+
+    # Бейдж категории
+    badge_x, badge_y = 48, H - 44
+    ax.text(badge_x, badge_y, f"  {category.upper()}  ",
+            color=color_rgb, fontsize=12, fontweight="bold",
+            va="top", ha="left", zorder=3,
+            bbox=dict(boxstyle="round,pad=0.35", facecolor="white",
+                      edgecolor="white", alpha=0.92))
+
     # Заголовок
-    wrapped = textwrap.fill(headline, width=62)
-    ax_head.text(0.03, 0.65, wrapped,
-                 color="white", fontsize=13, fontweight="bold",
-                 va="top", linespacing=1.3, transform=ax_head.transAxes)
+    wrapped = textwrap.fill(headline, width=52)
+    ax.text(48, H - 90, wrapped,
+            color="white", fontsize=22, fontweight="bold",
+            va="top", ha="left", linespacing=1.35, zorder=2)
+
     # Период
     if period:
-        ax_head.text(0.97, 0.15, period,
-                     color="white", fontsize=9, alpha=0.7,
-                     ha="right", va="bottom", transform=ax_head.transAxes)
+        ax.text(W - 48, H - header_h + 18, period,
+                color="white", fontsize=12, alpha=0.75,
+                va="bottom", ha="right", zorder=2)
 
-    # ── Главная цифра ────────────────────────────────────────────────
-    ax_main = fig.add_axes([0, 0.35, 0.38, 0.43])
-    ax_main.axis("off")
-    ax_main.set_facecolor("#f8f9fa")
-    ax_main.add_patch(plt.Rectangle((0, 0), 1, 1, color="#f0f2f5", zorder=0))
+    # ── Тело: главная цифра (левая колонка) ──────────────────────────
+    body_top = H - header_h - 16
+    body_h = body_top - 60   # отступ снизу
 
-    if main_value:
-        ax_main.text(0.5, 0.62, main_value,
-                     color=color, fontsize=32, fontweight="bold",
-                     ha="center", va="center", transform=ax_main.transAxes)
-        ax_main.text(0.5, 0.28, main_unit,
-                     color=color, fontsize=13, alpha=0.75,
-                     ha="center", va="center", transform=ax_main.transAxes)
+    if main_val:
+        # Светлый блок под цифрой
+        block_w = 360
+        ax.add_patch(plt.Rectangle((0, body_top - body_h), block_w, body_h,
+                                    color=color_light + (0.18,), zorder=1))
+
+        ax.text(block_w / 2, body_top - body_h / 2 + 14, main_val,
+                color=color_rgb, fontsize=54, fontweight="bold",
+                va="center", ha="center", zorder=2)
+        ax.text(block_w / 2, body_top - body_h / 2 - 42, main_unit,
+                color=color_rgb, fontsize=17, alpha=0.75,
+                va="center", ha="center", zorder=2)
+
+        stats_x_start = block_w + 20
     else:
-        ax_main.text(0.5, 0.5, "📊",
-                     fontsize=40, ha="center", va="center",
-                     transform=ax_main.transAxes)
+        stats_x_start = 48
 
-    # ── Ключевые показатели (мини-бары) ──────────────────────────────
-    ax_stats = fig.add_axes([0.40, 0.05, 0.58, 0.70])
-    ax_stats.axis("off")
-    ax_stats.set_facecolor("white")
+    # ── Ключевые показатели ──────────────────────────────────────────
+    if key_stats:
+        # Две колонки
+        col_w = (W - stats_x_start - 48) / 2
+        row_h = (body_h - 16) / 2
 
-    stats_to_show = key_stats[:5]
-    if stats_to_show:
-        n = len(stats_to_show)
-        row_h = 1.0 / n
-        for i, s in enumerate(stats_to_show):
-            y = 1 - (i + 0.5) * row_h
+        for i, s in enumerate(key_stats):
+            col = i % 2
+            row = i // 2
+            cx = stats_x_start + col * col_w + col * 12
+            cy = body_top - row * row_h - 16
+
             trend = s.get("trend", "neutral")
-            t_color = {"up": "#0d652d", "down": "#c62828", "neutral": "#546e7a"}.get(trend, "#546e7a")
-            t_icon = {"up": "▲", "down": "▼", "neutral": "→"}.get(trend, "→")
+            t_color = {"up": "#2e7d32", "down": "#c62828", "neutral": "#78909c"}.get(trend, "#78909c")
+            t_icon  = {"up": "↑", "down": "↓", "neutral": "→"}.get(trend, "→")
 
-            # Полоска фона
-            ax_stats.add_patch(plt.Rectangle(
-                (0, y - row_h * 0.42), 1, row_h * 0.84,
-                color="#f0f2f5", zorder=0, transform=ax_stats.transAxes
+            # Карточка
+            card_h = row_h - 12
+            ax.add_patch(FancyBboxPatch(
+                (cx, cy - card_h), col_w - 8, card_h,
+                boxstyle="round,pad=4", linewidth=0,
+                facecolor="#f5f5f5", zorder=1
             ))
-            # Акцентная полоска слева
-            ax_stats.add_patch(plt.Rectangle(
-                (0, y - row_h * 0.42), 0.012, row_h * 0.84,
-                color=color, zorder=1, transform=ax_stats.transAxes
+            # Цветная полоска сверху карточки
+            ax.add_patch(plt.Rectangle(
+                (cx + 4, cy - 6), col_w - 16, 5,
+                color=color_rgb, zorder=2
             ))
 
             val_str = f"{s.get('value','')} {s.get('unit','')}".strip()
-            label_str = s.get("label", "")
+            ax.text(cx + 16, cy - 24, val_str,
+                    color=color_rgb, fontsize=18, fontweight="bold",
+                    va="top", ha="left", zorder=3)
+            label = textwrap.fill(s.get("label", ""), width=22)
+            ax.text(cx + 16, cy - 52, label,
+                    color="#546e7a", fontsize=11,
+                    va="top", ha="left", linespacing=1.2, zorder=3)
+            # Стрелка тренда
+            ax.text(cx + col_w - 22, cy - 28, t_icon,
+                    color=t_color, fontsize=16, fontweight="bold",
+                    va="top", ha="right", zorder=3)
 
-            ax_stats.text(0.03, y + row_h * 0.12, val_str,
-                          fontsize=12, fontweight="bold", color=color,
-                          va="center", transform=ax_stats.transAxes)
-            ax_stats.text(0.03, y - row_h * 0.18, label_str,
-                          fontsize=8.5, color="#546e7a",
-                          va="center", transform=ax_stats.transAxes)
-            ax_stats.text(0.97, y, t_icon,
-                          fontsize=11, color=t_color, ha="right",
-                          va="center", transform=ax_stats.transAxes)
+    # ── Нижняя полоска ────────────────────────────────────────────────
+    ax.add_patch(plt.Rectangle((0, 0), W, 56,
+                                color="#eceff1", zorder=1))
+    ax.text(24, 28, "Источник: stat.uz  •  Национальный комитет по статистике Республики Узбекистан",
+            color="#90a4ae", fontsize=11, va="center", ha="left", zorder=2)
 
-    # ── Нижняя строка (источник) ─────────────────────────────────────
-    ax_foot = fig.add_axes([0, 0, 1, 0.07])
-    ax_foot.axis("off")
-    ax_foot.add_patch(plt.Rectangle((0, 0), 1, 1, color="#eceff1", zorder=0))
-    ax_foot.text(0.02, 0.5, "Источник: Национальный комитет Республики Узбекистан по статистике  •  stat.uz",
-                 fontsize=8, color="#90a4ae", va="center", transform=ax_foot.transAxes)
-
-    plt.savefig(str(out_path), dpi=150, bbox_inches="tight",
-                facecolor="white", edgecolor="none")
+    # ── Сохраняем ─────────────────────────────────────────────────────
+    fig.savefig(str(out_path), dpi=dpi, bbox_inches="tight",
+                facecolor="white", edgecolor="none", pad_inches=0)
     plt.close(fig)
-    print(f"[image] Инфографика: {out_path}")
+    print(f"[image] ✓ {out_path}")
     return f"img/{article_id}.png"
