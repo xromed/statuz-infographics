@@ -1965,5 +1965,22 @@
       "chart_type": "bar",
       "img_path": "img/68729.png"
     }
+  },
+  {
+    "id": "68865",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68865-zbekiston-a-olisining-rtacha-umr-k-rish-davomijligi-9-joshga-oshdi-3",
+    "title": "Средняя продолжительность жизни населения Узбекистана увеличилась на 9 лет",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Демография",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июня 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/68865.png"
+    }
   }
 ]
