@@ -1,1 +1,458 @@
-[]
+[
+  {
+    "id": "68890",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68890-temir-j-l-or-ali-asosan-ajsi-turdagi-yuklar-tashilmo-da-3",
+    "title": "Какие виды грузов в основном перевозятся по железной дороге?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Спорт",
+      "main_value": "28",
+      "main_unit": "млн тонн грузов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "28",
+          "unit": "млн тонн грузов",
+          "label": "елезнодорожным транспортом было перевезено в общей сложности",
+          "trend": "neutral"
+        },
+        {
+          "value": "4,3",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,9",
+          "unit": "млн тонн",
+          "label": "различных руд -",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,4",
+          "unit": "млн тонн",
+          "label": "нефтяных грузов -",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,3",
+          "unit": "млн тонн",
+          "label": "зерно и зерновые продукты мельничного помола -",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,7",
+          "unit": "млн тонн",
+          "label": "уголь -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68890.png"
+    }
+  },
+  {
+    "id": "68886",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68886-a-oli-zhon-boshiga-yaim-azhmi-11-7-mln-s-mga-etdi-3",
+    "title": "Объем ВВП на душу населения достиг 11,7 млн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Демография",
+      "main_value": "11,7",
+      "main_unit": "млн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "11,7",
+          "unit": "млн сумов",
+          "label": "Объем ВВП на душу населения достиг",
+          "trend": "neutral"
+        },
+        {
+          "value": "11,7",
+          "unit": "млн сумов",
+          "label": "ой внутренний продукт на душу населения Узбекистана составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "6,7",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "5,3",
+          "unit": "млн сумов",
+          "label": "2022 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "6,3",
+          "unit": "млн сумов",
+          "label": "2023 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "7,5",
+          "unit": "млн сумов",
+          "label": "2024 год -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68886.png"
+    }
+  },
+  {
+    "id": "68882",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68882-4-ojda-15-3-trln-s-mlik-kimjo-ma-sulotlari-ishlab-chi-arilgan-3",
+    "title": "За 4 месяца произведено химической продукции на 15,3 трлн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "15,3",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "15,3",
+          "unit": "трлн сумов",
+          "label": "За 4 месяца произведено химической продукции на",
+          "trend": "neutral"
+        },
+        {
+          "value": "15,3",
+          "unit": "трлн сумов",
+          "label": "редприятиями Узбекистана произведено химической продукции на",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,7",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "4,3",
+          "unit": "трлн сумов",
+          "label": "Навоийская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,8",
+          "unit": "трлн сумов",
+          "label": "Республика Каракалпакстан -",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,2",
+          "unit": "трлн сумов",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68882.png"
+    }
+  },
+  {
+    "id": "68878",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68878-khorizhij-korkhonalar-asosan-ajsi-ududlarda-faoliyat-yuritmo-da-3",
+    "title": "В каких регионах в основном работают иностранные предприятия?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июня 2026",
+      "key_stats": [],
+      "chart_type": "none",
+      "img_path": "img/68878.png"
+    }
+  },
+  {
+    "id": "68873",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68873-zbekistonga-eng-k-p-ajsi-turdagi-ma-sulotlar-import-ilinmo-da-3",
+    "title": "Какие виды продукции импортируются в Узбекистан больше всего?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "16,4",
+      "main_unit": "млрд долларов США",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "16,4",
+          "unit": "млрд долларов США",
+          "label": "в январе-апреле 2026 года объем импорта Узбекистана составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "5,5",
+          "unit": "млрд долларов США",
+          "label": "Машины и транспортное оборудование -",
+          "trend": "neutral"
+        },
+        {
+          "value": "29,1",
+          "unit": "%",
+          "label": "ашины и транспортное оборудование - 5,5 млрд долларов США (+",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,5",
+          "unit": "млрд долларов США",
+          "label": "Промышленные товары -",
+          "trend": "neutral"
+        },
+        {
+          "value": "17,1",
+          "unit": "%",
+          "label": "Промышленные товары - 2,5 млрд долларов США (+",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,0",
+          "unit": "млрд долларов США",
+          "label": "Химические средства и аналогичная продукция -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68873.png"
+    }
+  },
+  {
+    "id": "68861",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68861-4-ojda-3-trln-s-mlik-o-oz-ma-sulotlari-ishlab-chi-arilgan-3",
+    "title": "За 4 месяца произведено бумажной продукции на 3 трлн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "3",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "3",
+          "unit": "трлн сумов",
+          "label": "За 4 месяца произведено бумажной продукции на",
+          "trend": "neutral"
+        },
+        {
+          "value": "3",
+          "unit": "трлн сумов",
+          "label": "ыми предприятиями произведено бумаги и бумажной продукции на",
+          "trend": "neutral"
+        },
+        {
+          "value": "17,3",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,3",
+          "unit": "трлн сумов\nТашкентская об",
+          "label": "Город Ташкент -",
+          "trend": "neutral"
+        },
+        {
+          "value": "849,6",
+          "unit": "млрд сумов\nАндижанская об",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "241,4",
+          "unit": "млрд сумов\nСамаркандская ",
+          "label": "Андижанская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68861.png"
+    }
+  },
+  {
+    "id": "68857",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68857-akhborot-va-alo-a-so-asiga-investitsiyalar-3-ojda-3-1-trln-s-mga-etdi-3",
+    "title": "Инвестиции в сферу информации и связи за 3 месяца достигли 3,1 трлн сумов",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Экономика",
+      "main_value": "3,1",
+      "main_unit": "трлн сумов",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "3,1",
+          "unit": "трлн сумов",
+          "label": "Инвестиции в сферу информации и связи за 3 месяца достигли",
+          "trend": "neutral"
+        },
+        {
+          "value": "3,1",
+          "unit": "трлн сумов инвестиций в о",
+          "label": "и связи за счет всех источников финансирования было освоено",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,4",
+          "unit": "трлн сумов",
+          "label": "Из них иностранные инвестиции и кредиты составили",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,6",
+          "unit": "трлн сумов",
+          "label": "2022 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,1",
+          "unit": "трлн сумов",
+          "label": "2023 год -",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,3",
+          "unit": "трлн сумов",
+          "label": "2024 год -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68857.png"
+    }
+  },
+  {
+    "id": "68853",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68853-fu-arolik-obektlari-urilishi-15-foizga-oshgan-3",
+    "title": "Строительство объектов гражданского назначения увеличилось на 15 %",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Занятость",
+      "main_value": "15",
+      "main_unit": "%",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "15",
+          "unit": "%",
+          "label": "троительство объектов гражданского назначения увеличилось на",
+          "trend": "neutral"
+        },
+        {
+          "value": "16,3",
+          "unit": "трлн сумов",
+          "label": "тов гражданского назначения выполнены строительные работы на",
+          "trend": "neutral"
+        },
+        {
+          "value": "15",
+          "unit": "% по сравнению с соотв",
+          "label": "Этот показатель увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "724,7",
+          "unit": "млрд сумов\nАндижанская об",
+          "label": "-",
+          "trend": "neutral"
+        },
+        {
+          "value": "654",
+          "unit": "млрд сумов\nБухарская обла",
+          "label": "Андижанская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "1,6",
+          "unit": "трлн сумов\nДжизакская обл",
+          "label": "Бухарская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68853.png"
+    }
+  },
+  {
+    "id": "68849",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68849-4-ojda-zbekistonga-7-3-ming-tonna-kivi-import-ilindi-3",
+    "title": "За 4 месяца в Узбекистан было импортировано 7,3 тысячи тонн киви",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Торговля",
+      "main_value": "7,3",
+      "main_unit": "тыс ячи тонн киви",
+      "period": "июня 2026",
+      "key_stats": [
+        {
+          "value": "7,3",
+          "unit": "тыс ячи тонн киви",
+          "label": "За 4 месяца в Узбекистан было импортировано",
+          "trend": "neutral"
+        },
+        {
+          "value": "7,3",
+          "unit": "тыс. тонн киви на сумму",
+          "label": "6 года в Узбекистан из 8 зарубежных стран было импортировано",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,8",
+          "unit": "млн долларов США",
+          "label": "тонн киви на сумму",
+          "trend": "neutral"
+        },
+        {
+          "value": "2,7",
+          "unit": "тыс. тонн или на",
+          "label": "Объем импорта увеличился на",
+          "trend": "neutral"
+        },
+        {
+          "value": "59",
+          "unit": "% по сравнению с соотв",
+          "label": "тонн или на",
+          "trend": "neutral"
+        },
+        {
+          "value": "6",
+          "unit": "тыс яч тонн",
+          "label": "Иран -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68849.png"
+    }
+  },
+  {
+    "id": "68844",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68844-zbekistonga-203-ta-davlatdan-turistlar-tashrif-buyurdi-3",
+    "title": "Узбекистан посетили туристы из 203 стран",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Демография",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июня 2026",
+      "key_stats": [],
+      "chart_type": "none",
+      "img_path": "img/68844.png"
+    }
+  }
+]
