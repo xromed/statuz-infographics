@@ -1,0 +1,111 @@
+"""
+Оркестратор. Запускается GitHub Actions каждые 3 часа.
+Весь стейт хранится в data/articles.json (коммитится в репо).
+"""
+import json, time, os
+from pathlib import Path
+
+import scraper, article_parser, ai_analyzer, image_generator, site_builder, telegram_pub
+
+DB_PATH = Path("data/articles.json")
+PAGES_URL = os.environ.get("GITHUB_PAGES_URL", "").rstrip("/")
+
+
+def load_db() -> list:
+    if DB_PATH.exists():
+        return json.loads(DB_PATH.read_text())
+    return []
+
+
+def save_db(articles: list):
+    DB_PATH.write_text(json.dumps(articles, ensure_ascii=False, indent=2))
+
+
+def known_ids(articles: list) -> set:
+    return {a["id"] for a in articles}
+
+
+def run():
+    print("=== StatUZ Updater ===")
+    db = load_db()
+    ids = known_ids(db)
+
+    # Находим новые статьи
+    fresh = scraper.fetch_news_list(pages=2)
+    new_articles = [a for a in fresh if a["id"] not in ids]
+    print(f"Новых статей: {len(new_articles)}")
+
+    updated = False
+
+    for article in new_articles[:10]:  # max 10 за раз (экономим DALL-E)
+        print(f"\n→ {article['title'][:60]}")
+        try:
+            # 1. Парсим страницу
+            parsed = article_parser.parse(article["url"])
+            if not parsed:
+                continue
+
+            # 2. Анализируем через GPT
+            all_text = parsed.get("body_text", "")
+            all_tables = parsed.get("tables", [])
+
+            # PDF — пробуем если есть
+            for pdf_url in parsed.get("pdf_urls", [])[:1]:
+                try:
+                    import pdfplumber, requests, tempfile
+                    r = requests.get(pdf_url, timeout=20)
+                    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
+                        f.write(r.content)
+                        tmp = f.name
+                    with pdfplumber.open(tmp) as pdf:
+                        for page in pdf.pages[:5]:
+                            t = page.extract_text()
+                            if t:
+                                all_text += "\n" + t
+                            for tbl in page.extract_tables():
+                                if tbl:
+                                    all_tables.append(tbl)
+                    os.unlink(tmp)
+                except Exception as e:
+                    print(f"  PDF ошибка: {e}")
+
+            analysis = ai_analyzer.analyze(
+                parsed.get("title") or article["title"],
+                all_text,
+                all_tables,
+            )
+
+            # 3. Генерируем инфографику через matplotlib
+            img_path = image_generator.generate(article["id"], analysis)
+            analysis["img_path"] = img_path or ""
+
+            # 4. Строим HTML страницу
+            article["analysis"] = analysis
+            site_builder.build_article_page(article, analysis)
+
+            # 5. Добавляем в БД
+            db.append(article)
+            ids.add(article["id"])
+            updated = True
+
+            # 6. Публикуем в Telegram
+            page_url = f"{PAGES_URL}/news/{article['id']}.html" if PAGES_URL else ""
+            img_local = f"docs/news/{img_path}" if img_path else ""
+            telegram_pub.post(article, analysis, page_url, img_local)
+
+            time.sleep(3)  # небольшая пауза
+
+        except Exception as e:
+            print(f"  Ошибка: {e}")
+            import traceback; traceback.print_exc()
+
+    if updated:
+        save_db(db)
+        site_builder.build_index(db)
+        print("\n✅ Обновление завершено")
+    else:
+        print("\nНовых статей нет")
+
+
+if __name__ == "__main__":
+    run()
