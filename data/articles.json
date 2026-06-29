@@ -2643,5 +2643,108 @@
       "chart_type": "bar",
       "img_path": "img/68912.png"
     }
+  },
+  {
+    "id": "68945",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/68945-stroitel-nye-raboty-v-respublike-uzbekistan-za-yanvar-may-2026-goda-1",
+    "title": "Строительные работы в Республике Узбекистан за январь-май 2026 года",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "104943.7",
+      "main_unit": "млрд сумов в текущих ценах",
+      "period": "май 2026",
+      "key_stats": [
+        {
+          "value": "104943.7",
+          "unit": "млрд сумов в текущих ценах",
+          "label": "Узбекистан составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "114.5",
+          "unit": "%",
+          "label": "2025 года, темпы роста составили",
+          "trend": "up"
+        },
+        {
+          "value": "104.4",
+          "unit": "%",
+          "label": "Объем, в млрд сум Темпы роста",
+          "trend": "up"
+        },
+        {
+          "value": "107.2",
+          "unit": "%",
+          "label": "104,4%",
+          "trend": "up"
+        },
+        {
+          "value": "110.0",
+          "unit": "%",
+          "label": "104,4% 107,2%",
+          "trend": "up"
+        },
+        {
+          "value": "103.4",
+          "unit": "%",
+          "label": "104,4% 107,2% 110,0% 114,5%",
+          "trend": "up"
+        },
+        {
+          "value": "70.4",
+          "unit": "%",
+          "label": "составила",
+          "trend": "neutral"
+        },
+        {
+          "value": "116.9",
+          "unit": "% по сравнению с январем",
+          "label": "составила 70,4%, а темпы роста —",
+          "trend": "up"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "114.5",
+          "unit": "%",
+          "label": "2025 года, темпы роста составили",
+          "trend": "up"
+        },
+        {
+          "value": "104.4",
+          "unit": "%",
+          "label": "Объем, в млрд сум Темпы роста",
+          "trend": "up"
+        },
+        {
+          "value": "107.2",
+          "unit": "%",
+          "label": "104,4%",
+          "trend": "up"
+        },
+        {
+          "value": "110.0",
+          "unit": "%",
+          "label": "104,4% 107,2%",
+          "trend": "up"
+        },
+        {
+          "value": "103.4",
+          "unit": "%",
+          "label": "104,4% 107,2% 110,0% 114,5%",
+          "trend": "up"
+        },
+        {
+          "value": "70.4",
+          "unit": "%",
+          "label": "составила",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/68945.png"
+    }
   }
 ]
