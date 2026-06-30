@@ -256,6 +256,57 @@ body {
   transition: width .8s cubic-bezier(.4,0,.2,1);
 }
 
+.insights-block {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 20px 22px 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  border-left: 4px solid var(--c);
+}
+.insights-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.insights-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+.insights-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #90a4ae;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+.insights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.insight-item {
+  font-size: 13px;
+  color: #37474f;
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+.insight-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--c);
+  font-size: 11px;
+  top: 1px;
+}
+.insight-item b {
+  color: var(--c);
+  font-weight: 700;
+}
+
 .foot {
   background: #fff;
   border-radius: var(--radius);
@@ -362,37 +413,35 @@ body {
       </div></div>
   
 <div class="chart-wrap">
-  <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:300px">
+  <div class="section-label">Динамика по годам</div>
+  <div style="position:relative;height:220px">
     <canvas id="mainChart"></canvas>
   </div>
 </div>
 <script>
 (function(){
   const ctx = document.getElementById('mainChart').getContext('2d');
-  const labels = ["Объем ВВП на душу населения достиг", "2022 год -", "2023 год -", "2024 год -", "2025 год -"];
-  const values = [11.7, 5.3, 6.3, 7.5, 9.9];
   const c = "#7b1fa2";
-
-  const grad = ctx.createLinearGradient(0,0,0,300);
-  grad.addColorStop(0, c + 'ff');
-  grad.addColorStop(1, c + '55');
-
+  const grad = ctx.createLinearGradient(0,0,0,220);
+  grad.addColorStop(0, c + '44');
+  grad.addColorStop(1, c + '00');
   new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels,
+      labels: ["2022", "2023", "2024", "2025", "Объем ВВП на"],
       datasets: [{
-        data: values,
-        backgroundColor: grad,
+        data: [5.3, 6.3, 7.5, 9.9, 11.7],
         borderColor: c,
-        borderWidth: 0,
-        borderRadius: 6,
-        borderSkipped: false,
+        borderWidth: 2.5,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: c,
+        pointRadius: 5,
+        pointHoverRadius: 7,
       }]
     },
     options: {
-      indexAxis: "y",
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
@@ -401,65 +450,28 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млн'
-          }
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млн' }
         }
       },
       scales: {
-        x: {
-          grid: { color: 'rgba(0,0,0,.04)', drawBorder: false },
-          ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' }
-        },
-        y: {
-          grid: { display: false, color: 'rgba(0,0,0,.04)' },
-          ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' }
-        }
+        x: { grid: { display: false }, ticks: { font: { size: 12, family: 'Inter', weight: '600' }, color: '#546e7a' } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#90a4ae' } }
       },
-      animation: { duration: 900, easing: 'easeOutQuart' }
+      animation: { duration: 1000, easing: 'easeOutQuart' }
     }
   });
 })();
 </script>
   
-<div class="prog-section">
-  <div class="section-label">Динамика показателей</div>
   
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">Показатель увеличился на</span>
-          <span class="prow-val" style="color:#7b1fa2">6.7 % <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="68"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">2022 год -</span>
-          <span class="prow-val" style="color:#7b1fa2">5.3 млн сумов <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="54"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">2023 год -</span>
-          <span class="prow-val" style="color:#7b1fa2">6.3 млн сумов <span class="trend neutral">→</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="64"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">2024 год -</span>
-          <span class="prow-val" style="color:#7b1fa2">7.5 млн сумов <span class="trend neutral">→</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="76"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">2025 год -</span>
-          <span class="prow-val" style="color:#7b1fa2">9.9 млн сумов <span class="trend neutral">→</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="100"></div></div>
-      </div>
+<div class="insights-block" style="--c:#7b1fa2;--bg:#f3e5f5">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <ul class="insights-list">
+    <li class="insight-item">За период 2022–2025 показатель вырос на <b>+120.8%</b> — среднегодовой прирост составил <b>+30.2%</b> в год.</li><li class="insight-item">Наибольший рост зафиксирован в <b>2025 году</b>: с 7.5 до 9.9 млн сумов (<b>рост 32.0%</b>).</li><li class="insight-item">В <b>2025 году</b> по сравнению с 2024: показатель вырос на <b>18.2%</b> (с 9.9 до 11.7 млн сумов).</li>
+  </ul>
 </div>
 
   <div class="foot">

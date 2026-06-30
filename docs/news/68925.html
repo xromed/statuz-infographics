@@ -256,6 +256,57 @@ body {
   transition: width .8s cubic-bezier(.4,0,.2,1);
 }
 
+.insights-block {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 20px 22px 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  border-left: 4px solid var(--c);
+}
+.insights-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.insights-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+.insights-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #90a4ae;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+.insights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.insight-item {
+  font-size: 13px;
+  color: #37474f;
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}
+.insight-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--c);
+  font-size: 11px;
+  top: 1px;
+}
+.insight-item b {
+  color: var(--c);
+  font-weight: 700;
+}
+
 .foot {
   background: #fff;
   border-radius: var(--radius);
@@ -363,31 +414,27 @@ body {
   
 <div class="chart-wrap">
   <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:300px">
+  <div style="position:relative;height:320px">
     <canvas id="mainChart"></canvas>
   </div>
 </div>
 <script>
 (function(){
   const ctx = document.getElementById('mainChart').getContext('2d');
-  const labels = ["Республика Каракалпакстан -", "Андижанская область -", "Джизакская область -", "Навоийская область -", "Наманганская область -", "Самаркандская область -"];
-  const values = [1.7, 675.1, 287.1, 95.3, 548.4, 477.9];
   const c = "#37474f";
-
   const grad = ctx.createLinearGradient(0,0,0,300);
   grad.addColorStop(0, c + 'ff');
-  grad.addColorStop(1, c + '55');
-
+  grad.addColorStop(1, c + '88');
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels,
+      labels: ["Республика Каракалпакстан -", "Андижанская область -", "Джизакская область -", "Навоийская область -", "Наманганская область -", "Самаркандская область -", "Ташкентская область -", "Ферганская область -"],
       datasets: [{
-        data: values,
+        data: [1.7, 675.1, 287.1, 95.3, 548.4, 477.9, 1500.0, 222.2],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
-        borderRadius: 6,
+        borderRadius: 5,
         borderSkipped: false,
       }]
     },
@@ -401,20 +448,12 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млрд'
-          }
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млрд' }
         }
       },
       scales: {
-        x: {
-          grid: { color: 'rgba(0,0,0,.04)', drawBorder: false },
-          ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' }
-        },
-        y: {
-          grid: { display: false, color: 'rgba(0,0,0,.04)' },
-          ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' }
-        }
+        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
+        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
       },
       animation: { duration: 900, easing: 'easeOutQuart' }
     }
@@ -423,7 +462,7 @@ body {
 </script>
   
 <div class="prog-section">
-  <div class="section-label">Динамика показателей</div>
+  <div class="section-label">Сравнение показателей</div>
   
       <div class="prow">
         <div class="prow-top">
@@ -460,6 +499,16 @@ body {
         </div>
         <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="2"></div></div>
       </div>
+</div>
+  
+<div class="insights-block" style="--c:#37474f;--bg:#eceff1">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <ul class="insights-list">
+    <li class="insight-item">Лидер по показателю — <b>Ташкентская область -</b>: 1 500 млрд сумов, что составляет <b>39.4%</b> от суммарного значения.</li><li class="insight-item">Наименьшее значение у <b>Республика Каракалпакстан -</b>: 1.7 млрд сумов — разрыв с лидером в <b>882.4×</b>.</li><li class="insight-item">Топ-3 региона/показателя формируют <b>71.5%</b> от общего объёма (3 807.7 млрд сумов суммарно).</li>
+  </ul>
 </div>
 
   <div class="foot">

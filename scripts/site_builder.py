@@ -90,6 +90,12 @@ def _kpi_cards(key_stats: list, color: str, light: str, headline: str = "") -> s
     return f'<div class="kpi-grid">{cards}</div>'
 
 
+def _has_years(chart_data: list) -> bool:
+    """Проверяет, содержат ли метки годы (временной ряд)."""
+    import re
+    return sum(1 for s in chart_data if re.search(r'\b(19|20)\d{2}\b', s.get("label", ""))) >= 2
+
+
 def _chart_block(analysis: dict, color: str) -> str:
     chart_data = analysis.get("chart_data") or []
     if len(chart_data) < 2:
@@ -100,15 +106,78 @@ def _chart_block(analysis: dict, color: str) -> str:
     except (ValueError, TypeError):
         return ""
 
-    labels = json.dumps([s.get("label", "")[:40] for s in chart_data], ensure_ascii=False)
-    vals_js = json.dumps(values)
     unit = chart_data[0].get("unit", "").split()[0] if chart_data else ""
     n = len(chart_data)
+    is_timeseries = _has_years(chart_data)
 
+    # Для временных рядов — line chart с градиентной заливкой
+    if is_timeseries:
+        import re
+        raw_labels = []
+        for s in chart_data:
+            m = re.search(r'\b(19|20)\d{2}\b', s.get("label", ""))
+            raw_labels.append(m.group() if m else s.get("label", "")[:12])
+        labels = json.dumps(raw_labels, ensure_ascii=False)
+        vals_js = json.dumps(values)
+        return f"""
+<div class="chart-wrap">
+  <div class="section-label">Динамика по годам</div>
+  <div style="position:relative;height:220px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){{
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "{color}";
+  const grad = ctx.createLinearGradient(0,0,0,220);
+  grad.addColorStop(0, c + '44');
+  grad.addColorStop(1, c + '00');
+  new Chart(ctx, {{
+    type: 'line',
+    data: {{
+      labels: {labels},
+      datasets: [{{
+        data: {vals_js},
+        borderColor: c,
+        borderWidth: 2.5,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: c,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }}]
+    }},
+    options: {{
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {{
+        legend: {{ display: false }},
+        tooltip: {{
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: {{ label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' {unit}' }}
+        }}
+      }},
+      scales: {{
+        x: {{ grid: {{ display: false }}, ticks: {{ font: {{ size: 12, family: 'Inter', weight: '600' }}, color: '#546e7a' }} }},
+        y: {{ grid: {{ color: 'rgba(0,0,0,.05)' }}, ticks: {{ font: {{ size: 11, family: 'Inter' }}, color: '#90a4ae' }} }}
+      }},
+      animation: {{ duration: 1000, easing: 'easeOutQuart' }}
+    }}
+  }});
+}})();
+</script>"""
+
+    # Для сравнительных данных — горизонтальный бар
     is_horiz = n >= 4
     axis_param = '"y"' if is_horiz else '"x"'
-    max_h = max(300, n * 44) if is_horiz else 220
+    max_h = max(280, n * 40) if is_horiz else 220
     grad_coords = "0,0,0,300" if is_horiz else "0,0,300,0"
+    labels = json.dumps([s.get("label", "")[:35] for s in chart_data], ensure_ascii=False)
+    vals_js = json.dumps(values)
 
     return f"""
 <div class="chart-wrap">
@@ -120,24 +189,20 @@ def _chart_block(analysis: dict, color: str) -> str:
 <script>
 (function(){{
   const ctx = document.getElementById('mainChart').getContext('2d');
-  const labels = {labels};
-  const values = {vals_js};
   const c = "{color}";
-
   const grad = ctx.createLinearGradient({grad_coords});
   grad.addColorStop(0, c + 'ff');
-  grad.addColorStop(1, c + '55');
-
+  grad.addColorStop(1, c + '88');
   new Chart(ctx, {{
     type: 'bar',
     data: {{
-      labels,
+      labels: {labels},
       datasets: [{{
-        data: values,
+        data: {vals_js},
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
-        borderRadius: 6,
+        borderRadius: 5,
         borderSkipped: false,
       }}]
     }},
@@ -151,20 +216,12 @@ def _chart_block(analysis: dict, color: str) -> str:
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: {{
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' {unit}'
-          }}
+          callbacks: {{ label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' {unit}' }}
         }}
       }},
       scales: {{
-        x: {{
-          grid: {{ color: 'rgba(0,0,0,.04)', drawBorder: false }},
-          ticks: {{ font: {{ size: 11, family: 'Inter' }}, color: '#78909c' }}
-        }},
-        y: {{
-          grid: {{ display: {'false' if is_horiz else 'true'}, color: 'rgba(0,0,0,.04)' }},
-          ticks: {{ font: {{ size: 11, family: 'Inter' }}, color: '#546e7a' }}
-        }}
+        x: {{ grid: {{ color: 'rgba(0,0,0,.04)' }}, ticks: {{ font: {{ size: 11, family: 'Inter' }}, color: '#78909c' }} }},
+        y: {{ grid: {{ display: {'false' if is_horiz else 'true'}, color: 'rgba(0,0,0,.04)' }}, ticks: {{ font: {{ size: 11, family: 'Inter' }}, color: '#546e7a' }} }}
       }},
       animation: {{ duration: 900, easing: 'easeOutQuart' }}
     }}
@@ -236,6 +293,11 @@ def _donut_chart(chart_data: list, color: str) -> str:
 
 
 def _progress_section(analysis: dict, color: str) -> str:
+    chart_data = analysis.get("chart_data") or []
+    # Если данные временного ряда — прогресс-бары не нужны, график уже показывает динамику
+    if _has_years(chart_data):
+        return ""
+
     stats = analysis.get("key_stats", [])[1:]
     numeric = []
     for s in stats:
@@ -267,8 +329,128 @@ def _progress_section(analysis: dict, color: str) -> str:
 
     return f"""
 <div class="prog-section">
-  <div class="section-label">Динамика показателей</div>
+  <div class="section-label">Сравнение показателей</div>
   {rows}
+</div>"""
+
+
+def _insights_block(analysis: dict, color: str, light: str) -> str:
+    """Аналитический блок: выводы на основе данных статьи."""
+    import re
+    chart_data = analysis.get("chart_data") or []
+    key_stats = analysis.get("key_stats") or []
+
+    if not chart_data and not key_stats:
+        return ""
+
+    insights = []
+    is_timeseries = _has_years(chart_data)
+
+    if is_timeseries and len(chart_data) >= 2:
+        # Временной ряд: считаем рост, CAGR, максимальный скачок
+        try:
+            vals = [float(s["value"]) for s in chart_data]
+            import re as _re
+            years = [int(_re.search(r'\b(19|20)\d{2}\b', s["label"]).group())
+                     for s in chart_data if _re.search(r'\b(19|20)\d{2}\b', s["label"])]
+            unit = chart_data[0].get("unit", "")
+
+            first_val, last_val = vals[0], vals[-1]
+            if first_val > 0:
+                total_growth_pct = round((last_val - first_val) / first_val * 100, 1)
+                if years and len(years) >= 2:
+                    n_years = years[-1] - years[0]
+                    if n_years > 0:
+                        cagr = round(((last_val / first_val) ** (1 / n_years) - 1) * 100, 1)
+                        insights.append(
+                            f"За период {years[0]}–{years[-1]} показатель вырос "
+                            f"на <b>{total_growth_pct:+.1f}%</b> — "
+                            f"среднегодовой прирост составил <b>{cagr:+.1f}%</b> в год."
+                        )
+
+            # Максимальный однолетний скачок
+            max_jump_val = 0
+            max_jump_year = None
+            for i in range(1, len(vals)):
+                if vals[i - 1] > 0:
+                    jump = abs((vals[i] - vals[i - 1]) / vals[i - 1] * 100)
+                    if jump > max_jump_val:
+                        max_jump_val = jump
+                        max_jump_year = years[i] if i < len(years) else None
+                        max_jump_dir = "рост" if vals[i] > vals[i - 1] else "падение"
+                        max_jump_from = vals[i - 1]
+                        max_jump_to = vals[i]
+
+            if max_jump_year and max_jump_val > 5:
+                insights.append(
+                    f"Наибольший {max_jump_dir} зафиксирован в <b>{max_jump_year} году</b>: "
+                    f"с {_fmt_value(str(max_jump_from))} до {_fmt_value(str(max_jump_to))} {unit} "
+                    f"(<b>{max_jump_dir} {max_jump_val:.1f}%</b>)."
+                )
+
+            # Последний год — рост или падение?
+            if len(vals) >= 2:
+                delta = vals[-1] - vals[-2]
+                delta_pct = round(delta / vals[-2] * 100, 1) if vals[-2] else 0
+                direction = "вырос" if delta > 0 else "снизился"
+                yr_last = years[-1] if years else ""
+                yr_prev = years[-2] if len(years) >= 2 else ""
+                insights.append(
+                    f"В <b>{yr_last} году</b> по сравнению с {yr_prev}: "
+                    f"показатель {direction} на <b>{abs(delta_pct):.1f}%</b> "
+                    f"(с {_fmt_value(str(vals[-2]))} до {_fmt_value(str(vals[-1]))} {unit})."
+                )
+        except Exception:
+            pass
+
+    elif chart_data and not is_timeseries and len(chart_data) >= 2:
+        # Региональные / структурные данные
+        try:
+            vals = [float(s["value"]) for s in chart_data]
+            unit = chart_data[0].get("unit", "")
+            total = sum(vals)
+            max_i = vals.index(max(vals))
+            min_i = vals.index(min(vals))
+            leader = chart_data[max_i].get("label", "Лидер")[:45]
+            laggard = chart_data[min_i].get("label", "Аутсайдер")[:45]
+            leader_share = round(vals[max_i] / total * 100, 1) if total else 0
+
+            insights.append(
+                f"Лидер по показателю — <b>{leader}</b>: "
+                f"{_fmt_value(str(vals[max_i]))} {unit}, "
+                f"что составляет <b>{leader_share}%</b> от суммарного значения."
+            )
+            insights.append(
+                f"Наименьшее значение у <b>{laggard}</b>: "
+                f"{_fmt_value(str(vals[min_i]))} {unit} — "
+                f"разрыв с лидером в <b>{round(vals[max_i]/vals[min_i], 1)}×</b>."
+                if vals[min_i] > 0 else
+                f"Наименьшее значение у <b>{laggard}</b>: {_fmt_value(str(vals[min_i]))} {unit}."
+            )
+            if len(vals) >= 3:
+                top3_sum = sum(sorted(vals, reverse=True)[:3])
+                top3_share = round(top3_sum / total * 100, 1) if total else 0
+                insights.append(
+                    f"Топ-3 региона/показателя формируют <b>{top3_share}%</b> "
+                    f"от общего объёма ({_fmt_value(str(round(total, 1)))} {unit} суммарно)."
+                )
+        except Exception:
+            pass
+
+    if not insights:
+        return ""
+
+    items_html = "".join(f'<li class="insight-item">{ins}</li>' for ins in insights)
+
+    return f"""
+<div class="insights-block" style="--c:{color};--bg:{light}">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <ul class="insights-list">
+    {items_html}
+  </ul>
 </div>"""
 
 
@@ -292,6 +474,7 @@ def build_article_page(article: dict, analysis: dict) -> str:
                   else _chart_block(analysis, color))
 
     prog_html = _progress_section(analysis, color)
+    insights_html = _insights_block(analysis, color, light)
 
     period = analysis.get("period", "")
     url = article.get("url", "")
@@ -555,6 +738,57 @@ body {{
   transition: width .8s cubic-bezier(.4,0,.2,1);
 }}
 
+.insights-block {{
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 20px 22px 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  border-left: 4px solid var(--c);
+}}
+.insights-header {{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}}
+.insights-icon {{
+  font-size: 20px;
+  line-height: 1;
+}}
+.insights-title {{
+  font-size: 11px;
+  font-weight: 700;
+  color: #90a4ae;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}}
+.insights-list {{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}}
+.insight-item {{
+  font-size: 13px;
+  color: #37474f;
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+}}
+.insight-item::before {{
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--c);
+  font-size: 11px;
+  top: 1px;
+}}
+.insight-item b {{
+  color: var(--c);
+  font-weight: 700;
+}}
+
 .foot {{
   background: #fff;
   border-radius: var(--radius);
@@ -613,6 +847,7 @@ body {{
   {kpi_html}
   {chart_html}
   {prog_html}
+  {insights_html}
 
   <div class="foot">
     <a href="{url}" target="_blank" rel="noopener">

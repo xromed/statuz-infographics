@@ -190,12 +190,17 @@ def _make_headline(title: str) -> str:
     return " ".join(result) + "…"
 
 
+def _year_from_label(s: dict) -> int:
+    """Извлекает год из метки показателя (для сортировки временных рядов)."""
+    m = re.search(r'\b(19|20)\d{2}\b', s.get("label", ""))
+    return int(m.group()) if m else 9999
+
+
 def _build_chart_data(key_stats: list) -> list:
     """Выбирает показатели с одинаковыми единицами для диаграммы."""
     if not key_stats:
         return []
 
-    # Группируем по единицам измерения
     from collections import defaultdict
     groups = defaultdict(list)
     for s in key_stats:
@@ -206,20 +211,25 @@ def _build_chart_data(key_stats: list) -> list:
         except ValueError:
             pass
 
-    # Берём самую большую группу (≥2 показателей)
     best = max(groups.values(), key=len, default=[])
-    if len(best) >= 2:
-        return best[:6]
+    result = best[:8] if len(best) >= 2 else []
 
-    # Fallback: все числовые
-    numeric = []
-    for s in key_stats:
-        try:
-            float(s["value"])
-            numeric.append(s)
-        except ValueError:
-            pass
-    return numeric[:6]
+    if not result:
+        result = [s for s in key_stats if _safe_float(s["value"]) is not None][:8]
+
+    # Если метки содержат годы — сортируем хронологически
+    years = [_year_from_label(s) for s in result]
+    if sum(1 for y in years if y != 9999) >= 2:
+        result = sorted(result, key=_year_from_label)
+
+    return result
+
+
+def _safe_float(val):
+    try:
+        return float(val)
+    except (ValueError, TypeError):
+        return None
 
 
 def analyze(title: str, body: str, tables: list) -> dict:
