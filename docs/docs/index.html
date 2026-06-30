@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Статистика Узбекистана</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a2e}
+
+.topbar{
+  background:linear-gradient(135deg,#1a3a6e 0%,#1565c0 100%);
+  padding:20px 24px 18px;
+  position:sticky;top:0;z-index:10;
+  box-shadow:0 2px 16px rgba(0,0,0,.2);
+}
+.topbar-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.site-title{color:#fff;font-size:20px;font-weight:800;letter-spacing:-.3px}
+.site-sub{color:rgba(255,255,255,.55);font-size:11px;margin-top:2px;font-weight:500}
+.count-pill{
+  background:rgba(255,255,255,.15);color:#fff;
+  font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+  padding:20px 20px 40px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.card-link{text-decoration:none;color:inherit;display:block}
+.card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 1px 8px rgba(0,0,0,.07);
+  transition:transform .18s ease,box-shadow .18s ease;
+  height:100%;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.13)}
+.card-stripe{height:4px}
+.card-body{padding:14px 16px 16px}
+.card-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:700;padding:3px 10px;
+  border-radius:20px;margin-bottom:8px;letter-spacing:.3px;
+}
+.card-title{font-size:12px;font-weight:600;line-height:1.4;color:#1a1a2e;margin-bottom:8px;min-height:32px}
+.card-num{font-size:28px;font-weight:900;line-height:1;margin-bottom:2px;letter-spacing:-.5px}
+.card-unit{font-size:12px;font-weight:600;opacity:.65}
+.card-date{font-size:10px;color:#90a4ae;margin-top:8px;font-weight:500}
+
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr 1fr;gap:10px;padding:12px 12px 40px}
+  .card-num{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <div class="site-title">📊 Статистика Узбекистана</div>
+      <div class="site-sub">Госкомстат УЗ · Обновлено 30.06.2026 10:27</div>
+    </div>
+    <div class="count-pill">3 материалов</div>
+  </div>
+</div>
+
+<div class="grid">
+    <a href="news/68925.html" class="card-link">
+      <div class="card">
+        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-body">
+          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-title">За 4 месяца произведено электрооборудования на 9,3 трлн сумов</div>
+          <div class='card-num' style='color:#37474f'>9.3<span class='card-unit'> трлн сумов</span></div>
+          <div class="card-date">29 июня 2026</div>
+        </div>
+      </div>
+    </a>
+    <a href="news/68886.html" class="card-link">
+      <div class="card">
+        <div class="card-stripe" style="background:#7b1fa2"></div>
+        <div class="card-body">
+          <div class="card-badge" style="background:#f3e5f5;color:#7b1fa2">👥 Демография</div>
+          <div class="card-title">Объем ВВП на душу населения достиг 11,7 млн сумов</div>
+          <div class='card-num' style='color:#7b1fa2'>11.7<span class='card-unit'> млн сумов</span></div>
+          <div class="card-date">25 июня 2026</div>
+        </div>
+      </div>
+    </a>
+    <a href="news/68865.html" class="card-link">
+      <div class="card">
+        <div class="card-stripe" style="background:#7b1fa2"></div>
+        <div class="card-body">
+          <div class="card-badge" style="background:#f3e5f5;color:#7b1fa2">👥 Демография</div>
+          <div class="card-title">Средняя продолжительность жизни населения Узбекистана увеличилась на…</div>
+          <div class='card-num' style='color:#7b1fa2'>75.4<span class='card-unit'> года</span></div>
+          <div class="card-date">24 июня 2026</div>
+        </div>
+      </div>
+    </a></div>
+
+</body>
+</html>

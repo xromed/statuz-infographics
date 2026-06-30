@@ -51,7 +51,7 @@ def _fmt_value(val: str) -> str:
         return val
 
 
-def _kpi_cards(key_stats: list, color: str, light: str) -> str:
+def _kpi_cards(key_stats: list, color: str, light: str, headline: str = "") -> str:
     if not key_stats:
         return ""
 
@@ -59,11 +59,14 @@ def _kpi_cards(key_stats: list, color: str, light: str) -> str:
     for i, s in enumerate(key_stats[:6]):
         trend_html = _trend_badge(s.get("trend", "neutral"))
         val_fmt = _fmt_value(s["value"])
-        label = s.get("label", "Показатель")[:60]
-        unit = s.get("unit", "")[:25]
+        # Метка: очищаем от обрывков предложений — берём только до первого глагола
+        raw_label = s.get("label", "Показатель")
+        label = raw_label[:55]
+        unit = s.get("unit", "")[:20]
 
         # Первая карточка — большая героическая
         if i == 0:
+            hero_label = headline[:80] if headline else label
             cards += f"""
       <div class="kpi-hero" style="--c:{color};--bg:{light}">
         <div class="kpi-hero-val">
@@ -71,7 +74,7 @@ def _kpi_cards(key_stats: list, color: str, light: str) -> str:
           <span class="kpi-hero-unit">{unit}</span>
           {trend_html}
         </div>
-        <div class="kpi-hero-label">{label}</div>
+        <div class="kpi-hero-label">{hero_label}</div>
       </div>"""
         else:
             cards += f"""
@@ -279,8 +282,9 @@ def build_article_page(article: dict, analysis: dict) -> str:
 
     key_stats = analysis.get("key_stats", [])
     chart_data = analysis.get("chart_data") or []
+    headline = analysis.get("headline", article.get("title", ""))
 
-    kpi_html = _kpi_cards(key_stats, color, light)
+    kpi_html = _kpi_cards(key_stats, color, light, headline)
 
     units = [s.get("unit", "").lower() for s in chart_data]
     use_donut = any("%" in u or "доля" in u or "процент" in u for u in units)
@@ -289,7 +293,6 @@ def build_article_page(article: dict, analysis: dict) -> str:
 
     prog_html = _progress_section(analysis, color)
 
-    headline = analysis.get("headline", article.get("title", ""))
     period = analysis.get("period", "")
     url = article.get("url", "")
     date = article.get("date", "")

@@ -48,20 +48,31 @@ def _extract_numbers(text: str) -> list:
     """Ищет числа с единицами измерения в тексте."""
     results = []
     # Паттерн 1: обычный — число потом единица
-    pattern = r'([\d][\d\s.,]*\d?)\s*(трлн|млрд|млн|тыс\.?|процент[а-я]*|%|лет|года?)\s*([а-яёА-ЯЁ\s]{0,30})?'
+    # НЕ включаем "лет|года" здесь — обрабатываем отдельно ниже
+    pattern = r'([\d][\d\s.,]*\d?)\s*(трлн|млрд|млн|тыс\.?|процент[а-я]*|%)\s*([а-яёА-ЯЁ]{1,12})?'
+    # Паттерн для продолжительности жизни и возрастных показателей
+    duration_pattern = r'([\d]{1,3}[.,]\d)\s*(лет|года?)\b'
     # Паттерн 2: "Название - ЧИСЛО единица" (региональные данные)
-    regional_pattern = r'([А-ЯЁа-яёA-Za-z][^\n\-–—]{2,40})\s*[-–—]\s*([\d][,.\d]*)\s*(трлн|млрд|млн|тыс\.?)\s*([а-яёА-ЯЁ\s]{0,20})'
+    regional_pattern = r'([А-ЯЁа-яёA-Za-z][^\n\-–—]{2,40})\s*[-–—]\s*([\d][,.\d]*)\s*(трлн|млрд|млн|тыс\.?)\s*([а-яёА-ЯЁ]{0,12})'
     seen_vals = set()
 
     for m in re.finditer(pattern, text, re.IGNORECASE):
         val = m.group(1).strip().replace(" ", "").replace(",", ".")
         try:
-            float(val)
+            fval = float(val)
         except ValueError:
             continue
 
+        # Игнорируем годы (1900–2099)
+        if 1900 <= fval <= 2099:
+            continue
+
         unit = m.group(2).strip()
-        context = (m.group(3) or "").strip()
+        # Контекст — только первое слово после единицы (напр. "сумов", "долларов")
+        context_word = (m.group(3) or "").strip()
+        # Убираем слова не похожие на существительные (короткие предлоги и т.д.)
+        if context_word and len(context_word) < 3:
+            context_word = ""
 
         # Убираем дубликаты по значению
         key = f"{val}{unit}"
@@ -69,11 +80,11 @@ def _extract_numbers(text: str) -> list:
             continue
         seen_vals.add(key)
 
-        # Ищем метку — фраза перед числом
-        start = max(0, m.start() - 150)
+        # Ищем метку — фраза перед числом (последнее предложение)
+        start = max(0, m.start() - 120)
         snippet = text[start:m.start()].strip()
         parts = re.split(r'[.!?\n]', snippet)
-        label = parts[-1].strip().lstrip(" ,;:—")[-65:]
+        label = parts[-1].strip().lstrip(" ,;:—")[-60:]
 
         # Определяем тренд
         trend = "neutral"
@@ -83,19 +94,45 @@ def _extract_numbers(text: str) -> list:
         elif re.search(r'снизил|уменьш|сократил|упал|меньше|снижен', ctx_before):
             trend = "down"
 
+        full_unit = (unit + " " + context_word).strip()
         if val and unit:
             results.append({
                 "value": val,
-                "unit": unit + (" " + context[:25].rstrip() if context else ""),
+                "unit": full_unit,
                 "label": label or "Показатель",
                 "trend": trend,
             })
+
+    # Паттерн для "лет/года" — только дробные числа, не годы
+    for m in re.finditer(duration_pattern, text, re.IGNORECASE):
+        val = m.group(1).replace(",", ".")
+        try:
+            fval = float(val)
+        except ValueError:
+            continue
+        if 1900 <= fval <= 2099:
+            continue
+        unit = m.group(2).strip()
+        key = f"{val}{unit}"
+        if key in seen_vals:
+            continue
+        seen_vals.add(key)
+        start = max(0, m.start() - 120)
+        snippet = text[start:m.start()].strip()
+        parts = re.split(r'[.!?\n]', snippet)
+        label = parts[-1].strip().lstrip(" ,;:—")[-60:]
+        trend = "neutral"
+        ctx_before = text[max(0, m.start()-80):m.start()].lower()
+        if re.search(r'вырос|увелич|прирост|рост|повыс|больше', ctx_before):
+            trend = "up"
+        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend})
 
     # Паттерн 2: региональные данные "Название - 12,7 трлн сумов"
     for m in re.finditer(regional_pattern, text, re.IGNORECASE | re.MULTILINE):
         label = m.group(1).strip().rstrip(" \t-–—")[-55:]
         val   = m.group(2).replace(",", ".")
-        unit  = m.group(3) + (" " + m.group(4).strip() if m.group(4) else "")
+        ctx4  = (m.group(4) or "").strip()
+        unit  = m.group(3) + (" " + ctx4 if ctx4 and len(ctx4) >= 3 else "")
         key   = f"{val}{m.group(3)}"
         if key in seen_vals:
             continue
