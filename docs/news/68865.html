@@ -314,35 +314,11 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#7b1fa2;--bg:#f3e5f5">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="9">9</span>
-          <span class="kpi-hero-unit">лет По данным Национально</span>
-          <span class="trend up">↑</span>
-        </div>
-        <div class="kpi-hero-label">дняя продолжительность жизни населения Узбекистана увеличила</div>
-      </div>
-      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
-        <div class="kpi-val">
-          <span class="counter" data-target="2025">2 025</span>
-          <span class="kpi-unit">год у средняя продолжител</span>
-        </div>
-        <div class="kpi-label">По данным Национального комитета по статистике, в</div>
-        <span class="trend up">↑</span>
-      </div>
-      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
-        <div class="kpi-val">
           <span class="counter" data-target="75.4">75.4</span>
-          <span class="kpi-unit">года</span>
+          <span class="kpi-hero-unit">года</span>
+          <span class="trend neutral">→</span>
         </div>
-        <div class="kpi-label">одолжительность жизни постоянного населения Узбекистана сост</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
-        <div class="kpi-val">
-          <span class="counter" data-target="1991">1 991</span>
-          <span class="kpi-unit">год ом</span>
-        </div>
-        <div class="kpi-label">Этот показатель увеличился на 9 лет по сравнению с</div>
-        <span class="trend up">↑</span>
+        <div class="kpi-hero-label">Средняя продолжительность жизни населения Узбекистана увеличилась на…</div>
       </div>
       <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
         <div class="kpi-val">
@@ -354,11 +330,35 @@ body {
       </div>
       <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
         <div class="kpi-val">
-          <span class="counter" data-target="1995">1 995</span>
-          <span class="kpi-unit">год</span>
+          <span class="counter" data-target="69.1">69.1</span>
+          <span class="kpi-unit">года</span>
         </div>
-        <div class="kpi-label">1991 год - 66,4 года</div>
+        <div class="kpi-label">1995 год -</div>
         <span class="trend up">↑</span>
+      </div>
+      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
+        <div class="kpi-val">
+          <span class="counter" data-target="70.8">70.8</span>
+          <span class="kpi-unit">лет</span>
+        </div>
+        <div class="kpi-label">2000 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
+        <div class="kpi-val">
+          <span class="counter" data-target="71.8">71.8</span>
+          <span class="kpi-unit">года</span>
+        </div>
+        <div class="kpi-label">2005 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#7b1fa2;--bg:#f3e5f5">
+        <div class="kpi-val">
+          <span class="counter" data-target="73.0">73</span>
+          <span class="kpi-unit">лет</span>
+        </div>
+        <div class="kpi-label">2010 год -</div>
+        <span class="trend neutral">→</span>
       </div></div>
   
 <div class="chart-wrap">
@@ -370,8 +370,8 @@ body {
 <script>
 (function(){
   const ctx = document.getElementById('mainChart').getContext('2d');
-  const labels = ["По данным Национального комитета по стат", "Этот показатель увеличился на 9 лет по с", "1991 год - 66,4 года", "1995 год - 69,1 года", "2000 год - 70,8 лет", "2005 год - 71,8 года"];
-  const values = [2025.0, 1991.0, 1995.0, 2000.0, 2005.0, 2010.0];
+  const labels = ["году средняя продолжительность жизни в У", "1991 год -", "1995 год -", "2005 год -", "2020 год -", "2024 год -"];
+  const values = [75.4, 66.4, 69.1, 71.8, 73.4, 75.1];
   const c = "#7b1fa2";
 
   const grad = ctx.createLinearGradient(0,0,0,300);
@@ -402,7 +402,7 @@ body {
           padding: 10,
           cornerRadius: 8,
           callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' год'
+            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' года'
           }
         }
       },
@@ -427,38 +427,38 @@ body {
   
       <div class="prow">
         <div class="prow-top">
-          <span class="prow-label">По данным Национального комитета по статистике, в</span>
-          <span class="prow-val" style="color:#7b1fa2">2 025 год у средняя продол <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="100"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">одолжительность жизни постоянного населения Узбекистана составила</span>
-          <span class="prow-val" style="color:#7b1fa2">75.4 года <span class="trend neutral">→</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="4"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">Этот показатель увеличился на 9 лет по сравнению с</span>
-          <span class="prow-val" style="color:#7b1fa2">1 991 год ом <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="98"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
           <span class="prow-label">1991 год -</span>
           <span class="prow-val" style="color:#7b1fa2">66.4 года <span class="trend up">↑</span></span>
         </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="3"></div></div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="88"></div></div>
       </div>
       <div class="prow">
         <div class="prow-top">
-          <span class="prow-label">1991 год - 66,4 года</span>
-          <span class="prow-val" style="color:#7b1fa2">1 995 год <span class="trend up">↑</span></span>
+          <span class="prow-label">1995 год -</span>
+          <span class="prow-val" style="color:#7b1fa2">69.1 года <span class="trend up">↑</span></span>
         </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="99"></div></div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="92"></div></div>
+      </div>
+      <div class="prow">
+        <div class="prow-top">
+          <span class="prow-label">2000 год -</span>
+          <span class="prow-val" style="color:#7b1fa2">70.8 лет <span class="trend neutral">→</span></span>
+        </div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="94"></div></div>
+      </div>
+      <div class="prow">
+        <div class="prow-top">
+          <span class="prow-label">2005 год -</span>
+          <span class="prow-val" style="color:#7b1fa2">71.8 года <span class="trend neutral">→</span></span>
+        </div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="96"></div></div>
+      </div>
+      <div class="prow">
+        <div class="prow-top">
+          <span class="prow-label">2010 год -</span>
+          <span class="prow-val" style="color:#7b1fa2">73 лет <span class="trend neutral">→</span></span>
+        </div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#7b1fa2" data-w="97"></div></div>
       </div>
 </div>
 

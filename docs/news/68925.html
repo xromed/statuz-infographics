@@ -10,8 +10,8 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #bf360c;
-  --bg: #fbe9e7;
+  --c: #37474f;
+  --bg: #eceff1;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #bf360c;
+  background: #37474f;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #bf360c;
+  background: #37474f;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -268,7 +268,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #bf360c;
+  color: #37474f;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -297,70 +297,67 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🏭 Промышленность</span>
+  <span class="nav-title">📊 Статистика</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🏭</div>
+    <div class="hero-bg-icon">📊</div>
     <div class="hero-body">
-      <div class="badge">Промышленность</div>
+      <div class="badge">Статистика</div>
       <div class="hero-title">За 4 месяца произведено электрооборудования на 9,3 трлн сумов</div>
       <div class='hero-period'>апреле 2026</div>
     </div>
   </div>
 
   <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
+      <div class="kpi-hero" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-hero-val">
           <span class="counter" data-target="9.3">9.3</span>
-          <span class="kpi-hero-unit">трлн сумов
-По данным Наци</span>
+          <span class="kpi-hero-unit">трлн сумов</span>
           <span class="trend neutral">→</span>
         </div>
-        <div class="kpi-hero-label">За 4 месяца произведено электрооборудования на</div>
+        <div class="kpi-hero-label">За 4 месяца произведено электрооборудования на 9,3 трлн сумов</div>
       </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="2026">2 026</span>
-          <span class="kpi-unit">года в Узбекистане крупны</span>
-        </div>
-        <div class="kpi-label">По данным Национального комитета по статистике, в январе-апр</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
           <span class="counter" data-target="21">21</span>
-          <span class="kpi-unit">% по сравнению с соответс</span>
+          <span class="kpi-unit">%</span>
         </div>
-        <div class="kpi-label">Этот показатель увеличился на</div>
+        <div class="kpi-label">Показатель вырос на</div>
         <span class="trend up">↑</span>
       </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="2025">2 025</span>
-          <span class="kpi-unit">года</span>
-        </div>
-        <div class="kpi-label">затель увеличился на 21 % по сравнению с соответствующим пер</div>
-        <span class="trend up">↑</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
           <span class="counter" data-target="1.7">1.7</span>
-          <span class="kpi-unit">млрд сумов
-Андижанская об</span>
+          <span class="kpi-unit">млрд сумов</span>
         </div>
         <div class="kpi-label">Республика Каракалпакстан -</div>
-        <span class="trend neutral">→</span>
+        <span class="trend up">↑</span>
       </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
           <span class="counter" data-target="675.1">675.1</span>
-          <span class="kpi-unit">млрд сумов
-Бухарская обла</span>
+          <span class="kpi-unit">млрд сумов</span>
         </div>
         <div class="kpi-label">Андижанская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="287.1">287.1</span>
+          <span class="kpi-unit">млрд сумов</span>
+        </div>
+        <div class="kpi-label">Джизакская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="95.3">95.3</span>
+          <span class="kpi-unit">млрд сумов</span>
+        </div>
+        <div class="kpi-label">Навоийская область -</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -373,9 +370,9 @@ body {
 <script>
 (function(){
   const ctx = document.getElementById('mainChart').getContext('2d');
-  const labels = ["Республика Каракалпакстан -", "Андижанская область -", "Бухарская область -", "Джизакская область -", "Кашкадарьинская область -", "Навоийская область -"];
-  const values = [1.7, 675.1, 5.8, 287.1, 2.5, 95.3];
-  const c = "#bf360c";
+  const labels = ["Республика Каракалпакстан -", "Андижанская область -", "Джизакская область -", "Навоийская область -", "Наманганская область -", "Самаркандская область -"];
+  const values = [1.7, 675.1, 287.1, 95.3, 548.4, 477.9];
+  const c = "#37474f";
 
   const grad = ctx.createLinearGradient(0,0,0,300);
   grad.addColorStop(0, c + 'ff');
@@ -430,40 +427,38 @@ body {
   
       <div class="prow">
         <div class="prow-top">
-          <span class="prow-label">По данным Национального комитета по статистике, в январе-апреле</span>
-          <span class="prow-val" style="color:#bf360c">2 026 года в Узбекистане к <span class="trend neutral">→</span></span>
+          <span class="prow-label">Показатель вырос на</span>
+          <span class="prow-val" style="color:#37474f">21 % <span class="trend up">↑</span></span>
         </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#bf360c" data-w="100"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">Этот показатель увеличился на</span>
-          <span class="prow-val" style="color:#bf360c">21 % по сравнению с соо <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#bf360c" data-w="1"></div></div>
-      </div>
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">затель увеличился на 21 % по сравнению с соответствующим периодом</span>
-          <span class="prow-val" style="color:#bf360c">2 025 года <span class="trend up">↑</span></span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#bf360c" data-w="100"></div></div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="0"></div></div>
       </div>
       <div class="prow">
         <div class="prow-top">
           <span class="prow-label">Республика Каракалпакстан -</span>
-          <span class="prow-val" style="color:#bf360c">1.7 млрд сумов
-Андижанск <span class="trend neutral">→</span></span>
+          <span class="prow-val" style="color:#37474f">1.7 млрд сумов <span class="trend up">↑</span></span>
         </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#bf360c" data-w="0"></div></div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="0"></div></div>
       </div>
       <div class="prow">
         <div class="prow-top">
           <span class="prow-label">Андижанская область -</span>
-          <span class="prow-val" style="color:#bf360c">675.1 млрд сумов
-Бухарская <span class="trend neutral">→</span></span>
+          <span class="prow-val" style="color:#37474f">675.1 млрд сумов <span class="trend neutral">→</span></span>
         </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:#bf360c" data-w="33"></div></div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="13"></div></div>
+      </div>
+      <div class="prow">
+        <div class="prow-top">
+          <span class="prow-label">Джизакская область -</span>
+          <span class="prow-val" style="color:#37474f">287.1 млрд сумов <span class="trend neutral">→</span></span>
+        </div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="5"></div></div>
+      </div>
+      <div class="prow">
+        <div class="prow-top">
+          <span class="prow-label">Навоийская область -</span>
+          <span class="prow-val" style="color:#37474f">95.3 млрд сумов <span class="trend neutral">→</span></span>
+        </div>
+        <div class="ptrack"><div class="pfill" style="width:0;background:#37474f" data-w="2"></div></div>
       </div>
 </div>
 
