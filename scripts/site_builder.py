@@ -293,45 +293,9 @@ def _donut_chart(chart_data: list, color: str) -> str:
 
 
 def _progress_section(analysis: dict, color: str) -> str:
-    chart_data = analysis.get("chart_data") or []
-    # Если данные временного ряда — прогресс-бары не нужны, график уже показывает динамику
-    if _has_years(chart_data):
-        return ""
-
-    stats = analysis.get("key_stats", [])[1:]
-    numeric = []
-    for s in stats:
-        try:
-            numeric.append((float(s["value"]), s))
-        except (ValueError, TypeError):
-            pass
-    if not numeric:
-        return ""
-
-    max_val = max(v for v, _ in numeric)
-    if max_val == 0:
-        return ""
-
-    rows = ""
-    for val, s in numeric[:5]:
-        pct = round(val / max_val * 100)
-        val_str = f"{_fmt_value(s['value'])} {s.get('unit','')[:20]}".strip()
-        trend_badge = _trend_badge(s.get("trend", "neutral"))
-        label = s.get("label", "Показатель")[:65]
-        rows += f"""
-      <div class="prow">
-        <div class="prow-top">
-          <span class="prow-label">{label}</span>
-          <span class="prow-val" style="color:{color}">{val_str} {trend_badge}</span>
-        </div>
-        <div class="ptrack"><div class="pfill" style="width:0;background:{color}" data-w="{pct}"></div></div>
-      </div>"""
-
-    return f"""
-<div class="prog-section">
-  <div class="section-label">Сравнение показателей</div>
-  {rows}
-</div>"""
+    # Прогресс-бары убраны: горизонтальный бар-чарт уже показывает сравнение,
+    # а блок аналитики даёт текстовые выводы. Дублирование только путает.
+    return ""
 
 
 def _insights_block(analysis: dict, color: str, light: str) -> str:
