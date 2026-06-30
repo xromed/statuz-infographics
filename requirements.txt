@@ -1,0 +1,8 @@
+requests
+beautifulsoup4
+pdfplumber
+python-telegram-bot
+python-dotenv
+lxml
+aiohttp
+matplotlib

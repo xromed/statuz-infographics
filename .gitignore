@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.command
+push_to_github.py
+ЗАЛИТЬ_НА_GITHUB.html
+НАСТРОИТЬ_GITHUB.command
+ОБНОВИТЬ_ДИЗАЙН.command
+upload_redesign.py
