@@ -24,6 +24,55 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
   font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;
 }
 
+.filterbar{
+  background:#fff;
+  position:sticky;top:76px;z-index:9;
+  border-bottom:1px solid #e4e8ec;
+  box-shadow:0 1px 6px rgba(0,0,0,.05);
+}
+.filterbar-inner{
+  max-width:1100px;margin:0 auto;
+  padding:10px 20px;
+  display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;
+}
+.pills{
+  display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0;
+}
+.pill{
+  font-family:inherit;
+  background:#f0f2f5;color:#546e7a;
+  border:none;border-radius:20px;
+  font-size:11.5px;font-weight:700;
+  padding:6px 13px;cursor:pointer;
+  white-space:nowrap;
+  transition:background .15s ease,color .15s ease,transform .1s ease;
+}
+.pill:hover{transform:translateY(-1px)}
+.pill.active{background:#1565c0;color:#fff}
+.month-select{
+  font-family:inherit;
+  background:#f0f2f5;color:#37474f;
+  border:none;border-radius:20px;
+  font-size:11.5px;font-weight:700;
+  padding:7px 14px;cursor:pointer;
+  margin-left:auto;
+}
+.no-results{
+  display:none;
+  text-align:center;
+  padding:60px 20px;
+  color:#90a4ae;
+  font-size:13px;
+  font-weight:600;
+}
+.card-link.hidden{display:none}
+
+@media(max-width:480px){
+  .filterbar{top:70px}
+  .month-select{margin-left:0}
+}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -66,14 +115,21 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
   <div class="topbar-inner">
     <div>
       <div class="site-title">📊 Статистика Узбекистана</div>
-      <div class="site-sub">Госкомстат УЗ · Обновлено 01.07.2026 18:17</div>
+      <div class="site-sub">Госкомстат УЗ · Обновлено 01.07.2026 19:16</div>
     </div>
-    <div class="count-pill">23 материалов</div>
+    <div class="count-pill" id="countPill">23 материалов</div>
   </div>
 </div>
 
-<div class="grid">
-    <a href="news/68925.html" class="card-link">
+<div class="filterbar">
+  <div class="filterbar-inner">
+    <div class="pills" id="catPills"><button class="pill active" data-cat="all">Все</button><button class="pill" data-cat="Статистика">📊 Статистика</button><button class="pill" data-cat="Туризм">✈️ Туризм</button><button class="pill" data-cat="Промышленность">🏭 Промышленность</button><button class="pill" data-cat="Демография">👥 Демография</button><button class="pill" data-cat="Транспорт">🚆 Транспорт</button><button class="pill" data-cat="Экономика">📈 Экономика</button><button class="pill" data-cat="Строительство">🏗️ Строительство</button><button class="pill" data-cat="Торговля">🛒 Торговля</button></div>
+    <select class="month-select" id="monthSelect"><option value="all">Все месяцы</option><option value="2026-06">Июнь 2026</option></select>
+  </div>
+</div>
+
+<div class="grid" id="grid">
+    <a href="news/68925.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -84,7 +140,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68921.html" class="card-link">
+    <a href="news/68921.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -95,7 +151,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68916.html" class="card-link">
+    <a href="news/68916.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -106,7 +162,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68912.html" class="card-link">
+    <a href="news/68912.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -117,7 +173,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68908.html" class="card-link">
+    <a href="news/68908.html" class="card-link" data-cat="Туризм" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
@@ -128,7 +184,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68904.html" class="card-link">
+    <a href="news/68904.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -139,7 +195,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68900.html" class="card-link">
+    <a href="news/68900.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -150,7 +206,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68896.html" class="card-link">
+    <a href="news/68896.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
@@ -161,7 +217,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68886.html" class="card-link">
+    <a href="news/68886.html" class="card-link" data-cat="Демография" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#7b1fa2"></div>
         <div class="card-body">
@@ -172,7 +228,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68890.html" class="card-link">
+    <a href="news/68890.html" class="card-link" data-cat="Транспорт" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#1565c0"></div>
         <div class="card-body">
@@ -183,7 +239,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68882.html" class="card-link">
+    <a href="news/68882.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
@@ -194,7 +250,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68878.html" class="card-link">
+    <a href="news/68878.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
@@ -205,7 +261,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68873.html" class="card-link">
+    <a href="news/68873.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
@@ -216,7 +272,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68865.html" class="card-link">
+    <a href="news/68865.html" class="card-link" data-cat="Демография" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#7b1fa2"></div>
         <div class="card-body">
@@ -227,7 +283,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68861.html" class="card-link">
+    <a href="news/68861.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
@@ -238,7 +294,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68857.html" class="card-link">
+    <a href="news/68857.html" class="card-link" data-cat="Экономика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#1565c0"></div>
         <div class="card-body">
@@ -249,7 +305,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68853.html" class="card-link">
+    <a href="news/68853.html" class="card-link" data-cat="Строительство" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#4e342e"></div>
         <div class="card-body">
@@ -260,7 +316,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68849.html" class="card-link">
+    <a href="news/68849.html" class="card-link" data-cat="Торговля" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
@@ -271,7 +327,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68844.html" class="card-link">
+    <a href="news/68844.html" class="card-link" data-cat="Туризм" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
@@ -282,7 +338,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68840.html" class="card-link">
+    <a href="news/68840.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -293,7 +349,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68832.html" class="card-link">
+    <a href="news/68832.html" class="card-link" data-cat="Статистика" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#37474f"></div>
         <div class="card-body">
@@ -304,7 +360,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68827.html" class="card-link">
+    <a href="news/68827.html" class="card-link" data-cat="Торговля" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
@@ -315,7 +371,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68807.html" class="card-link">
+    <a href="news/68807.html" class="card-link" data-cat="Транспорт" data-month="2026-06">
       <div class="card">
         <div class="card-stripe" style="background:#1565c0"></div>
         <div class="card-body">
@@ -326,6 +382,48 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a></div>
+<div class="no-results" id="noResults">Ничего не найдено по выбранным фильтрам</div>
+
+<script>
+(function() {
+  var activeCat = 'all';
+  var activeMonth = 'all';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card-link'));
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill'));
+  var monthSelect = document.getElementById('monthSelect');
+  var countPill = document.getElementById('countPill');
+  var noResults = document.getElementById('noResults');
+  var grid = document.getElementById('grid');
+
+  function applyFilters() {
+    var visible = 0;
+    cards.forEach(function(card) {
+      var matchCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      var matchMonth = activeMonth === 'all' || card.dataset.month === activeMonth;
+      var show = matchCat && matchMonth;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    countPill.textContent = visible + (visible === 1 ? ' материал' : ' материалов');
+    grid.style.display = visible ? 'grid' : 'none';
+    noResults.style.display = visible ? 'none' : 'block';
+  }
+
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      pills.forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      activeCat = pill.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  monthSelect.addEventListener('change', function() {
+    activeMonth = monthSelect.value;
+    applyFilters();
+  });
+})();
+</script>
 
 </body>
 </html>

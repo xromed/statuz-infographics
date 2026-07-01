@@ -3,12 +3,47 @@
 Дизайн: анимированные счётчики, KPI-карточки, Chart.js, градиенты.
 """
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 
 DOCS = Path("docs")
 NEWS_DIR = DOCS / "news"
 NEWS_DIR.mkdir(parents=True, exist_ok=True)
+
+MONTHS_RU_GENITIVE = {
+    "января": 1, "февраля": 2, "марта": 3, "апреля": 4,
+    "мая": 5, "июня": 6, "июля": 7, "августа": 8,
+    "сентября": 9, "октября": 10, "ноября": 11, "декабря": 12,
+}
+MONTH_NAMES_RU = ["", "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                  "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+
+
+def _parse_date(date_str: str):
+    """Парсит дату вида «26 июня 2026» → (год, месяц, день) для сортировки/группировки.
+    Возвращает (0, 0, 0), если распознать не удалось (такие статьи уходят в конец списка)."""
+    m = re.search(r'(\d{1,2})\s+([а-яё]+)\s+(\d{4})', (date_str or "").lower())
+    if not m:
+        return (0, 0, 0)
+    day = int(m.group(1))
+    month = MONTHS_RU_GENITIVE.get(m.group(2), 0)
+    year = int(m.group(3))
+    return (year, month, day)
+
+
+def _month_key(date_str: str) -> str:
+    y, mo, _ = _parse_date(date_str)
+    if not y:
+        return ""
+    return f"{y:04d}-{mo:02d}"
+
+
+def _month_label(date_str: str) -> str:
+    y, mo, _ = _parse_date(date_str)
+    if not y:
+        return ""
+    return f"{MONTH_NAMES_RU[mo]} {y}"
 
 # ── Цвета и иконки категорий ──────────────────────────────────────────────────
 CATEGORIES = {
@@ -999,29 +1034,57 @@ body {{
 # ── Index page ────────────────────────────────────────────────────────────────
 
 def build_index(articles: list):
+    ordered = sorted(articles, key=lambda x: _parse_date(x.get("date", "")), reverse=True)[:200]
+
+    # Категории и месяцы, реально встречающиеся в данных — только их и показываем в фильтрах
+    cats_present = []
+    seen_cats = set()
+    months_present = {}  # month_key -> label
+    for a in ordered:
+        cat = a.get("analysis", {}).get("category", "Статистика")
+        if cat not in seen_cats:
+            seen_cats.add(cat)
+            cats_present.append(cat)
+        mk = _month_key(a.get("date", ""))
+        if mk and mk not in months_present:
+            months_present[mk] = _month_label(a.get("date", ""))
+
     cards = ""
-    for a in sorted(articles, key=lambda x: x.get("date", ""), reverse=True)[:100]:
+    for a in ordered:
         an = a.get("analysis", {})
-        c = _cat(an.get("category", ""))
+        cat = an.get("category", "Статистика")
+        c = _cat(cat)
         color = c["color"]
         light = c["light"]
         icon = c["icon"]
         mv = an.get("main_value", "")
         mu = an.get("main_unit", "")
         mv_fmt = _fmt_value(mv) if mv else ""
+        month_key = _month_key(a.get("date", ""))
 
         cards += f"""
-    <a href="news/{a['id']}.html" class="card-link">
+    <a href="news/{a['id']}.html" class="card-link" data-cat="{cat}" data-month="{month_key}">
       <div class="card">
         <div class="card-stripe" style="background:{color}"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:{light};color:{color}">{icon} {an.get('category','Статистика')}</div>
+          <div class="card-badge" style="background:{light};color:{color}">{icon} {cat}</div>
           <div class="card-title">{an.get('headline', a.get('title',''))[:75]}</div>
           {"<div class='card-num' style='color:" + color + "'>" + mv_fmt + "<span class='card-unit'> " + mu[:18] + "</span></div>" if mv_fmt else "<div style='height:36px'></div>"}
           <div class="card-date">{a.get('date','')}</div>
         </div>
       </div>
     </a>"""
+
+    # Пилюли категорий
+    cat_pills = '<button class="pill active" data-cat="all">Все</button>'
+    for cat in cats_present:
+        icon = _cat(cat)["icon"]
+        cat_pills += f'<button class="pill" data-cat="{cat}">{icon} {cat}</button>'
+
+    # Опции месяцев (уже отсортированы по убыванию, т.к. ordered отсортирован по дате)
+    month_options = '<option value="all">Все месяцы</option>'
+    for mk, label in months_present.items():
+        month_options += f'<option value="{mk}">{label}</option>'
 
     now = datetime.now().strftime("%d.%m.%Y %H:%M")
     total = len(articles)
@@ -1050,6 +1113,55 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1
 .count-pill{{
   background:rgba(255,255,255,.15);color:#fff;
   font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;
+}}
+
+.filterbar{{
+  background:#fff;
+  position:sticky;top:76px;z-index:9;
+  border-bottom:1px solid #e4e8ec;
+  box-shadow:0 1px 6px rgba(0,0,0,.05);
+}}
+.filterbar-inner{{
+  max-width:1100px;margin:0 auto;
+  padding:10px 20px;
+  display:flex;align-items:center;gap:10px;
+  flex-wrap:wrap;
+}}
+.pills{{
+  display:flex;gap:6px;flex-wrap:wrap;flex:1;min-width:0;
+}}
+.pill{{
+  font-family:inherit;
+  background:#f0f2f5;color:#546e7a;
+  border:none;border-radius:20px;
+  font-size:11.5px;font-weight:700;
+  padding:6px 13px;cursor:pointer;
+  white-space:nowrap;
+  transition:background .15s ease,color .15s ease,transform .1s ease;
+}}
+.pill:hover{{transform:translateY(-1px)}}
+.pill.active{{background:#1565c0;color:#fff}}
+.month-select{{
+  font-family:inherit;
+  background:#f0f2f5;color:#37474f;
+  border:none;border-radius:20px;
+  font-size:11.5px;font-weight:700;
+  padding:7px 14px;cursor:pointer;
+  margin-left:auto;
+}}
+.no-results{{
+  display:none;
+  text-align:center;
+  padding:60px 20px;
+  color:#90a4ae;
+  font-size:13px;
+  font-weight:600;
+}}
+.card-link.hidden{{display:none}}
+
+@media(max-width:480px){{
+  .filterbar{{top:70px}}
+  .month-select{{margin-left:0}}
 }}
 
 .grid{{
@@ -1096,11 +1208,60 @@ body{{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1
       <div class="site-title">📊 Статистика Узбекистана</div>
       <div class="site-sub">Госкомстат УЗ · Обновлено {now}</div>
     </div>
-    <div class="count-pill">{total} материалов</div>
+    <div class="count-pill" id="countPill">{total} материалов</div>
   </div>
 </div>
 
-<div class="grid">{cards}</div>
+<div class="filterbar">
+  <div class="filterbar-inner">
+    <div class="pills" id="catPills">{cat_pills}</div>
+    <select class="month-select" id="monthSelect">{month_options}</select>
+  </div>
+</div>
+
+<div class="grid" id="grid">{cards}</div>
+<div class="no-results" id="noResults">Ничего не найдено по выбранным фильтрам</div>
+
+<script>
+(function() {{
+  var activeCat = 'all';
+  var activeMonth = 'all';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card-link'));
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill'));
+  var monthSelect = document.getElementById('monthSelect');
+  var countPill = document.getElementById('countPill');
+  var noResults = document.getElementById('noResults');
+  var grid = document.getElementById('grid');
+
+  function applyFilters() {{
+    var visible = 0;
+    cards.forEach(function(card) {{
+      var matchCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      var matchMonth = activeMonth === 'all' || card.dataset.month === activeMonth;
+      var show = matchCat && matchMonth;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    }});
+    countPill.textContent = visible + (visible === 1 ? ' материал' : ' материалов');
+    grid.style.display = visible ? 'grid' : 'none';
+    noResults.style.display = visible ? 'none' : 'block';
+  }}
+
+  pills.forEach(function(pill) {{
+    pill.addEventListener('click', function() {{
+      pills.forEach(function(p) {{ p.classList.remove('active'); }});
+      pill.classList.add('active');
+      activeCat = pill.dataset.cat;
+      applyFilters();
+    }});
+  }});
+
+  monthSelect.addEventListener('change', function() {{
+    activeMonth = monthSelect.value;
+    applyFilters();
+  }});
+}})();
+</script>
 
 </body>
 </html>"""
