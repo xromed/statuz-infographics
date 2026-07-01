@@ -257,21 +257,20 @@ body {
 }
 
 .insights-block {
-  background: var(--bg);
+  background: #fff;
   border-radius: var(--radius);
   padding: 20px 22px 22px;
   box-shadow: var(--shadow);
   margin-bottom: 14px;
-  border-left: 4px solid var(--c);
 }
 .insights-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .insights-icon {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 .insights-title {
@@ -281,28 +280,40 @@ body {
   letter-spacing: .7px;
   text-transform: uppercase;
 }
-.insights-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 10px;
 }
-.insight-item {
-  font-size: 13px;
-  color: #37474f;
-  line-height: 1.55;
-  padding-left: 14px;
-  position: relative;
+.insight-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--c);
 }
-.insight-item::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--c);
+.insight-card-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 6px;
+}
+.insight-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+.insight-card-title {
   font-size: 11px;
-  top: 1px;
+  font-weight: 700;
+  color: var(--c);
+  text-transform: uppercase;
+  letter-spacing: .4px;
 }
-.insight-item b {
+.insight-card-body {
+  font-size: 12.5px;
+  color: #455a64;
+  line-height: 1.6;
+}
+.insight-card-body b {
   color: var(--c);
   font-weight: 700;
 }
@@ -469,9 +480,51 @@ body {
     <span class="insights-icon">💡</span>
     <span class="insights-title">Аналитика</span>
   </div>
-  <ul class="insights-list">
-    <li class="insight-item">За период 2022–2025 показатель вырос на <b>+120.8%</b> — среднегодовой прирост составил <b>+30.2%</b> в год.</li><li class="insight-item">Наибольший рост зафиксирован в <b>2025 году</b>: с 7.5 до 9.9 млн сумов (<b>рост 32.0%</b>).</li><li class="insight-item">В <b>2025 году</b> по сравнению с 2024: показатель вырос на <b>18.2%</b> (с 9.9 до 11.7 млн сумов).</li>
-  </ul>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📈</span>
+        <span class="insight-card-title">Общий рост</span>
+      </div>
+      <div class="insight-card-body">За 3 лет (2022–2025) показатель <b>вырос на 120.8%</b>. Среднегодовой темп роста (CAGR): <b>+30.2% в год</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🚀</span>
+        <span class="insight-card-title">Рекордный скачок</span>
+      </div>
+      <div class="insight-card-body">Максимальный однолетний рост — в <b>2025 году</b>: с 7.5 до 9.9 млн сумов (<b>рост 32.0%</b> за год).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📌</span>
+        <span class="insight-card-title">Минимум и максимум</span>
+      </div>
+      <div class="insight-card-body">Минимальное значение — <b>5.3 млн сумов</b> (2022 г.), максимальное — <b>11.7 млн сумов</b> (– г.). Амплитуда: <b>120.8%</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔄</span>
+        <span class="insight-card-title">2025 vs 2024</span>
+      </div>
+      <div class="insight-card-body">В последний период показатель <b>вырос на 18.2%</b>: с 9.9 до <b>11.7 млн сумов</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📐</span>
+        <span class="insight-card-title">Среднее за период</span>
+      </div>
+      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>8.1 млн сумов</b>. Текущий показатель <b>выше среднего</b> на 43.7%.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔮</span>
+        <span class="insight-card-title">Прогноз на 2026</span>
+      </div>
+      <div class="insight-card-body">При сохранении среднего темпа последних лет (+25.1%/год) к <b>2026 году</b> показатель вырастет до <b>~14.6 млн сумов</b>.</div>
+    </div>
+  </div>
 </div>
 
   <div class="foot">

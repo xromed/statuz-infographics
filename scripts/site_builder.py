@@ -299,112 +299,218 @@ def _progress_section(analysis: dict, color: str) -> str:
 
 
 def _insights_block(analysis: dict, color: str, light: str) -> str:
-    """Аналитический блок: выводы на основе данных статьи."""
-    import re
+    """Аналитический блок: расширенные выводы на основе данных статьи."""
+    import re as _re
     chart_data = analysis.get("chart_data") or []
-    key_stats = analysis.get("key_stats") or []
+    key_stats  = analysis.get("key_stats") or []
 
     if not chart_data and not key_stats:
         return ""
 
+    # Каждый инсайт: (emoji, заголовок, текст)
     insights = []
     is_timeseries = _has_years(chart_data)
 
+    # ── ВРЕМЕННОЙ РЯД ────────────────────────────────────────────────────────
     if is_timeseries and len(chart_data) >= 2:
-        # Временной ряд: считаем рост, CAGR, максимальный скачок
         try:
-            vals = [float(s["value"]) for s in chart_data]
-            import re as _re
-            years = [int(_re.search(r'\b(19|20)\d{2}\b', s["label"]).group())
-                     for s in chart_data if _re.search(r'\b(19|20)\d{2}\b', s["label"])]
+            vals  = [float(s["value"]) for s in chart_data]
+            years = []
+            for s in chart_data:
+                m = _re.search(r'\b(19|20)\d{2}\b', s.get("label", ""))
+                if m:
+                    years.append(int(m.group()))
             unit = chart_data[0].get("unit", "")
 
             first_val, last_val = vals[0], vals[-1]
-            if first_val > 0:
-                total_growth_pct = round((last_val - first_val) / first_val * 100, 1)
-                if years and len(years) >= 2:
-                    n_years = years[-1] - years[0]
-                    if n_years > 0:
-                        cagr = round(((last_val / first_val) ** (1 / n_years) - 1) * 100, 1)
-                        insights.append(
-                            f"За период {years[0]}–{years[-1]} показатель вырос "
-                            f"на <b>{total_growth_pct:+.1f}%</b> — "
-                            f"среднегодовой прирост составил <b>{cagr:+.1f}%</b> в год."
-                        )
+            n_years = (years[-1] - years[0]) if len(years) >= 2 else 0
 
-            # Максимальный однолетний скачок
-            max_jump_val = 0
-            max_jump_year = None
+            # 1. Общий рост + CAGR
+            if first_val > 0 and n_years > 0:
+                total_pct = round((last_val - first_val) / first_val * 100, 1)
+                cagr      = round(((last_val / first_val) ** (1 / n_years) - 1) * 100, 1)
+                direction = "вырос" if total_pct > 0 else "снизился"
+                insights.append((
+                    "📈", "Общий рост",
+                    f"За {n_years} лет ({years[0]}–{years[-1]}) показатель <b>{direction} "
+                    f"на {abs(total_pct):.1f}%</b>. Среднегодовой темп роста (CAGR): "
+                    f"<b>{cagr:+.1f}% в год</b>."
+                ))
+
+            # 2. Рекордный годовой скачок
+            max_jump = 0; max_j_idx = 1
             for i in range(1, len(vals)):
-                if vals[i - 1] > 0:
-                    jump = abs((vals[i] - vals[i - 1]) / vals[i - 1] * 100)
-                    if jump > max_jump_val:
-                        max_jump_val = jump
-                        max_jump_year = years[i] if i < len(years) else None
-                        max_jump_dir = "рост" if vals[i] > vals[i - 1] else "падение"
-                        max_jump_from = vals[i - 1]
-                        max_jump_to = vals[i]
+                if vals[i-1] > 0:
+                    j = abs((vals[i] - vals[i-1]) / vals[i-1] * 100)
+                    if j > max_jump:
+                        max_jump = j; max_j_idx = i
+            if max_jump > 3 and max_j_idx < len(years):
+                dir_w  = "рост" if vals[max_j_idx] > vals[max_j_idx-1] else "падение"
+                emoji  = "🚀" if vals[max_j_idx] > vals[max_j_idx-1] else "📉"
+                yr_j   = years[max_j_idx]
+                insights.append((
+                    emoji, "Рекордный скачок",
+                    f"Максимальный однолетний {dir_w} — в <b>{yr_j} году</b>: "
+                    f"с {_fmt_value(str(vals[max_j_idx-1]))} до "
+                    f"{_fmt_value(str(vals[max_j_idx]))} {unit} "
+                    f"(<b>{dir_w} {max_jump:.1f}%</b> за год)."
+                ))
 
-            if max_jump_year and max_jump_val > 5:
-                insights.append(
-                    f"Наибольший {max_jump_dir} зафиксирован в <b>{max_jump_year} году</b>: "
-                    f"с {_fmt_value(str(max_jump_from))} до {_fmt_value(str(max_jump_to))} {unit} "
-                    f"(<b>{max_jump_dir} {max_jump_val:.1f}%</b>)."
-                )
+            # 3. Минимум за весь период
+            min_i  = vals.index(min(vals))
+            max_i2 = vals.index(max(vals))
+            if len(years) > min_i:
+                insights.append((
+                    "📌", "Минимум и максимум",
+                    f"Минимальное значение — <b>{_fmt_value(str(vals[min_i]))} {unit}</b> "
+                    f"({years[min_i]} г.), максимальное — "
+                    f"<b>{_fmt_value(str(vals[max_i2]))} {unit}</b> "
+                    f"({years[max_i2] if max_i2 < len(years) else '–'} г.). "
+                    f"Амплитуда: <b>{round((vals[max_i2]-vals[min_i])/vals[min_i]*100, 1):.1f}%</b>."
+                    if vals[min_i] > 0 else
+                    f"Минимальное значение — <b>{_fmt_value(str(vals[min_i]))} {unit}</b> "
+                    f"({years[min_i]} г.), максимальное — "
+                    f"<b>{_fmt_value(str(vals[max_i2]))} {unit}</b>."
+                ))
 
-            # Последний год — рост или падение?
-            if len(vals) >= 2:
-                delta = vals[-1] - vals[-2]
+            # 4. Последний период
+            if len(vals) >= 2 and len(years) >= 2:
+                delta     = vals[-1] - vals[-2]
                 delta_pct = round(delta / vals[-2] * 100, 1) if vals[-2] else 0
-                direction = "вырос" if delta > 0 else "снизился"
-                yr_last = years[-1] if years else ""
-                yr_prev = years[-2] if len(years) >= 2 else ""
-                insights.append(
-                    f"В <b>{yr_last} году</b> по сравнению с {yr_prev}: "
-                    f"показатель {direction} на <b>{abs(delta_pct):.1f}%</b> "
-                    f"(с {_fmt_value(str(vals[-2]))} до {_fmt_value(str(vals[-1]))} {unit})."
-                )
+                dir_w2    = "вырос" if delta > 0 else "снизился"
+                insights.append((
+                    "🔄", f"{years[-1]} vs {years[-2]}",
+                    f"В последний период показатель <b>{dir_w2} на {abs(delta_pct):.1f}%</b>: "
+                    f"с {_fmt_value(str(vals[-2]))} до <b>{_fmt_value(str(vals[-1]))} {unit}</b>."
+                ))
+
+            # 5. Среднее значение
+            avg = sum(vals) / len(vals)
+            above_avg = sum(1 for v in vals if v >= avg)
+            insights.append((
+                "📐", "Среднее за период",
+                f"Среднее значение за весь период наблюдений: "
+                f"<b>{_fmt_value(str(round(avg, 2)))} {unit}</b>. "
+                f"Текущий показатель <b>{'выше' if vals[-1] >= avg else 'ниже'} среднего</b> "
+                f"на {abs(round((vals[-1]-avg)/avg*100, 1)):.1f}%."
+                if avg > 0 else
+                f"Среднее значение за весь период: <b>{_fmt_value(str(round(avg, 2)))} {unit}</b>."
+            ))
+
+            # 6. Прогноз на следующий год (простая линейная экстраполяция по последним 3 точкам)
+            if len(vals) >= 3 and n_years > 0:
+                recent_vals  = vals[-3:]
+                recent_growth = [(recent_vals[i] - recent_vals[i-1]) / recent_vals[i-1]
+                                  for i in range(1, len(recent_vals)) if recent_vals[i-1] > 0]
+                if recent_growth:
+                    avg_recent_g = sum(recent_growth) / len(recent_growth)
+                    forecast     = round(vals[-1] * (1 + avg_recent_g), 2)
+                    next_year    = years[-1] + 1
+                    dir_f        = "вырастет" if avg_recent_g > 0 else "снизится"
+                    insights.append((
+                        "🔮", f"Прогноз на {next_year}",
+                        f"При сохранении среднего темпа последних лет "
+                        f"({avg_recent_g*100:+.1f}%/год) к <b>{next_year} году</b> "
+                        f"показатель {dir_f} до <b>~{_fmt_value(str(forecast))} {unit}</b>."
+                    ))
+
         except Exception:
             pass
 
+    # ── РЕГИОНАЛЬНЫЕ / СТРУКТУРНЫЕ ДАННЫЕ ───────────────────────────────────
     elif chart_data and not is_timeseries and len(chart_data) >= 2:
-        # Региональные / структурные данные
         try:
-            vals = [float(s["value"]) for s in chart_data]
-            unit = chart_data[0].get("unit", "")
-            total = sum(vals)
-            max_i = vals.index(max(vals))
-            min_i = vals.index(min(vals))
-            leader = chart_data[max_i].get("label", "Лидер")[:45]
-            laggard = chart_data[min_i].get("label", "Аутсайдер")[:45]
-            leader_share = round(vals[max_i] / total * 100, 1) if total else 0
+            vals   = [float(s["value"]) for s in chart_data]
+            labels = [s.get("label", "")[:40].rstrip(" \t-–—") for s in chart_data]
+            unit   = chart_data[0].get("unit", "")
+            total  = sum(vals)
+            avg    = total / len(vals)
+            sorted_pairs = sorted(zip(vals, labels), reverse=True)
+            max_v, max_l = sorted_pairs[0]
+            min_v, min_l = sorted_pairs[-1]
 
-            insights.append(
-                f"Лидер по показателю — <b>{leader}</b>: "
-                f"{_fmt_value(str(vals[max_i]))} {unit}, "
-                f"что составляет <b>{leader_share}%</b> от суммарного значения."
-            )
-            insights.append(
-                f"Наименьшее значение у <b>{laggard}</b>: "
-                f"{_fmt_value(str(vals[min_i]))} {unit} — "
-                f"разрыв с лидером в <b>{round(vals[max_i]/vals[min_i], 1)}×</b>."
-                if vals[min_i] > 0 else
-                f"Наименьшее значение у <b>{laggard}</b>: {_fmt_value(str(vals[min_i]))} {unit}."
-            )
+            # 1. Лидер
+            leader_share = round(max_v / total * 100, 1) if total else 0
+            insights.append((
+                "🥇", "Лидер",
+                f"<b>{max_l}</b> занимает первое место: "
+                f"<b>{_fmt_value(str(max_v))} {unit}</b> — "
+                f"это <b>{leader_share}%</b> от суммарного объёма по всем регионам."
+            ))
+
+            # 2. Аутсайдер + разрыв
+            ratio = round(max_v / min_v, 1) if min_v > 0 else None
+            ratio_txt = f" Разрыв с лидером — <b>в {ratio}×</b>." if ratio else ""
+            insights.append((
+                "🔻", "Аутсайдер",
+                f"Наименьший показатель у <b>{min_l}</b>: "
+                f"<b>{_fmt_value(str(min_v))} {unit}</b>.{ratio_txt}"
+            ))
+
+            # 3. Топ-3 концентрация
             if len(vals) >= 3:
-                top3_sum = sum(sorted(vals, reverse=True)[:3])
+                top3_sum   = sum(v for v, _ in sorted_pairs[:3])
                 top3_share = round(top3_sum / total * 100, 1) if total else 0
-                insights.append(
-                    f"Топ-3 региона/показателя формируют <b>{top3_share}%</b> "
-                    f"от общего объёма ({_fmt_value(str(round(total, 1)))} {unit} суммарно)."
-                )
+                top3_names = ", ".join(f"<b>{l}</b>" for _, l in sorted_pairs[:3])
+                insights.append((
+                    "📊", "Концентрация",
+                    f"Топ-3 — {top3_names} — формируют "
+                    f"<b>{top3_share}%</b> от общего объёма."
+                ))
+
+            # 4. Среднее и баланс
+            above = sum(1 for v in vals if v >= avg)
+            below = len(vals) - above
+            insights.append((
+                "⚖️", "Баланс",
+                f"Среднее значение по всем регионам: "
+                f"<b>{_fmt_value(str(round(avg, 1)))} {unit}</b>. "
+                f"Выше среднего — <b>{above}</b> из {len(vals)} регионов, "
+                f"ниже — <b>{below}</b>."
+            ))
+
+            # 5. Суммарный объём
+            insights.append((
+                "💰", "Итого",
+                f"Суммарный объём по всем {len(vals)} регионам: "
+                f"<b>{_fmt_value(str(round(total, 1)))} {unit}</b>. "
+                f"Второе место занимает <b>{sorted_pairs[1][1]}</b> — "
+                f"{_fmt_value(str(sorted_pairs[1][0]))} {unit} "
+                f"({round(sorted_pairs[1][0]/total*100,1)}%)."
+                if len(sorted_pairs) >= 2 else
+                f"Суммарный объём: <b>{_fmt_value(str(round(total, 1)))} {unit}</b>."
+            ))
+
+            # 6. Равномерность (коэффициент вариации)
+            if avg > 0:
+                std  = (sum((v - avg)**2 for v in vals) / len(vals)) ** 0.5
+                cv   = round(std / avg * 100, 1)
+                spread_word = ("крайне неравномерно" if cv > 80
+                               else "неравномерно" if cv > 40
+                               else "относительно равномерно")
+                insights.append((
+                    "📏", "Неравномерность",
+                    f"Распределение по регионам — <b>{spread_word}</b> "
+                    f"(коэффициент вариации: {cv}%). "
+                    f"{'Сильный дисбаланс между лидером и аутсайдером.' if cv > 80 else 'Умеренные различия между регионами.' if cv > 40 else 'Показатели регионов близки к среднему.'}"
+                ))
+
         except Exception:
             pass
 
     if not insights:
         return ""
 
-    items_html = "".join(f'<li class="insight-item">{ins}</li>' for ins in insights)
+    cards_html = ""
+    for emoji, title, text in insights:
+        cards_html += f"""
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">{emoji}</span>
+        <span class="insight-card-title">{title}</span>
+      </div>
+      <div class="insight-card-body">{text}</div>
+    </div>"""
 
     return f"""
 <div class="insights-block" style="--c:{color};--bg:{light}">
@@ -412,9 +518,9 @@ def _insights_block(analysis: dict, color: str, light: str) -> str:
     <span class="insights-icon">💡</span>
     <span class="insights-title">Аналитика</span>
   </div>
-  <ul class="insights-list">
-    {items_html}
-  </ul>
+  <div class="insights-grid">
+    {cards_html}
+  </div>
 </div>"""
 
 
@@ -703,21 +809,20 @@ body {{
 }}
 
 .insights-block {{
-  background: var(--bg);
+  background: #fff;
   border-radius: var(--radius);
   padding: 20px 22px 22px;
   box-shadow: var(--shadow);
   margin-bottom: 14px;
-  border-left: 4px solid var(--c);
 }}
 .insights-header {{
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }}
 .insights-icon {{
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }}
 .insights-title {{
@@ -727,28 +832,40 @@ body {{
   letter-spacing: .7px;
   text-transform: uppercase;
 }}
-.insights-list {{
-  list-style: none;
-  display: flex;
-  flex-direction: column;
+.insights-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 10px;
 }}
-.insight-item {{
-  font-size: 13px;
-  color: #37474f;
-  line-height: 1.55;
-  padding-left: 14px;
-  position: relative;
+.insight-card {{
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--c);
 }}
-.insight-item::before {{
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--c);
+.insight-card-head {{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 6px;
+}}
+.insight-emoji {{
+  font-size: 16px;
+  line-height: 1;
+}}
+.insight-card-title {{
   font-size: 11px;
-  top: 1px;
+  font-weight: 700;
+  color: var(--c);
+  text-transform: uppercase;
+  letter-spacing: .4px;
 }}
-.insight-item b {{
+.insight-card-body {{
+  font-size: 12.5px;
+  color: #455a64;
+  line-height: 1.6;
+}}
+.insight-card-body b {{
   color: var(--c);
   font-weight: 700;
 }}
