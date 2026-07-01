@@ -373,10 +373,157 @@ body {
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="19921">19 921</span>
+          <span class="kpi-hero-unit">предприятие</span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">Число иностранных предприятий в Узбекистане составило 19 921</div>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="12480">12 480</span>
+          <span class="kpi-unit">предприятий</span>
+        </div>
+        <div class="kpi-label">Город Ташкент -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="2726">2 726</span>
+          <span class="kpi-unit">предприятий</span>
+        </div>
+        <div class="kpi-label">Ташкентская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="1168">1 168</span>
+          <span class="kpi-unit">предприятий</span>
+        </div>
+        <div class="kpi-label">Самаркандская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="729">729</span>
+          <span class="kpi-unit">предприятий</span>
+        </div>
+        <div class="kpi-label">Ферганская область</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="552">552</span>
+          <span class="kpi-unit">предприятия</span>
+        </div>
+        <div class="kpi-label">Андижанская область</div>
+        <span class="trend neutral">→</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:320px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "#bf360c";
+  const grad = ctx.createLinearGradient(0,0,0,300);
+  grad.addColorStop(0, c + 'ff');
+  grad.addColorStop(1, c + '88');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Город Ташкент -", "Ташкентская область -", "Самаркандская область -", "Ферганская область", "Кашкадарьинская область", "Наманганская область", "Хорезмская область", "Сурхандарьинская область"],
+      datasets: [{
+        data: [12480.0, 2726.0, 1168.0, 729.0, 411.0, 406.0, 266.0, 228.0],
+        backgroundColor: grad,
+        borderColor: c,
+        borderWidth: 0,
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' предприятий' }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
+        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
+      },
+      animation: { duration: 900, easing: 'easeOutQuart' }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>Город Ташкент</b> занимает первое место: <b>12 480 предприятий</b> — это <b>67.8%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b>Сурхандарьинская область</b>: <b>228 предприятий</b>. Разрыв с лидером — <b>в 54.7×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
+      </div>
+      <div class="insight-card-body">Топ-3 — <b>Город Ташкент</b>, <b>Ташкентская область</b>, <b>Самаркандская область</b> — формируют <b>88.9%</b> от общего объёма.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>2 301.8 предприятий</b>. Выше среднего — <b>2</b> из 8 регионов, ниже — <b>6</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>18 414 предприятий</b>. Второе место занимает <b>Ташкентская область</b> — 2 726 предприятий (14.8%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 170.5%). Сильный дисбаланс между лидером и аутсайдером.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68878-zbekistonda-chet-el-korxonalari-soni-19-921-tani-tashkil-etdi-3" target="_blank" rel="noopener">

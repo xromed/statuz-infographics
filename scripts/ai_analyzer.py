@@ -49,11 +49,12 @@ def _extract_numbers(text: str) -> list:
     results = []
     # Паттерн 1: обычный — число потом единица
     # НЕ включаем "лет|года" здесь — обрабатываем отдельно ниже
-    pattern = r'([\d][\d\s.,]*\d?)\s*(трлн|млрд|млн|тыс\.?|процент[а-я]*|%)\s*([а-яёА-ЯЁ]{1,12})?'
+    # (?!\w) после "тыс" не даёт словам вроде "тысячу"/"тысяча" ложно матчиться как "тыс" + обрывок
+    pattern = r'([\d][\d\s.,]*\d?)\s*(трлн|млрд|млн|тыс\.?(?!\w)|процент[а-я]*|%)\s*([а-яёА-ЯЁ]{1,12})?'
     # Паттерн для продолжительности жизни и возрастных показателей
     duration_pattern = r'([\d]{1,3}[.,]\d)\s*(лет|года?)\b'
     # Паттерн 2: "Название - ЧИСЛО единица" (региональные данные)
-    regional_pattern = r'([А-ЯЁа-яёA-Za-z][^\n\-–—]{2,40})\s*[-–—]\s*([\d][,.\d]*)\s*(трлн|млрд|млн|тыс\.?)\s*([а-яёА-ЯЁ]{0,12})'
+    regional_pattern = r'([А-ЯЁа-яёA-Za-z][^\n\-–—]{2,40})\s*[-–—]\s*([\d][,.\d]*)\s*(трлн|млрд|млн|тыс\.?(?!\w))\s*([а-яёА-ЯЁ]{0,12})'
     seen_vals = set()
 
     for m in re.finditer(pattern, text, re.IGNORECASE):
@@ -151,6 +152,74 @@ def _extract_numbers(text: str) -> list:
     return results[:12]
 
 
+def _extract_grouped_counts(text: str) -> list:
+    """Резервный поиск: числа с разделителем групп разрядов (18 330, 191 521, 5 351 868)
+    и следующим словом (или двумя) как единицей — «человек», «граждан», «ремесленников»,
+    «иностранных граждан» и т.п. Пробел-разделитель разрядов надёжно отличает такие числа
+    от годов (1900-2099 никогда не пишутся с пробелом)."""
+    results = []
+    seen = set()
+    pattern = r'([\d]{1,3}(?:[ \t]\d{3})+)[ \t]+([а-яёА-ЯЁ]{2,20}(?:[ \t][а-яёА-ЯЁ]{2,20})?)'
+    for m in re.finditer(pattern, text):
+        val = re.sub(r'[ \t ]', '', m.group(1))
+        try:
+            float(val)
+        except ValueError:
+            continue
+        unit = m.group(2).strip()
+        key = f"{val}{unit}"
+        if key in seen:
+            continue
+        seen.add(key)
+        start = max(0, m.start() - 120)
+        snippet = text[start:m.start()].strip()
+        parts = re.split(r'[.!?\n]', snippet)
+        label = parts[-1].strip().lstrip(" ,;:—-")[-60:]
+        trend = "neutral"
+        ctx_before = text[max(0, m.start() - 80):m.start()].lower()
+        if re.search(r'вырос|увелич|прирост|рост|повыс|больше', ctx_before):
+            trend = "up"
+        elif re.search(r'снизил|уменьш|сократил|упал|меньше|снижен', ctx_before):
+            trend = "down"
+        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend})
+    return results
+
+
+def _extract_dash_items(text: str) -> list:
+    """Резервный поиск построчных перечислений вида «Ташкент - 12 480 предприятий».
+    Разбивает по строкам/точкам с запятой и берёт ПОСЛЕДНИЙ дефис в строке как разделитель —
+    это корректно обрабатывает метки с внутренним дефисом вроде «0-18 лет - 584 171 человек»."""
+    results = []
+    seen = set()
+    for raw_line in re.split(r'[\n;]+', text):
+        line = raw_line.strip().rstrip('.').strip()
+        if not line or len(line) > 120:
+            continue
+        m = re.search(
+            r'^(.*)[-–—]\s*([\d][\d\s.,]*\d|\d+)\s*([а-яёА-ЯЁ.]{2,20})?\s*$',
+            line
+        )
+        if not m:
+            continue
+        label = m.group(1).strip(" ,:;")
+        if not label or len(label) > 60 or len(label) < 2:
+            continue
+        val = m.group(2).strip().replace(" ", "").replace(",", ".")
+        try:
+            fval = float(val)
+        except ValueError:
+            continue
+        unit = (m.group(3) or "").strip()
+        if 1900 <= fval <= 2099 and not unit:
+            continue  # похоже на голый год
+        key = f"{val}{unit}{label}"
+        if key in seen:
+            continue
+        seen.add(key)
+        results.append({"value": val, "unit": unit, "label": label[:55], "trend": "neutral"})
+    return results
+
+
 def _detect_period(text: str) -> str:
     # "за N месяц(а/ев) YYYY"
     m = re.search(r'за\s+(\d+)\s+месяц[а-я]*\s+(\d{4})', text, re.IGNORECASE)
@@ -238,6 +307,17 @@ def analyze(title: str, body: str, tables: list) -> dict:
     category = _detect_category(full_text)
     period = _detect_period(full_text)
     key_stats = _extract_numbers(full_text)
+
+    # Резервные экстракторы — на случай единиц, которых нет в основном списке
+    # (человек, граждан, предприятий, ремесленников и т.п.).
+    # Работают только по body (не по заголовку) — заголовок часто пересказывает
+    # то же число другими словами и иначе "перебивает" реальную единицу измерения.
+    if len(key_stats) < 4:
+        seen_vals = {s["value"] for s in key_stats}
+        for extra in _extract_grouped_counts(body) + _extract_dash_items(body):
+            if extra["value"] not in seen_vals:
+                key_stats.append(extra)
+                seen_vals.add(extra["value"])
 
     # Добавляем числа из таблиц
     if tables and len(key_stats) < 4:
