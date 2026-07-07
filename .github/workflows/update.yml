@@ -41,4 +41,10 @@ jobs:
           git config user.email "bot@statuz.pages"
           git add -A
           git diff --staged --quiet || git commit -m "Update: $(date '+%Y-%m-%d %H:%M')"
-          git push
+          for i in 1 2 3 4 5; do
+            git push && break
+            echo "Push rejected, retrying with rebase ($i)..."
+            git fetch origin main
+            git rebase origin/main
+            sleep 3
+          done
