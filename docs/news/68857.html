@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Инвестиции в сферу информации и связи достигли 3,1 трлн сумов</title>
+<title>Национальный комитет Республики Узбекистан по статистике</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -368,8 +368,8 @@ body {
     <div class="hero-bg-icon">📈</div>
     <div class="hero-body">
       <div class="badge">Экономика</div>
-      <div class="hero-title">Инвестиции в сферу информации и связи достигли 3,1 трлн сумов</div>
-      <div class='hero-period'>апреле 2026</div>
+      <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
+      <div class='hero-period'>июня 2026</div>
     </div>
   </div>
 
@@ -380,19 +380,19 @@ body {
           <span class="kpi-hero-unit">трлн сумов</span>
           <span class="trend neutral">→</span>
         </div>
-        <div class="kpi-hero-label">Инвестиции в сферу информации и связи достигли 3,1 трлн сумов</div>
+        <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
           <span class="counter" data-target="2.4">2.4</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Из общего объема инвестиций иностранные инвестиции сост</div>
+        <div class="kpi-label">Из них иностранные инвестиции и кредиты составили</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
-          <span class="counter" data-target="2.2">2.2</span>
+          <span class="counter" data-target="1.6">1.6</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
         <div class="kpi-label">2022 год -</div>
@@ -400,7 +400,7 @@ body {
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
-          <span class="counter" data-target="3.2">3.2</span>
+          <span class="counter" data-target="1.1">1.1</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
         <div class="kpi-label">2023 год -</div>
@@ -408,7 +408,15 @@ body {
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
-          <span class="counter" data-target="1.9">1.9</span>
+          <span class="counter" data-target="2.3">2.3</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">2024 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="1.7">1.7</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
         <div class="kpi-label">2025 год -</div>
@@ -431,14 +439,15 @@ body {
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ["2022", "2023", "2025", "Инвестиции в", "Из общего об"],
+      labels: ["2022", "2023", "2024", "2025"],
       datasets: [{
-        data: [2.2, 3.2, 1.9, 3.1, 2.4],
+        data: [1.6, 1.1, 2.3, 1.7],
         borderColor: c,
         borderWidth: 2.5,
         backgroundColor: grad,
         fill: true,
-        tension: 0.35,
+        tension: 0.25,
+        spanGaps: false,
         pointBackgroundColor: c,
         pointRadius: 5,
         pointHoverRadius: 7,
@@ -453,7 +462,7 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
+          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
         }
       },
       scales: {
@@ -479,35 +488,42 @@ body {
         <span class="insight-emoji">📈</span>
         <span class="insight-card-title">Общий рост</span>
       </div>
-      <div class="insight-card-body">За 3 лет (2022–2025) показатель <b>вырос на 9.1%</b>. Среднегодовой темп роста (CAGR): <b>+2.9% в год</b>.</div>
+      <div class="insight-card-body">За 3 лет (2022–2025) показатель <b>вырос на 6.2%</b>. Среднегодовой темп роста (CAGR): <b>+2.0% в год</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🚀</span>
+        <span class="insight-card-title">Рекордный скачок</span>
+      </div>
+      <div class="insight-card-body">Максимальный однолетний рост — в <b>2024 году</b>: с 1.1 до 2.3 трлн сумов (<b>рост 109.1%</b> за год).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📌</span>
         <span class="insight-card-title">Минимум и максимум</span>
       </div>
-      <div class="insight-card-body">Минимальное значение — <b>1.9 трлн сумов</b> (2025 г.), максимальное — <b>3.2 трлн сумов</b> (2023 г.). Амплитуда: <b>68.4%</b>.</div>
+      <div class="insight-card-body">Минимальное значение — <b>1.1 трлн сумов</b> (2023 г.), максимальное — <b>2.3 трлн сумов</b> (2024 г.). Амплитуда: <b>109.1%</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔄</span>
-        <span class="insight-card-title">2025 vs 2023</span>
+        <span class="insight-card-title">2025 vs 2024</span>
       </div>
-      <div class="insight-card-body">В последний период показатель <b>снизился на 22.6%</b>: с 3.1 до <b>2.4 трлн сумов</b>.</div>
+      <div class="insight-card-body">В последний период показатель <b>снизился на 26.1%</b>: с 2.3 до <b>1.7 трлн сумов</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📐</span>
         <span class="insight-card-title">Среднее за период</span>
       </div>
-      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>2.6 трлн сумов</b>. Текущий показатель <b>ниже среднего</b> на 6.3%.</div>
+      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>1.7 трлн сумов</b>. Текущий показатель <b>выше среднего</b> на 1.5%.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔮</span>
         <span class="insight-card-title">Прогноз на 2026</span>
       </div>
-      <div class="insight-card-body">При сохранении среднего темпа последних лет (+20.3%/год) к <b>2026 году</b> показатель вырастет до <b>~2.9 трлн сумов</b>.</div>
+      <div class="insight-card-body">При сохранении среднего темпа последних лет (+41.5%/год) к <b>2026 году</b> показатель вырастет до <b>~2.4 трлн сумов</b>.</div>
     </div>
   </div>
 </div>

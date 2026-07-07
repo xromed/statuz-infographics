@@ -422,7 +422,8 @@ body {
         borderWidth: 2.5,
         backgroundColor: grad,
         fill: true,
-        tension: 0.35,
+        tension: 0.25,
+        spanGaps: false,
         pointBackgroundColor: c,
         pointRadius: 5,
         pointHoverRadius: 7,
@@ -437,7 +438,7 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млн' }
+          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' млн' }
         }
       },
       scales: {

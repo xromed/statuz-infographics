@@ -369,46 +369,38 @@ body {
     <div class="hero-body">
       <div class="badge">Строительство</div>
       <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
-      <div class='hero-period'>июня 2026</div>
+      <div class='hero-period'>июля 2026</div>
     </div>
   </div>
 
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#4e342e;--bg:#efebe9">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="15">15</span>
-          <span class="kpi-hero-unit">%</span>
-          <span class="trend up">↑</span>
+          <span class="counter" data-target="104.9">104.9</span>
+          <span class="kpi-hero-unit">трлн сумов</span>
+          <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
       </div>
       <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
         <div class="kpi-val">
-          <span class="counter" data-target="16.3">16.3</span>
+          <span class="counter" data-target="28">28</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">тов гражданского назначения выполнены строительные рабо</div>
+        <div class="kpi-label">Город Ташкент -</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
         <div class="kpi-val">
-          <span class="counter" data-target="724.7">724.7</span>
-          <span class="kpi-unit">млрд сумов</span>
+          <span class="counter" data-target="10.7">10.7</span>
+          <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">-</div>
+        <div class="kpi-label">Ташкентская область -</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
         <div class="kpi-val">
-          <span class="counter" data-target="654">654</span>
-          <span class="kpi-unit">млрд сумов</span>
-        </div>
-        <div class="kpi-label">Андижанская область -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
-        <div class="kpi-val">
-          <span class="counter" data-target="1.6">1.6</span>
+          <span class="counter" data-target="7.2">7.2</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
         <div class="kpi-label">Бухарская область -</div>
@@ -416,10 +408,18 @@ body {
       </div>
       <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
         <div class="kpi-val">
-          <span class="counter" data-target="428.8">428.8</span>
-          <span class="kpi-unit">млрд сумов</span>
+          <span class="counter" data-target="6.9">6.9</span>
+          <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Джизакская область -</div>
+        <div class="kpi-label">Ферганская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#4e342e;--bg:#efebe9">
+        <div class="kpi-val">
+          <span class="counter" data-target="6.7">6.7</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">Кашкадарьинская область -</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["-", "Андижанская область -", "Джизакская область -", "Кашкадарьинская область -", "Навоийская область -", "Наманганская область -", "Сурхандарьинская область -", "Сырдарьинская область -"],
+      labels: ["Город Ташкент -", "Ташкентская область -", "Бухарская область -", "Ферганская область -", "Кашкадарьинская область -", "Самаркандская область -", "Наманганская область -", "Андижанская область -"],
       datasets: [{
-        data: [724.7, 654.0, 428.8, 696.5, 759.1, 411.5, 884.4, 480.7],
+        data: [28.0, 10.7, 7.2, 6.9, 6.7, 6.6, 5.4, 5.3],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -459,7 +459,7 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млрд' }
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
         }
       },
       scales: {
@@ -485,55 +485,55 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>Сурхандарьинская область</b> занимает первое место: <b>884.4 млрд сумов</b> — это <b>17.5%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>Город Ташкент</b> занимает первое место: <b>28 трлн сумов</b> — это <b>36.5%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔻</span>
         <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Наименьший показатель у <b>Наманганская область</b>: <b>411.5 млрд сумов</b>. Разрыв с лидером — <b>в 2.1×</b>.</div>
+      <div class="insight-card-body">Наименьший показатель у <b>Андижанская область</b>: <b>5.3 трлн сумов</b>. Разрыв с лидером — <b>в 5.3×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>Сурхандарьинская область</b>, <b>Навоийская область</b>, <b></b> — формируют <b>47.0%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>Город Ташкент</b>, <b>Ташкентская область</b>, <b>Бухарская область</b> — формируют <b>59.8%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>630 млрд сумов</b>. Выше среднего — <b>5</b> из 8 регионов, ниже — <b>3</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>9.6 трлн сумов</b>. Выше среднего — <b>2</b> из 8 регионов, ниже — <b>6</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>5 039.7 млрд сумов</b>. Второе место занимает <b>Навоийская область</b> — 759.1 млрд сумов (15.1%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>76.8 трлн сумов</b>. Второе место занимает <b>Ташкентская область</b> — 10.7 трлн сумов (13.9%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>относительно равномерно</b> (коэффициент вариации: 25.5%). Показатели регионов близки к среднему.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 74.2%). Умеренные различия между регионами.</div>
     </div>
   </div>
 </div>
 
   <div class="foot">
-    <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68853-fuqarolik-inshootlari-urilishi-16-3-trln-s-mga-etdi-3" target="_blank" rel="noopener">
+    <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69042-urilish-ishlari-b-jicha-ajsi-ududlar-etakchi-4" target="_blank" rel="noopener">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
         <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
       </svg>
       Источник: stat.uz
     </a>
-    <span class="foot-date">24 июня 2026</span>
+    <span class="foot-date"></span>
   </div>
 
 </div>
