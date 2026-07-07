@@ -1696,39 +1696,8 @@
           "trend": "neutral"
         }
       ],
-      "chart_data": [
-        {
-          "value": "2.2",
-          "unit": "трлн сумов",
-          "label": "2022 год -",
-          "trend": "neutral"
-        },
-        {
-          "value": "3.2",
-          "unit": "трлн сумов",
-          "label": "2023 год -",
-          "trend": "neutral"
-        },
-        {
-          "value": "1.9",
-          "unit": "трлн сумов",
-          "label": "2025 год -",
-          "trend": "neutral"
-        },
-        {
-          "value": "3.1",
-          "unit": "трлн сумов",
-          "label": "Инвестиции в сферу информации и связи достигли",
-          "trend": "neutral"
-        },
-        {
-          "value": "2.4",
-          "unit": "трлн сумов",
-          "label": "Из общего объема инвестиций иностранные инвестиции составили",
-          "trend": "neutral"
-        }
-      ],
-      "chart_type": "bar"
+      "chart_data": [],
+      "chart_type": "none"
     }
   },
   {
@@ -1799,57 +1768,8 @@
           "trend": "neutral"
         }
       ],
-      "chart_data": [
-        {
-          "value": "16.3",
-          "unit": "трлн сумов",
-          "label": "Гражданское строительство достигло",
-          "trend": "neutral"
-        },
-        {
-          "value": "3.1",
-          "unit": "трлн сумов",
-          "label": "Ташкентская область -",
-          "trend": "neutral"
-        },
-        {
-          "value": "2.3",
-          "unit": "трлн сумов",
-          "label": "Кашкадарьинская область -",
-          "trend": "neutral"
-        },
-        {
-          "value": "2.0",
-          "unit": "трлн сумов",
-          "label": "Город Ташкент -",
-          "trend": "neutral"
-        },
-        {
-          "value": "1.6",
-          "unit": "трлн сумов",
-          "label": "Самаркандская область -",
-          "trend": "neutral"
-        },
-        {
-          "value": "1.3",
-          "unit": "трлн сумов",
-          "label": "Навоийская область -",
-          "trend": "neutral"
-        },
-        {
-          "value": "1.1",
-          "unit": "трлн сумов",
-          "label": "Ферганская область -",
-          "trend": "neutral"
-        },
-        {
-          "value": "4.9",
-          "unit": "трлн сумов",
-          "label": "Прочие регионы -",
-          "trend": "neutral"
-        }
-      ],
-      "chart_type": "bar"
+      "chart_data": [],
+      "chart_type": "none"
     }
   },
   {

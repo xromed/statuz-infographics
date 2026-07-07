@@ -65,12 +65,18 @@ def rebuild_all_pages(db: list, reanalyze: bool = False):
     """Пересобирает HTML. Если reanalyze=True — перескачивает и переанализирует статьи без chart_data."""
     print("Пересобираем страницы...")
     changed = False
+    BROKEN_HEADLINE = "республики узбекистан по статистике"
     for a in db:
         an = a.get("analysis", {})
         needs_reanalysis = (
             reanalyze and
-            not an.get("chart_data") and       # нет данных для диаграммы
-            a.get("url")                        # есть URL для перескачивания
+            a.get("url") and                    # есть URL для перескачивания
+            (
+                not an.get("chart_data") or      # нет данных для диаграммы
+                # заголовок = статичная шапка сайта — старый баг article_parser,
+                # уже исправлен, но старые записи нужно перескачать заново
+                an.get("headline", "").strip().lower() == BROKEN_HEADLINE
+            )
         )
         if needs_reanalysis:
             print(f"  Re-analyze: {a['id']}")
