@@ -141,7 +141,8 @@ def _chart_block(analysis: dict, color: str) -> str:
     except (ValueError, TypeError):
         return ""
 
-    unit = chart_data[0].get("unit", "").split()[0] if chart_data else ""
+    _unit_parts = chart_data[0].get("unit", "").split() if chart_data else []
+    unit = _unit_parts[0] if _unit_parts else ""
     n = len(chart_data)
     is_timeseries = _has_years(chart_data)
 
@@ -280,7 +281,8 @@ def _donut_chart(chart_data: list, color: str) -> str:
     colors_js = json.dumps(palette[:len(chart_data)])
     labels = json.dumps([s.get("label", "")[:35] for s in chart_data], ensure_ascii=False)
     vals_js = json.dumps(values)
-    unit = chart_data[0].get("unit", "").split()[0] if chart_data else ""
+    _unit_parts = chart_data[0].get("unit", "").split() if chart_data else []
+    unit = _unit_parts[0] if _unit_parts else ""
 
     return f"""
 <div class="chart-wrap">
