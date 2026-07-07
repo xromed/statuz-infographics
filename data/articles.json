@@ -2541,5 +2541,1063 @@
       ],
       "chart_type": "bar"
     }
+  },
+  {
+    "id": "69095",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69095-yaim-tarkibida-khizmatlar-so-asi-eng-yu-ori-ulushga-ega-3",
+    "title": "В структуре ВВП наибольшую долю занимает сфера услуг",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Экономика",
+      "main_value": "447.9",
+      "main_unit": "трлн сумов",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "447.9",
+          "unit": "трлн сумов",
+          "label": "овой внутренний продукт Узбекистана в текущих ценах составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "427.5",
+          "unit": "трлн сумов",
+          "label": "валовая добавленная стоимость отраслей -",
+          "trend": "neutral"
+        },
+        {
+          "value": "95.4",
+          "unit": "процента",
+          "label": "валовая добавленная стоимость отраслей - 427,5 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "20.4",
+          "unit": "трлн сумов",
+          "label": "чистые налоги на продукты -",
+          "trend": "neutral"
+        },
+        {
+          "value": "4.6",
+          "unit": "процента",
+          "label": "чистые налоги на продукты - 20,4 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "240.1",
+          "unit": "трлн сумов",
+          "label": "сфера услуг -",
+          "trend": "neutral"
+        },
+        {
+          "value": "56.2",
+          "unit": "процента",
+          "label": "сфера услуг - 240,1 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "124.9",
+          "unit": "трлн сумов",
+          "label": "промышленности -",
+          "trend": "neutral"
+        },
+        {
+          "value": "29.2",
+          "unit": "процента",
+          "label": "промышленности - 124,9 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "36.2",
+          "unit": "трлн сумов",
+          "label": "сельское, лесное и рыбное хозяйство -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8.4",
+          "unit": "процента",
+          "label": "сельское, лесное и рыбное хозяйство - 36,2 трлн сумов (",
+          "trend": "neutral"
+        },
+        {
+          "value": "26.4",
+          "unit": "трлн сумов",
+          "label": "строительство -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "447.9",
+          "unit": "трлн сумов",
+          "label": "овой внутренний продукт Узбекистана в текущих ценах составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "427.5",
+          "unit": "трлн сумов",
+          "label": "валовая добавленная стоимость отраслей -",
+          "trend": "neutral"
+        },
+        {
+          "value": "20.4",
+          "unit": "трлн сумов",
+          "label": "чистые налоги на продукты -",
+          "trend": "neutral"
+        },
+        {
+          "value": "240.1",
+          "unit": "трлн сумов",
+          "label": "сфера услуг -",
+          "trend": "neutral"
+        },
+        {
+          "value": "124.9",
+          "unit": "трлн сумов",
+          "label": "промышленности -",
+          "trend": "neutral"
+        },
+        {
+          "value": "36.2",
+          "unit": "трлн сумов",
+          "label": "сельское, лесное и рыбное хозяйство -",
+          "trend": "neutral"
+        },
+        {
+          "value": "26.4",
+          "unit": "трлн сумов",
+          "label": "строительство -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69095.png"
+    }
+  },
+  {
+    "id": "69091",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69091-talabalar-statistikasi-talim-bos-ichi-va-ududlar-kesimidagi-ta-simot-3",
+    "title": "Статистика студентов: распределение по уровням образования и регионам",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Образование",
+      "main_value": "1",
+      "main_unit": "млн",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "1",
+          "unit": "млн",
+          "label": "учающихся в высших учебных заведениях Узбекистана, составило",
+          "trend": "neutral"
+        },
+        {
+          "value": "1478.7",
+          "unit": "тыс. человек",
+          "label": "Бакалавриат -",
+          "trend": "neutral"
+        },
+        {
+          "value": "56.3",
+          "unit": "тыс. человек",
+          "label": "Магистратура -",
+          "trend": "neutral"
+        },
+        {
+          "value": "579.3",
+          "unit": "тыс. человек",
+          "label": "Город Ташкент —",
+          "trend": "neutral"
+        },
+        {
+          "value": "117.7",
+          "unit": "тыс. человек",
+          "label": "Бухарская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "111.6",
+          "unit": "тыс. человек",
+          "label": "Кашкадарьинская область —",
+          "trend": "neutral"
+        },
+        {
+          "value": "101.5",
+          "unit": "тыс. человек",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "98.9",
+          "unit": "тыс. человек",
+          "label": "Ферганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "93.9",
+          "unit": "тыс. человек",
+          "label": "Самаркандская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "76.2",
+          "unit": "тыс. человек",
+          "label": "Сурхандарьинская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "73.7",
+          "unit": "тыс. человек",
+          "label": "Республика Каракалпакстан -",
+          "trend": "neutral"
+        },
+        {
+          "value": "65.9",
+          "unit": "тыс. человек",
+          "label": "Хорезмская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "1478.7",
+          "unit": "тыс. человек",
+          "label": "Бакалавриат -",
+          "trend": "neutral"
+        },
+        {
+          "value": "56.3",
+          "unit": "тыс. человек",
+          "label": "Магистратура -",
+          "trend": "neutral"
+        },
+        {
+          "value": "579.3",
+          "unit": "тыс. человек",
+          "label": "Город Ташкент —",
+          "trend": "neutral"
+        },
+        {
+          "value": "117.7",
+          "unit": "тыс. человек",
+          "label": "Бухарская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "111.6",
+          "unit": "тыс. человек",
+          "label": "Кашкадарьинская область —",
+          "trend": "neutral"
+        },
+        {
+          "value": "101.5",
+          "unit": "тыс. человек",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "98.9",
+          "unit": "тыс. человек",
+          "label": "Ферганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "93.9",
+          "unit": "тыс. человек",
+          "label": "Самаркандская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69091.png"
+    }
+  },
+  {
+    "id": "69087",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69087-zbekistonda-sport-inshootlari-soni-53-mingtani-tashkil-etdi-3",
+    "title": "Количество спортивных сооружений в Узбекистане составило 53 тыс",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Спорт",
+      "main_value": "53",
+      "main_unit": "тыс",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "53",
+          "unit": "тыс",
+          "label": "Количество спортивных сооружений в Узбекистане составило",
+          "trend": "neutral"
+        },
+        {
+          "value": "24.5",
+          "unit": "тыс.",
+          "label": "в городской местности -",
+          "trend": "neutral"
+        },
+        {
+          "value": "28.5",
+          "unit": "тыс. Ежедневная",
+          "label": "в сельской местности -",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.2",
+          "unit": "млн человек",
+          "label": " пропускная способность этих спортивных сооружений составила",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "24.5",
+          "unit": "тыс.",
+          "label": "в городской местности -",
+          "trend": "neutral"
+        },
+        {
+          "value": "28.5",
+          "unit": "тыс. Ежедневная",
+          "label": "в сельской местности -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69087.png"
+    }
+  },
+  {
+    "id": "69083",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69083-o-zbekistonda-har-to-rtinchi-korxona-savdo-sohasida-faoliyat-yuritmoqda-2",
+    "title": "В Узбекистане каждое четвертое предприятие работает в сфере торговли",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "62044",
+      "main_unit": "ед",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "62044",
+          "unit": "ед",
+          "label": "Промышленность -",
+          "trend": "neutral"
+        },
+        {
+          "value": "31927",
+          "unit": "ед",
+          "label": "Строительство -",
+          "trend": "neutral"
+        },
+        {
+          "value": "18295",
+          "unit": "единиц",
+          "label": "Транспортировка и хранение -",
+          "trend": "neutral"
+        },
+        {
+          "value": "160159",
+          "unit": "",
+          "label": "Сфера торговли",
+          "trend": "neutral"
+        },
+        {
+          "value": "128457",
+          "unit": "",
+          "label": "Сельское, лесное и рыбное хозяйство",
+          "trend": "neutral"
+        },
+        {
+          "value": "32739",
+          "unit": "",
+          "label": "Услуги по проживанию и питанию",
+          "trend": "neutral"
+        },
+        {
+          "value": "14862",
+          "unit": "",
+          "label": "Здравоохранение и социальные услуги",
+          "trend": "neutral"
+        },
+        {
+          "value": "12999",
+          "unit": "",
+          "label": "Информация и связь",
+          "trend": "neutral"
+        },
+        {
+          "value": "124698",
+          "unit": "",
+          "label": "Другие сферы",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "160159",
+          "unit": "",
+          "label": "Сфера торговли",
+          "trend": "neutral"
+        },
+        {
+          "value": "128457",
+          "unit": "",
+          "label": "Сельское, лесное и рыбное хозяйство",
+          "trend": "neutral"
+        },
+        {
+          "value": "32739",
+          "unit": "",
+          "label": "Услуги по проживанию и питанию",
+          "trend": "neutral"
+        },
+        {
+          "value": "14862",
+          "unit": "",
+          "label": "Здравоохранение и социальные услуги",
+          "trend": "neutral"
+        },
+        {
+          "value": "12999",
+          "unit": "",
+          "label": "Информация и связь",
+          "trend": "neutral"
+        },
+        {
+          "value": "124698",
+          "unit": "",
+          "label": "Другие сферы",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69083.png"
+    }
+  },
+  {
+    "id": "69077",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69077-urilishlarning-70-4-foizi-bino-va-inshootlar-urilishiga-t-ri-keladi-3",
+    "title": "70,4% строительства приходится на строительство зданий и сооружений",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Строительство",
+      "main_value": "70.4",
+      "main_unit": "% строительств",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "70.4",
+          "unit": "% строительств",
+          "label": "Поделиться",
+          "trend": "neutral"
+        },
+        {
+          "value": "73.9",
+          "unit": "трлн сумов",
+          "label": "- направление строительства зданий и сооружений -",
+          "trend": "neutral"
+        },
+        {
+          "value": "21.1",
+          "unit": "трлн сумов",
+          "label": "- строительство объектов гражданского назначения -",
+          "trend": "neutral"
+        },
+        {
+          "value": "10",
+          "unit": "трлн сумов",
+          "label": "- направление специализированных строительных работ -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "73.9",
+          "unit": "трлн сумов",
+          "label": "- направление строительства зданий и сооружений -",
+          "trend": "neutral"
+        },
+        {
+          "value": "21.1",
+          "unit": "трлн сумов",
+          "label": "- строительство объектов гражданского назначения -",
+          "trend": "neutral"
+        },
+        {
+          "value": "10",
+          "unit": "трлн сумов",
+          "label": "- направление специализированных строительных работ -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69077.png"
+    }
+  },
+  {
+    "id": "69073",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69073-bozor-khizmatlarining-41-1-foizi-pojtakht-issasiga-t-ri-keladi-3",
+    "title": "На долю столицы приходится 41,1 % рыночных услуг",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Статистика",
+      "main_value": "41.1",
+      "main_unit": "% рыночных",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "41.1",
+          "unit": "% рыночных",
+          "label": "На долю столицы приходится",
+          "trend": "neutral"
+        },
+        {
+          "value": "533.1",
+          "unit": "трлн сумов",
+          "label": "6 года объем оказанных рыночных услуг в Узбекистане составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "218.9",
+          "unit": "трлн сумов",
+          "label": "Город Ташкент -",
+          "trend": "neutral"
+        },
+        {
+          "value": "38.4",
+          "unit": "трлн сумов",
+          "label": "Самаркандская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "36.2",
+          "unit": "трлн сумов",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "34.8",
+          "unit": "трлн сумов",
+          "label": "Ферганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "27.0",
+          "unit": "трлн сумов",
+          "label": "Наманганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25.5",
+          "unit": "трлн сумов",
+          "label": "Андижанская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25.2",
+          "unit": "трлн сумов",
+          "label": "Кашкадарьинская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "20.6",
+          "unit": "трлн сумов",
+          "label": "Бухарская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "18.7",
+          "unit": "трлн сумов",
+          "label": "Хорезмская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "17.2",
+          "unit": "трлн сумов",
+          "label": "Сурхандарьинская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "533.1",
+          "unit": "трлн сумов",
+          "label": "6 года объем оказанных рыночных услуг в Узбекистане составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "218.9",
+          "unit": "трлн сумов",
+          "label": "Город Ташкент -",
+          "trend": "neutral"
+        },
+        {
+          "value": "38.4",
+          "unit": "трлн сумов",
+          "label": "Самаркандская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "36.2",
+          "unit": "трлн сумов",
+          "label": "Ташкентская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "34.8",
+          "unit": "трлн сумов",
+          "label": "Ферганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "27.0",
+          "unit": "трлн сумов",
+          "label": "Наманганская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25.5",
+          "unit": "трлн сумов",
+          "label": "Андижанская область -",
+          "trend": "neutral"
+        },
+        {
+          "value": "25.2",
+          "unit": "трлн сумов",
+          "label": "Кашкадарьинская область -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69073.png"
+    }
+  },
+  {
+    "id": "69069",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69069-zbekistonda-sanoat-korkhonalari-ajsi-j-nalishlarda-faoliyat-yuritmo-da-3",
+    "title": "В каких направлениях осуществляют деятельность промышленные предприятия Узбекистана?",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "12.4",
+      "main_unit": "тыс. единиц",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "12.4",
+          "unit": "тыс. единиц",
+          "label": "производство продуктов питания -",
+          "trend": "neutral"
+        },
+        {
+          "value": "20",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        },
+        {
+          "value": "8.7",
+          "unit": "тыс. единиц",
+          "label": "производство прочей неметаллической минеральной продукции -",
+          "trend": "neutral"
+        },
+        {
+          "value": "14",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        },
+        {
+          "value": "6.2",
+          "unit": "тыс. единиц",
+          "label": "производство одежды -",
+          "trend": "neutral"
+        },
+        {
+          "value": "10.1",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        },
+        {
+          "value": "5.1",
+          "unit": "тыс. единиц",
+          "label": "производство готовых металлических изделий -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8.2",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        },
+        {
+          "value": "4.3",
+          "unit": "тыс. единиц",
+          "label": "производство мебели -",
+          "trend": "neutral"
+        },
+        {
+          "value": "6.9",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        },
+        {
+          "value": "3.8",
+          "unit": "тыс. единиц",
+          "label": "производство текстильной продукции -",
+          "trend": "neutral"
+        },
+        {
+          "value": "6.1",
+          "unit": "%",
+          "label": "единиц (",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "12.4",
+          "unit": "тыс. единиц",
+          "label": "производство продуктов питания -",
+          "trend": "neutral"
+        },
+        {
+          "value": "8.7",
+          "unit": "тыс. единиц",
+          "label": "производство прочей неметаллической минеральной продукции -",
+          "trend": "neutral"
+        },
+        {
+          "value": "6.2",
+          "unit": "тыс. единиц",
+          "label": "производство одежды -",
+          "trend": "neutral"
+        },
+        {
+          "value": "5.1",
+          "unit": "тыс. единиц",
+          "label": "производство готовых металлических изделий -",
+          "trend": "neutral"
+        },
+        {
+          "value": "4.3",
+          "unit": "тыс. единиц",
+          "label": "производство мебели -",
+          "trend": "neutral"
+        },
+        {
+          "value": "3.8",
+          "unit": "тыс. единиц",
+          "label": "производство текстильной продукции -",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69069.png"
+    }
+  },
+  {
+    "id": "69066",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69066-teper-statistika-znaet-vse",
+    "title": "Теперь статистика знает все",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Промышленность",
+      "main_value": "1.8",
+      "main_unit": "процента",
+      "period": "июля 2026",
+      "key_stats": [
+        {
+          "value": "1.8",
+          "unit": "процента",
+          "label": "рительным итогам пе- казахи –",
+          "trend": "neutral"
+        },
+        {
+          "value": "1.6",
+          "unit": "процента",
+          "label": "й данных, принятием решений при реписи населения и русские –",
+          "trend": "neutral"
+        },
+        {
+          "value": "0.6",
+          "unit": "процента",
+          "label": "киргизы –",
+          "trend": "neutral"
+        },
+        {
+          "value": "0.5",
+          "unit": "процента",
+          "label": "туркмены –",
+          "trend": "neutral"
+        },
+        {
+          "value": "97.3",
+          "unit": "процента",
+          "label": "охватила",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.7",
+          "unit": "процента были",
+          "label": "еся",
+          "trend": "neutral"
+        },
+        {
+          "value": "18.8",
+          "unit": "процента",
+          "label": "еся 2,7 процента были учтены и цифровые технологии по- на",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.2",
+          "unit": "процента",
+          "label": "Показатель",
+          "trend": "neutral"
+        },
+        {
+          "value": "15",
+          "unit": "процентов",
+          "label": "Результаты переписи будут ских хозяйств на",
+          "trend": "neutral"
+        },
+        {
+          "value": "12",
+          "unit": "процентов",
+          "label": "базу о демографическом, (19 766 166 человек) в респу- чем на",
+          "trend": "neutral"
+        },
+        {
+          "value": "89.4",
+          "unit": "процента насе",
+          "label": "его размещении в разрезе ре- составили",
+          "trend": "neutral"
+        },
+        {
+          "value": "3.3",
+          "unit": "процента",
+          "label": "гионов, возрастном и половом ления, таджики –",
+          "trend": "neutral"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "1.8",
+          "unit": "процента",
+          "label": "рительным итогам пе- казахи –",
+          "trend": "neutral"
+        },
+        {
+          "value": "1.6",
+          "unit": "процента",
+          "label": "й данных, принятием решений при реписи населения и русские –",
+          "trend": "neutral"
+        },
+        {
+          "value": "0.6",
+          "unit": "процента",
+          "label": "киргизы –",
+          "trend": "neutral"
+        },
+        {
+          "value": "0.5",
+          "unit": "процента",
+          "label": "туркмены –",
+          "trend": "neutral"
+        },
+        {
+          "value": "97.3",
+          "unit": "процента",
+          "label": "охватила",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.7",
+          "unit": "процента были",
+          "label": "еся",
+          "trend": "neutral"
+        },
+        {
+          "value": "18.8",
+          "unit": "процента",
+          "label": "еся 2,7 процента были учтены и цифровые технологии по- на",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.2",
+          "unit": "процента",
+          "label": "Показатель",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69066.png"
+    }
+  },
+  {
+    "id": "69056",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69056-indeks-plova-05-07-2026",
+    "title": "СВЕДЕНИЯ  о средних ценах продуктов, используемых для приготовления  плова, по регионам Республики Узбекистан",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Цены",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июля 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/69056.png"
+    }
+  },
+  {
+    "id": "69052",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69052-zbekiston-respublikasida-istemol-narkhlari-indeksi-ini-2026-jil-maj-oji-rus-05-07-2026",
+    "title": "Индекс потребительских цен (ИПЦ) в Республике Узбекистан  за июнь 2026 года",
+    "date": "",
+    "analysis": {
+      "headline": "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ",
+      "category": "Цены",
+      "main_value": "100.6",
+      "main_unit": "%",
+      "period": "июнь 2026",
+      "key_stats": [
+        {
+          "value": "100.6",
+          "unit": "%",
+          "label": "В июне 2026 года сводный ИПЦ за месяц составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "99.8",
+          "unit": "%",
+          "label": "В июне 2026 года сводный ИПЦ за месяц составил 100,6 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "103.3",
+          "unit": "%",
+          "label": "года), к декабрю 2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "104.2",
+          "unit": "%",
+          "label": "года), к декабрю 2025 года — 103,3 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "106.4",
+          "unit": "%",
+          "label": " — 103,3 % (104,2 % в июне 2025 года), в годовом выражении —",
+          "trend": "neutral"
+        },
+        {
+          "value": "108.7",
+          "unit": "%",
+          "label": "106,4 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "101.5",
+          "unit": "%",
+          "label": "составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "100.5",
+          "unit": "%",
+          "label": "составил 101,5 % (в июне 2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "105.2",
+          "unit": "%",
+          "label": "(в январе–июне 2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "106.9",
+          "unit": "%",
+          "label": "(в январе–июне 2025 года — 105,2 %), в годовом выражении —",
+          "trend": "neutral"
+        },
+        {
+          "value": "110.3",
+          "unit": "%",
+          "label": "2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "2.3",
+          "unit": "%",
+          "label": "по следующим видам: рис и рисовая сечка — на",
+          "trend": "up"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "103.3",
+          "unit": "%",
+          "label": "года), к декабрю 2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "104.2",
+          "unit": "%",
+          "label": "года), к декабрю 2025 года — 103,3 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "106.4",
+          "unit": "%",
+          "label": " — 103,3 % (104,2 % в июне 2025 года), в годовом выражении —",
+          "trend": "neutral"
+        },
+        {
+          "value": "100.5",
+          "unit": "%",
+          "label": "составил 101,5 % (в июне 2025 года —",
+          "trend": "neutral"
+        },
+        {
+          "value": "100.6",
+          "unit": "%",
+          "label": "В июне 2026 года сводный ИПЦ за месяц составил",
+          "trend": "neutral"
+        },
+        {
+          "value": "99.8",
+          "unit": "%",
+          "label": "В июне 2026 года сводный ИПЦ за месяц составил 100,6 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "108.7",
+          "unit": "%",
+          "label": "106,4 % (",
+          "trend": "neutral"
+        },
+        {
+          "value": "101.5",
+          "unit": "%",
+          "label": "составил",
+          "trend": "neutral"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/69052.png"
+    }
   }
 ]
