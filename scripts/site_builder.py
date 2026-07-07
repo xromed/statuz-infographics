@@ -137,8 +137,11 @@ def _chart_block(analysis: dict, color: str) -> str:
         return ""
 
     try:
-        values = [float(s["value"]) for s in chart_data]
+        values = [float(s["value"]) if s.get("value") is not None else None
+                  for s in chart_data]
     except (ValueError, TypeError):
+        return ""
+    if all(v is None for v in values):
         return ""
 
     _unit_parts = chart_data[0].get("unit", "").split() if chart_data else []
@@ -179,7 +182,8 @@ def _chart_block(analysis: dict, color: str) -> str:
         borderWidth: 2.5,
         backgroundColor: grad,
         fill: true,
-        tension: 0.35,
+        tension: 0.25,
+        spanGaps: false,
         pointBackgroundColor: c,
         pointRadius: 5,
         pointHoverRadius: 7,
@@ -194,7 +198,7 @@ def _chart_block(analysis: dict, color: str) -> str:
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: {{ label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' {unit}' }}
+          callbacks: {{ label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' {unit}' }}
         }}
       }},
       scales: {{
@@ -270,8 +274,11 @@ def _donut_chart(chart_data: list, color: str) -> str:
     if len(chart_data) < 2:
         return ""
     try:
-        values = [float(s["value"]) for s in chart_data]
+        values = [float(s["value"]) if s.get("value") is not None else None
+                  for s in chart_data]
     except (ValueError, TypeError):
+        return ""
+    if all(v is None for v in values):
         return ""
 
     palette = [

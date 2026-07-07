@@ -18,9 +18,20 @@ def parse(url: str) -> dict:
 
     soup = BeautifulSoup(r.text, "lxml")
 
-    # Заголовок
-    h2 = soup.find("h2")
-    title = h2.get_text(strip=True) if h2 else ""
+    # Заголовок. На странице обычно два <h2>: статичная шапка сайта
+    # "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ" (первая) и реальный заголовок
+    # статьи (последняя, идёт прямо перед датой публикации). Берём последний
+    # h2, который не совпадает со статичной шапкой.
+    STATIC_H2 = {"республики узбекистан по статистике"}
+    h2_tags = soup.find_all("h2")
+    title = ""
+    for h2 in reversed(h2_tags):
+        t = h2.get_text(strip=True)
+        if t and t.strip().lower() not in STATIC_H2:
+            title = t
+            break
+    if not title and h2_tags:
+        title = h2_tags[0].get_text(strip=True)
 
     # Дата
     date = ""

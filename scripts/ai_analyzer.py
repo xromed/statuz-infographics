@@ -266,30 +266,63 @@ def _year_from_label(s: dict) -> int:
 
 
 def _build_chart_data(key_stats: list) -> list:
-    """Выбирает показатели с одинаковыми единицами для диаграммы."""
+    """Выбирает показатели для диаграммы.
+
+    Два режима:
+    1) Временной ряд — только показатели с реально распознанным годом
+       в подписи. Остальные (заголовок-итог, нечисловые ярлыки) сюда
+       никогда не попадают, иначе на line-графике year-точки вперемешку
+       с произвольным текстом рисуются как единая гладкая кривая.
+       Пропущенные годы внутри диапазона заполняются None (разрыв на
+       графике), чтобы не "заглаживать" дыры в данных.
+    2) Структура/части — сравнение категорий (регионы, отрасли и т.п.).
+       Первый показатель (key_stats[0]) почти всегда совпадает с главной
+       цифрой в заголовке ("Х достигло N трлн сумов") — это ИТОГ, а не
+       сравнимая категория, поэтому в диаграмму частей он не включается
+       (иначе "итого" рисуется как ещё один бар рядом со своими же
+       составляющими).
+    """
     if not key_stats:
         return []
 
+    dated = [s for s in key_stats if _year_from_label(s) != 9999]
+    if len(dated) >= 2:
+        by_year = {}
+        for s in dated:
+            y = _year_from_label(s)
+            if y not in by_year:  # первое вхождение года
+                by_year[y] = s
+        years = sorted(by_year)
+        if len(years) >= 2:
+            span = years[-1] - years[0] + 1
+            if span <= 12:
+                filled = []
+                for y in range(years[0], years[-1] + 1):
+                    if y in by_year:
+                        filled.append(by_year[y])
+                    else:
+                        filled.append({
+                            "value": None,
+                            "unit": dated[0].get("unit", ""),
+                            "label": str(y),
+                            "trend": "neutral",
+                        })
+                return filled[:12]
+            return [by_year[y] for y in years][:8]
+
     from collections import defaultdict
+    candidates = key_stats[1:] if len(key_stats) > 1 else key_stats
     groups = defaultdict(list)
-    for s in key_stats:
+    for s in candidates:
         unit_base = s["unit"].split()[0] if s["unit"] else "ед."
-        try:
-            float(s["value"])
+        if _safe_float(s["value"]) is not None:
             groups[unit_base].append(s)
-        except ValueError:
-            pass
 
     best = max(groups.values(), key=len, default=[])
     result = best[:8] if len(best) >= 2 else []
 
     if not result:
-        result = [s for s in key_stats if _safe_float(s["value"]) is not None][:8]
-
-    # Если метки содержат годы — сортируем хронологически
-    years = [_year_from_label(s) for s in result]
-    if sum(1 for y in years if y != 9999) >= 2:
-        result = sorted(result, key=_year_from_label)
+        result = [s for s in candidates if _safe_float(s["value"]) is not None][:8]
 
     return result
 
@@ -301,7 +334,17 @@ def _safe_float(val):
         return None
 
 
+def _dehyphenate(text: str) -> str:
+    """Склеивает слова, перенесённые по слогам через дефис на конце строки —
+    типичный артефакт pdfplumber на многоколоночных PDF-релизах Госкомстата
+    ("пере-\nписи" -> "переписи"). Без этого regex-экстрактор хватает
+    случайные обрывки слов вокруг чисел вместо настоящих подписей."""
+    text = re.sub(r'-\s*\n\s*(?=[а-яёa-z])', '', text)
+    return text
+
+
 def analyze(title: str, body: str, tables: list) -> dict:
+    body = _dehyphenate(body)
     full_text = title + "\n" + body
 
     category = _detect_category(full_text)

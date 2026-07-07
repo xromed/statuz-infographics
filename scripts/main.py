@@ -150,6 +150,12 @@ def run():
                 all_tables,
             )
 
+            # Сохраняем текст для будущих пересборок/переанализа
+            # (раньше это делалось только в _fetch_and_analyze при reanalyze=True,
+            # из-за чего у свежедобавленных статей body_text оставался пустым)
+            article["body_text"]  = all_text[:8000]
+            article["tables_raw"] = all_tables[:3]
+
             # 3. Генерируем инфографику через matplotlib
             img_path = image_generator.generate(article["id"], analysis)
             analysis["img_path"] = img_path or ""
