@@ -7,6 +7,11 @@ from urllib.parse import unquote
 BASE = "https://stat.uz"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; StatBot/1.0)"}
 
+# Полное совпадение с этим текстом (без учёта регистра) означает, что мы
+# выцепили не заголовок статьи, а название комитета из шапки/подвала сайта.
+# Такой "заголовок" никогда не должен попадать в данные.
+BAD_TITLE = "национальный комитет республики узбекистан по статистике"
+
 
 def parse(url: str) -> dict:
     try:
@@ -18,20 +23,43 @@ def parse(url: str) -> dict:
 
     soup = BeautifulSoup(r.text, "lxml")
 
-    # Заголовок. На странице обычно два <h2>: статичная шапка сайта
-    # "РЕСПУБЛИКИ УЗБЕКИСТАН ПО СТАТИСТИКЕ" (первая) и реальный заголовок
-    # статьи (последняя, идёт прямо перед датой публикации). Берём последний
-    # h2, который не совпадает со статичной шапкой.
-    STATIC_H2 = {"республики узбекистан по статистике"}
-    h2_tags = soup.find_all("h2")
+    # Блок с телом статьи ищем в первую очередь: заголовок надёжнее всего
+    # искать внутри него, а не по всей странице (в шапке и подвале сайта
+    # тоже есть свои <h2>, включая "Национальный комитет Республики
+    # Узбекистан по статистике" в подвале — его легко случайно принять за
+    # заголовок при поиске по всему документу).
+    content = (
+        soup.find("div", class_="item-page")
+        or soup.find("article")
+        or soup.find("div", id="content")
+    )
+
+    # Основной источник заголовка — тег <title> страницы: на практике он
+    # всегда содержит чистый заголовок статьи без служебных суффиксов вида
+    # " | stat.uz".
     title = ""
-    for h2 in reversed(h2_tags):
-        t = h2.get_text(strip=True)
-        if t and t.strip().lower() not in STATIC_H2:
+    title_tag = soup.find("title")
+    if title_tag:
+        t = title_tag.get_text(strip=True)
+        # На случай появления суффикса " | stat.uz" или похожего —
+        # отрезаем всё после первого " | ".
+        t = t.split(" | ")[0].strip()
+        if t and t.strip().lower() != BAD_TITLE:
             title = t
-            break
-    if not title and h2_tags:
-        title = h2_tags[0].get_text(strip=True)
+
+    # Фолбэк: ищем <h2> только внутри блока статьи (не по всей странице),
+    # чтобы не зацепить статичные заголовки шапки/подвала.
+    if not title and content:
+        for h2 in content.find_all("h2"):
+            t = h2.get_text(strip=True)
+            if t and t.strip().lower() != BAD_TITLE:
+                title = t
+                break
+
+    # Защита: даже если что-то пошло не так выше, никогда не отдаём
+    # название комитета в качестве заголовка статьи.
+    if title.strip().lower() == BAD_TITLE:
+        title = ""
 
     # Дата
     date = ""
@@ -40,12 +68,6 @@ def parse(url: str) -> dict:
         if m:
             date = m.group(1)
             break
-
-    content = (
-        soup.find("div", class_="item-page")
-        or soup.find("article")
-        or soup.find("div", id="content")
-    )
 
     body_text, pdf_urls, tables = "", [], []
 

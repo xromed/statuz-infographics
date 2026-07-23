@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Национальный комитет Республики Узбекистан по статистике</title>
+<title>За 5 месяцев в Узбекистане произведено более 100 тысяч двигателей</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #bf360c;
-  --bg: #fbe9e7;
+  --c: #37474f;
+  --bg: #eceff1;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #bf360c;
+  background: #37474f;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #bf360c;
+  background: #37474f;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #bf360c;
+  color: #37474f;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,150 +359,24 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🏭 Промышленность</span>
+  <span class="nav-title">📊 Статистика</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🏭</div>
+    <div class="hero-bg-icon">📊</div>
     <div class="hero-body">
-      <div class="badge">Промышленность</div>
-      <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
-      <div class='hero-period'>июля 2026</div>
+      <div class="badge">Статистика</div>
+      <div class="hero-title">За 5 месяцев в Узбекистане произведено более 100 тысяч двигателей</div>
+      
     </div>
   </div>
 
-  <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-hero-val">
-          <span class="counter" data-target="103293">103 293</span>
-          <span class="kpi-hero-unit">единицы</span>
-          <span class="trend neutral">→</span>
-        </div>
-        <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="94257">94 257</span>
-          <span class="kpi-unit">штук</span>
-        </div>
-        <div class="kpi-label">2025 год -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="107468">107 468</span>
-          <span class="kpi-unit">штук</span>
-        </div>
-        <div class="kpi-label">2024 год -</div>
-        <span class="trend neutral">→</span>
-      </div></div>
-  
-<div class="chart-wrap">
-  <div class="section-label">Динамика по годам</div>
-  <div style="position:relative;height:220px">
-    <canvas id="mainChart"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  const ctx = document.getElementById('mainChart').getContext('2d');
-  const c = "#bf360c";
-  const grad = ctx.createLinearGradient(0,0,0,220);
-  grad.addColorStop(0, c + '44');
-  grad.addColorStop(1, c + '00');
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["2024", "2025", "2026"],
-      datasets: [{
-        data: [107468.0, 94257.0, 103293.0],
-        borderColor: c,
-        borderWidth: 2.5,
-        backgroundColor: grad,
-        fill: true,
-        tension: 0.25,
-        spanGaps: false,
-        pointBackgroundColor: c,
-        pointRadius: 5,
-        pointHoverRadius: 7,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#1a1a2e',
-          padding: 10,
-          cornerRadius: 8,
-          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' штук' }
-        }
-      },
-      scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 12, family: 'Inter', weight: '600' }, color: '#546e7a' } },
-        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#90a4ae' } }
-      },
-      animation: { duration: 1000, easing: 'easeOutQuart' }
-    }
-  });
-})();
-</script>
   
   
-<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
-  <div class="insights-header">
-    <span class="insights-icon">💡</span>
-    <span class="insights-title">Аналитика</span>
-  </div>
-  <div class="insights-grid">
-    
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📈</span>
-        <span class="insight-card-title">Общий рост</span>
-      </div>
-      <div class="insight-card-body">За 2 лет (2024–2026) показатель <b>снизился на 3.9%</b>. Среднегодовой темп роста (CAGR): <b>-2.0% в год</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📉</span>
-        <span class="insight-card-title">Рекордный скачок</span>
-      </div>
-      <div class="insight-card-body">Максимальный однолетний падение — в <b>2025 году</b>: с 107 468 до 94 257 штук (<b>падение 12.3%</b> за год).</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📌</span>
-        <span class="insight-card-title">Минимум и максимум</span>
-      </div>
-      <div class="insight-card-body">Минимальное значение — <b>94 257 штук</b> (2025 г.), максимальное — <b>107 468 штук</b> (2024 г.). Амплитуда: <b>14.0%</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔄</span>
-        <span class="insight-card-title">2026 vs 2025</span>
-      </div>
-      <div class="insight-card-body">В последний период показатель <b>вырос на 9.6%</b>: с 94 257 до <b>103 293 штук</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📐</span>
-        <span class="insight-card-title">Среднее за период</span>
-      </div>
-      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>101 672.7 штук</b>. Текущий показатель <b>выше среднего</b> на 1.6%.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔮</span>
-        <span class="insight-card-title">Прогноз на 2027</span>
-      </div>
-      <div class="insight-card-body">При сохранении среднего темпа последних лет (-1.4%/год) к <b>2027 году</b> показатель снизится до <b>~101 895.2 штук</b>.</div>
-    </div>
-  </div>
-</div>
+  
+  
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69293-5-ojda-zbekistonda-100-mingdan-orti-dvigatel-ishlab-chi-arildi-3" target="_blank" rel="noopener">

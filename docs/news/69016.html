@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Национальный комитет Республики Узбекистан по статистике</title>
+<title>Сколько продали кафе и рестораны за 5 месяцев?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #bf360c;
-  --bg: #fbe9e7;
+  --c: #37474f;
+  --bg: #eceff1;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #bf360c;
+  background: #37474f;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #bf360c;
+  background: #37474f;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #bf360c;
+  color: #37474f;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,134 +359,24 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🏭 Промышленность</span>
+  <span class="nav-title">📊 Статистика</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🏭</div>
+    <div class="hero-bg-icon">📊</div>
     <div class="hero-body">
-      <div class="badge">Промышленность</div>
-      <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
-      <div class='hero-period'>июля 2026</div>
+      <div class="badge">Статистика</div>
+      <div class="hero-title">Сколько продали кафе и рестораны за 5 месяцев?</div>
+      
     </div>
   </div>
 
-  <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-hero-val">
-          <span class="counter" data-target="94.4">94.4</span>
-          <span class="kpi-hero-unit">трлн сумов</span>
-          <span class="trend neutral">→</span>
-        </div>
-        <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="11.1">11.1</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">Этот показатель увеличился на</div>
-        <span class="trend up">↑</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="28483">28 483</span>
-          <span class="kpi-unit">коммерческих предпри</span>
-        </div>
-        <div class="kpi-label">6 года в Узбекистане в сфере общественного питания дейс</div>
-        <span class="trend neutral">→</span>
-      </div></div>
-  
-<div class="chart-wrap">
-  <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:240px">
-    <canvas id="mainChart"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  new Chart(document.getElementById('mainChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ["Этот показатель увеличился на", "6 года в Узбекистане в сфере общест"],
-      datasets: [{
-        data: [11.1, 28483.0],
-        backgroundColor: ["#bf360cff", "#bf360ccc"],
-        borderWidth: 0,
-        hoverOffset: 8,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '62%',
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
-        },
-        tooltip: {
-          backgroundColor: '#1a1a2e',
-          padding: 10,
-          cornerRadius: 8,
-          callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
-          }
-        }
-      },
-      animation: { animateRotate: true, duration: 900 }
-    }
-  });
-})();
-</script>
   
   
-<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
-  <div class="insights-header">
-    <span class="insights-icon">💡</span>
-    <span class="insights-title">Аналитика</span>
-  </div>
-  <div class="insights-grid">
-    
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🥇</span>
-        <span class="insight-card-title">Лидер</span>
-      </div>
-      <div class="insight-card-body"><b>6 года в Узбекистане в сфере общественно</b> занимает первое место: <b>28 483 %</b> — это <b>100.0%</b> от суммарного объёма по всем регионам.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔻</span>
-        <span class="insight-card-title">Аутсайдер</span>
-      </div>
-      <div class="insight-card-body">Наименьший показатель у <b>Этот показатель увеличился на</b>: <b>11.1 %</b>. Разрыв с лидером — <b>в 2566.0×</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">⚖️</span>
-        <span class="insight-card-title">Баланс</span>
-      </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>14 247 %</b>. Выше среднего — <b>1</b> из 2 регионов, ниже — <b>1</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">💰</span>
-        <span class="insight-card-title">Итого</span>
-      </div>
-      <div class="insight-card-body">Суммарный объём по всем 2 регионам: <b>28 494.1 %</b>. Второе место занимает <b>Этот показатель увеличился на</b> — 11.1 % (0.0%).</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📏</span>
-        <span class="insight-card-title">Неравномерность</span>
-      </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 99.9%). Сильный дисбаланс между лидером и аутсайдером.</div>
-    </div>
-  </div>
-</div>
+  
+  
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69016-5-ojda-kafe-va-restoranlar-ancha-savdo-ilgan-3" target="_blank" rel="noopener">

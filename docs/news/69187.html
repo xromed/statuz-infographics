@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Национальный комитет Республики Узбекистан по статистике</title>
+<title>В каких отраслях осуществляют деятельность иностранные предприятия?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -368,162 +368,15 @@ body {
     <div class="hero-bg-icon">🏭</div>
     <div class="hero-body">
       <div class="badge">Промышленность</div>
-      <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
-      <div class='hero-period'>июля 2026</div>
+      <div class="hero-title">В каких отраслях осуществляют деятельность иностранные предприятия?</div>
+      
     </div>
   </div>
 
-  <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-hero-val">
-          <span class="counter" data-target="19921">19 921</span>
-          <span class="kpi-hero-unit">предприятие</span>
-          <span class="trend neutral">→</span>
-        </div>
-        <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="7114">7 114</span>
-          <span class="kpi-unit"></span>
-        </div>
-        <div class="kpi-label">− в сфере торговли</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="3928">3 928</span>
-          <span class="kpi-unit"></span>
-        </div>
-        <div class="kpi-label">− в промышленности</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="1632">1 632</span>
-          <span class="kpi-unit"></span>
-        </div>
-        <div class="kpi-label">− в сфере строительства</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="1601">1 601</span>
-          <span class="kpi-unit"></span>
-        </div>
-        <div class="kpi-label">− в сфере информации и связи</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="878">878</span>
-          <span class="kpi-unit"></span>
-        </div>
-        <div class="kpi-label">− в сфере услуг по проживанию и питанию</div>
-        <span class="trend neutral">→</span>
-      </div></div>
-  
-<div class="chart-wrap">
-  <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:320px">
-    <canvas id="mainChart"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  const ctx = document.getElementById('mainChart').getContext('2d');
-  const c = "#bf360c";
-  const grad = ctx.createLinearGradient(0,0,0,300);
-  grad.addColorStop(0, c + 'ff');
-  grad.addColorStop(1, c + '88');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ["− в сфере торговли", "− в промышленности", "− в сфере строительства", "− в сфере информации и связи", "− в сфере услуг по проживанию и пит", "− в сфере транспортировки и хранени", "− в сфере сельского, лесного и рыбн", "− в сфере здравоохранения и социаль"],
-      datasets: [{
-        data: [7114.0, 3928.0, 1632.0, 1601.0, 878.0, 613.0, 520.0, 228.0],
-        backgroundColor: grad,
-        borderColor: c,
-        borderWidth: 0,
-        borderRadius: 5,
-        borderSkipped: false,
-      }]
-    },
-    options: {
-      indexAxis: "y",
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#1a1a2e',
-          padding: 10,
-          cornerRadius: 8,
-          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' ' }
-        }
-      },
-      scales: {
-        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
-        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
-      },
-      animation: { duration: 900, easing: 'easeOutQuart' }
-    }
-  });
-})();
-</script>
   
   
-<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
-  <div class="insights-header">
-    <span class="insights-icon">💡</span>
-    <span class="insights-title">Аналитика</span>
-  </div>
-  <div class="insights-grid">
-    
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🥇</span>
-        <span class="insight-card-title">Лидер</span>
-      </div>
-      <div class="insight-card-body"><b>− в сфере торговли</b> занимает первое место: <b>7 114 </b> — это <b>43.1%</b> от суммарного объёма по всем регионам.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔻</span>
-        <span class="insight-card-title">Аутсайдер</span>
-      </div>
-      <div class="insight-card-body">Наименьший показатель у <b>− в сфере здравоохранения и социального</b>: <b>228 </b>. Разрыв с лидером — <b>в 31.2×</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📊</span>
-        <span class="insight-card-title">Концентрация</span>
-      </div>
-      <div class="insight-card-body">Топ-3 — <b>− в сфере торговли</b>, <b>− в промышленности</b>, <b>− в сфере строительства</b> — формируют <b>76.7%</b> от общего объёма.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">⚖️</span>
-        <span class="insight-card-title">Баланс</span>
-      </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>2 064.2 </b>. Выше среднего — <b>2</b> из 8 регионов, ниже — <b>6</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">💰</span>
-        <span class="insight-card-title">Итого</span>
-      </div>
-      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>16 514 </b>. Второе место занимает <b>− в промышленности</b> — 3 928  (23.8%).</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📏</span>
-        <span class="insight-card-title">Неравномерность</span>
-      </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 106.5%). Сильный дисбаланс между лидером и аутсайдером.</div>
-    </div>
-  </div>
-</div>
+  
+  
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69187-xorijiy-korxonalar-qaysi-sohalarda-faoliyat-yuritmoqda-2" target="_blank" rel="noopener">

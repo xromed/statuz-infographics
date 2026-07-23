@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Национальный комитет Республики Узбекистан по статистике</title>
+<title>Какие виды услуг в Узбекистане растут быстрее всего?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #1565c0;
-  --bg: #e3f2fd;
+  --c: #37474f;
+  --bg: #eceff1;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #1565c0;
+  background: #37474f;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #1565c0;
+  background: #37474f;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #1565c0;
+  color: #37474f;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,165 +359,24 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🚆 Транспорт</span>
+  <span class="nav-title">📊 Статистика</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🚆</div>
+    <div class="hero-bg-icon">📊</div>
     <div class="hero-body">
-      <div class="badge">Транспорт</div>
-      <div class="hero-title">Национальный комитет Республики Узбекистан по статистике</div>
-      <div class='hero-period'>июля 2026</div>
+      <div class="badge">Статистика</div>
+      <div class="hero-title">Какие виды услуг в Узбекистане растут быстрее всего?</div>
+      
     </div>
   </div>
 
-  <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-hero-val">
-          <span class="counter" data-target="533.1">533.1</span>
-          <span class="kpi-hero-unit">трлн сумов</span>
-          <span class="trend neutral">→</span>
-        </div>
-        <div class="kpi-hero-label">Национальный комитет Республики Узбекистан по статистике</div>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="124.9">124.9</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">финансовые услуги —</div>
-        <span class="trend up">↑</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="122.2">122.2</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">услуги связи и информатизации -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="121.0">121</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">услуги в сфере образования -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="117.6">117.6</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">арендные услуги -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="117.5">117.5</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">услуги, связанные с недвижимостью -</div>
-        <span class="trend neutral">→</span>
-      </div></div>
-  
-<div class="chart-wrap">
-  <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:240px">
-    <canvas id="mainChart"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  new Chart(document.getElementById('mainChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ["финансовые услуги —", "услуги связи и информатизации -", "услуги в сфере образования -", "арендные услуги -", "услуги, связанные с недвижимостью -", "услуги в области архитектуры и инже", "услуги в сфере здравоохранения -", "услуги по проживанию и питанию -"],
-      datasets: [{
-        data: [124.9, 122.2, 121.0, 117.6, 117.5, 115.3, 114.7, 114.1],
-        backgroundColor: ["#1565c0ff", "#1565c0cc", "#1565c099", "#1565c077", "#1565c055", "#1565c033"],
-        borderWidth: 0,
-        hoverOffset: 8,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '62%',
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
-        },
-        tooltip: {
-          backgroundColor: '#1a1a2e',
-          padding: 10,
-          cornerRadius: 8,
-          callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
-          }
-        }
-      },
-      animation: { animateRotate: true, duration: 900 }
-    }
-  });
-})();
-</script>
   
   
-<div class="insights-block" style="--c:#1565c0;--bg:#e3f2fd">
-  <div class="insights-header">
-    <span class="insights-icon">💡</span>
-    <span class="insights-title">Аналитика</span>
-  </div>
-  <div class="insights-grid">
-    
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🥇</span>
-        <span class="insight-card-title">Лидер</span>
-      </div>
-      <div class="insight-card-body"><b>финансовые услуги</b> занимает первое место: <b>124.9 %</b> — это <b>13.2%</b> от суммарного объёма по всем регионам.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔻</span>
-        <span class="insight-card-title">Аутсайдер</span>
-      </div>
-      <div class="insight-card-body">Наименьший показатель у <b>услуги по проживанию и питанию</b>: <b>114.1 %</b>. Разрыв с лидером — <b>в 1.1×</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📊</span>
-        <span class="insight-card-title">Концентрация</span>
-      </div>
-      <div class="insight-card-body">Топ-3 — <b>финансовые услуги</b>, <b>услуги связи и информатизации</b>, <b>услуги в сфере образования</b> — формируют <b>38.9%</b> от общего объёма.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">⚖️</span>
-        <span class="insight-card-title">Баланс</span>
-      </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>118.4 %</b>. Выше среднего — <b>3</b> из 8 регионов, ниже — <b>5</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">💰</span>
-        <span class="insight-card-title">Итого</span>
-      </div>
-      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>947.3 %</b>. Второе место занимает <b>услуги связи и информатизации</b> — 122.2 % (12.9%).</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📏</span>
-        <span class="insight-card-title">Неравномерность</span>
-      </div>
-      <div class="insight-card-body">Распределение по регионам — <b>относительно равномерно</b> (коэффициент вариации: 3.1%). Показатели регионов близки к среднему.</div>
-    </div>
-  </div>
-</div>
+  
+  
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69038-zbekistonda-ajsi-khizmat-turlari-eng-tez-smo-da-6" target="_blank" rel="noopener">
