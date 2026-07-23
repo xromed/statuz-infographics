@@ -10,8 +10,8 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #37474f;
-  --bg: #eceff1;
+  --c: #bf360c;
+  --bg: #fbe9e7;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #37474f;
+  background: #bf360c;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #37474f;
+  background: #bf360c;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #37474f;
+  color: #bf360c;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,24 +359,165 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">📊 Статистика</span>
+  <span class="nav-title">🏭 Промышленность</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">📊</div>
+    <div class="hero-bg-icon">🏭</div>
     <div class="hero-body">
-      <div class="badge">Статистика</div>
+      <div class="badge">Промышленность</div>
       <div class="hero-title">Социально-экономическое положение Республики Узбекистан за…</div>
       <div class='hero-period'>май 2026</div>
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="505933.2">505 933.2</span>
+          <span class="kpi-hero-unit">млрд сум</span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">Социально-экономическое положение Республики Узбекистан за…</div>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="107.9">107.9</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">периоду прошлого года составил</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="86.2">86.2</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">промышленности составила</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="6.9">6.9</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">карьеров –</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="6.4">6.4</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">роснабжения, подачи газа, пара и кондиционирования возд</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="0.5">0.5</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label"> %, водоснабжения, канализации, сбора и утилизации отхо</div>
+        <span class="trend neutral">→</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:240px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  new Chart(document.getElementById('mainChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ["периоду прошлого года составил", "промышленности составила", "карьеров –", "роснабжения, подачи газа, пара и ко", " %, водоснабжения, канализации, сбо", "продукции на предприятиях обрабатыв", "на", "а 3,7 %, на предприятиях горнодобыв"],
+      datasets: [{
+        data: [107.9, 86.2, 6.9, 6.4, 0.5, 8.6, 3.7, 6.3],
+        backgroundColor: ["#bf360cff", "#bf360ccc", "#bf360c99", "#bf360c77", "#bf360c55", "#bf360c33"],
+        borderWidth: 0,
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: {
+            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
+          }
+        }
+      },
+      animation: { animateRotate: true, duration: 900 }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>периоду прошлого года составил</b> занимает первое место: <b>107.9 %</b> — это <b>47.6%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b> %, водоснабжения, канализации, сбора и</b>: <b>0.5 %</b>. Разрыв с лидером — <b>в 215.8×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
+      </div>
+      <div class="insight-card-body">Топ-3 — <b>периоду прошлого года составил</b>, <b>промышленности составила</b>, <b>продукции на предприятиях обрабатывающей</b> — формируют <b>89.5%</b> от общего объёма.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>28.3 %</b>. Выше среднего — <b>2</b> из 8 регионов, ниже — <b>6</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>226.5 %</b>. Второе место занимает <b>промышленности составила</b> — 86.2 % (38.1%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 141.7%). Сильный дисбаланс между лидером и аутсайдером.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/68934-sotsial-no-ekonomicheskoe-polozhenie-respubliki-uzbekistan-za-yanvar-maj-2026-goda" target="_blank" rel="noopener">

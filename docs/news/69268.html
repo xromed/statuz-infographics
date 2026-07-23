@@ -369,14 +369,164 @@ body {
     <div class="hero-body">
       <div class="badge">Образование</div>
       <div class="hero-title">На сколько увеличилось число студентов в Узбекистане за 35 лет?</div>
-      
+      <div class='hero-period'>июля 2026</div>
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="1">1</span>
+          <span class="kpi-hero-unit">млн</span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">На сколько увеличилось число студентов в Узбекистане за 35 лет?</div>
+      </div>
+      <div class="kpi-card" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-val">
+          <span class="counter" data-target="197.6">197.6</span>
+          <span class="kpi-unit">тыс. человек</span>
+        </div>
+        <div class="kpi-label"> 1991/1992 учебным годом этот показатель увеличился на </div>
+        <span class="trend up">↑</span>
+      </div>
+      <div class="kpi-card" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-val">
+          <span class="counter" data-target="337.4">337.4</span>
+          <span class="kpi-unit">тыс. человек</span>
+        </div>
+        <div class="kpi-label">1991/1992 учебный год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-val">
+          <span class="counter" data-target="192.1">192.1</span>
+          <span class="kpi-unit">тыс. человек</span>
+        </div>
+        <div class="kpi-label">1995/1996 учебный год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-val">
+          <span class="counter" data-target="183.6">183.6</span>
+          <span class="kpi-unit">тыс. человек</span>
+        </div>
+        <div class="kpi-label">2000/2001 учебный год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#0277bd;--bg:#e1f5fe">
+        <div class="kpi-val">
+          <span class="counter" data-target="278.7">278.7</span>
+          <span class="kpi-unit">тыс. человек</span>
+        </div>
+        <div class="kpi-label">2005/2006 учебный год -</div>
+        <span class="trend neutral">→</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Динамика по годам</div>
+  <div style="position:relative;height:220px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "#0277bd";
+  const grad = ctx.createLinearGradient(0,0,0,220);
+  grad.addColorStop(0, c + '44');
+  grad.addColorStop(1, c + '00');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["1991", "1995", "2000", "2005", "2010", "2015", "2020", "2021"],
+      datasets: [{
+        data: [197.6, 192.1, 183.6, 278.7, 274.5, 264.3, 571.5, 808.4],
+        borderColor: c,
+        borderWidth: 2.5,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.25,
+        spanGaps: false,
+        pointBackgroundColor: c,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' тыс.' }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 12, family: 'Inter', weight: '600' }, color: '#546e7a' } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#90a4ae' } }
+      },
+      animation: { duration: 1000, easing: 'easeOutQuart' }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#0277bd;--bg:#e1f5fe">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📈</span>
+        <span class="insight-card-title">Общий рост</span>
+      </div>
+      <div class="insight-card-body">За 30 лет (1991–2021) показатель <b>вырос на 309.1%</b>. Среднегодовой темп роста (CAGR): <b>+4.8% в год</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🚀</span>
+        <span class="insight-card-title">Рекордный скачок</span>
+      </div>
+      <div class="insight-card-body">Максимальный однолетний рост — в <b>2020 году</b>: с 264.3 до 571.5 тыс. человек (<b>рост 116.2%</b> за год).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📌</span>
+        <span class="insight-card-title">Минимум и максимум</span>
+      </div>
+      <div class="insight-card-body">Минимальное значение — <b>183.6 тыс. человек</b> (2000 г.), максимальное — <b>808.4 тыс. человек</b> (2021 г.). Амплитуда: <b>340.3%</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔄</span>
+        <span class="insight-card-title">2021 vs 2020</span>
+      </div>
+      <div class="insight-card-body">В последний период показатель <b>вырос на 41.5%</b>: с 571.5 до <b>808.4 тыс. человек</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📐</span>
+        <span class="insight-card-title">Среднее за период</span>
+      </div>
+      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>346.3 тыс. человек</b>. Текущий показатель <b>выше среднего</b> на 133.4%.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔮</span>
+        <span class="insight-card-title">Прогноз на 2022</span>
+      </div>
+      <div class="insight-card-body">При сохранении среднего темпа последних лет (+78.8%/год) к <b>2022 году</b> показатель вырастет до <b>~1 445.8 тыс. человек</b>.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69268-35-jilda-zbekistonda-talabalar-soni-anchaga-oshdi-3" target="_blank" rel="noopener">

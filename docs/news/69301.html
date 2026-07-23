@@ -10,8 +10,8 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #bf360c;
-  --bg: #fbe9e7;
+  --c: #b71c1c;
+  --bg: #ffebee;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #bf360c;
+  background: #b71c1c;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #bf360c;
+  background: #b71c1c;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #bf360c;
+  color: #b71c1c;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,24 +359,171 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🏭 Промышленность</span>
+  <span class="nav-title">🏥 Здравоохранение</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🏭</div>
+    <div class="hero-bg-icon">🏥</div>
     <div class="hero-body">
-      <div class="badge">Промышленность</div>
+      <div class="badge">Здравоохранение</div>
       <div class="hero-title">Какие страны открыли предприятия в сфере медицины в Узбекистане?</div>
-      
+      <div class='hero-period'>июля 2026</div>
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="36">36</span>
+          <span class="kpi-hero-unit"></span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">Какие страны открыли предприятия в сфере медицины в Узбекистане?</div>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="34">34</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">Россия</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="25">25</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">Китай</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="18">18</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">Южная Корея</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="16">16</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">Казахстан</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="9">9</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">Азербайджан</div>
+        <span class="trend neutral">→</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:320px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "#b71c1c";
+  const grad = ctx.createLinearGradient(0,0,0,300);
+  grad.addColorStop(0, c + 'ff');
+  grad.addColorStop(1, c + '88');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Россия", "Китай", "Южная Корея", "Казахстан", "Азербайджан", "США", "Объединенные Арабские Эмираты", "Кыргызстан"],
+      datasets: [{
+        data: [34.0, 25.0, 18.0, 16.0, 9.0, 8.0, 6.0, 4.0],
+        backgroundColor: grad,
+        borderColor: c,
+        borderWidth: 0,
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' ' }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
+        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
+      },
+      animation: { duration: 900, easing: 'easeOutQuart' }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#b71c1c;--bg:#ffebee">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>Россия</b> занимает первое место: <b>34 </b> — это <b>28.3%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b>Кыргызстан</b>: <b>4 </b>. Разрыв с лидером — <b>в 8.5×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
+      </div>
+      <div class="insight-card-body">Топ-3 — <b>Россия</b>, <b>Китай</b>, <b>Южная Корея</b> — формируют <b>64.2%</b> от общего объёма.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>15 </b>. Выше среднего — <b>4</b> из 8 регионов, ниже — <b>4</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>120 </b>. Второе место занимает <b>Китай</b> — 25  (20.8%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 64.9%). Умеренные различия между регионами.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69301-zbekistonda-tibbijot-so-asida-ajsi-davlatlar-korkhona-ochgan-5" target="_blank" rel="noopener">

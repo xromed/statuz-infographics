@@ -115,7 +115,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
   <div class="topbar-inner">
     <div>
       <div class="site-title">📊 Статистика Узбекистана</div>
-      <div class="site-sub">Госкомстат УЗ · Обновлено 23.07.2026 18:52</div>
+      <div class="site-sub">Госкомстат УЗ · Обновлено 23.07.2026 14:12</div>
     </div>
     <div class="count-pill" id="countPill">109 материалов</div>
   </div>
@@ -123,7 +123,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
 
 <div class="filterbar">
   <div class="filterbar-inner">
-    <div class="pills" id="catPills"><button class="pill active" data-cat="all">Все</button><button class="pill" data-cat="Статистика">📊 Статистика</button><button class="pill" data-cat="Промышленность">🏭 Промышленность</button><button class="pill" data-cat="Торговля">🛒 Торговля</button><button class="pill" data-cat="Здравоохранение">🏥 Здравоохранение</button><button class="pill" data-cat="Образование">🎓 Образование</button><button class="pill" data-cat="Цены">💰 Цены</button><button class="pill" data-cat="Транспорт">🚆 Транспорт</button><button class="pill" data-cat="Туризм">✈️ Туризм</button><button class="pill" data-cat="Экономика">📈 Экономика</button><button class="pill" data-cat="Спорт">🏆 Спорт</button><button class="pill" data-cat="Строительство">🏗️ Строительство</button><button class="pill" data-cat="Демография">👥 Демография</button></div>
+    <div class="pills" id="catPills"><button class="pill active" data-cat="all">Все</button><button class="pill" data-cat="Статистика">📊 Статистика</button><button class="pill" data-cat="Промышленность">🏭 Промышленность</button><button class="pill" data-cat="Здравоохранение">🏥 Здравоохранение</button><button class="pill" data-cat="Туризм">✈️ Туризм</button><button class="pill" data-cat="Торговля">🛒 Торговля</button><button class="pill" data-cat="Образование">🎓 Образование</button><button class="pill" data-cat="Транспорт">🚆 Транспорт</button><button class="pill" data-cat="Цены">💰 Цены</button><button class="pill" data-cat="Экономика">📈 Экономика</button><button class="pill" data-cat="Спорт">🏆 Спорт</button><button class="pill" data-cat="Строительство">🏗️ Строительство</button><button class="pill" data-cat="Демография">👥 Демография</button></div>
     <select class="month-select" id="monthSelect"><option value="all">Все месяцы</option><option value="2026-07">Июль 2026</option><option value="2026-06">Июнь 2026</option></select>
   </div>
 </div>
@@ -146,18 +146,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">В каких отраслях больше всего действуют предприятия в Узбекистане?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>18 638<span class='card-unit'> единиц</span></div>
           <div class="card-date">23 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69339.html" class="card-link" data-cat="Торговля" data-month="2026-07">
+    <a href="news/69339.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#00695c"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Что Узбекистан экспортирует больше всего?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>12.6<span class='card-unit'> млрд долларов</span></div>
           <div class="card-date">23 июля 2026</div>
         </div>
       </div>
@@ -179,7 +179,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
           <div class="card-title">Сколько пассажиров воспользовались метро с начала года?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#37474f'>155.6<span class='card-unit'> млн пассажиров</span></div>
           <div class="card-date">23 июля 2026</div>
         </div>
       </div>
@@ -201,7 +201,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#ffebee;color:#b71c1c">🏥 Здравоохранение</div>
           <div class="card-title">С начала года в Узбекистан с целью лечения прибыли более 35 тысяч…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#b71c1c'>35 401<span class='card-unit'> иностранный гражда</span></div>
           <div class="card-date">22 июля 2026</div>
         </div>
       </div>
@@ -217,13 +217,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/69310.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69310.html" class="card-link" data-cat="Туризм" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">Из каких стран приезжают в Узбекистан в коммерческих целях?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>205 937<span class='card-unit'> человек</span></div>
           <div class="card-date">22 июля 2026</div>
         </div>
       </div>
@@ -239,13 +239,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/69301.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
+    <a href="news/69301.html" class="card-link" data-cat="Здравоохранение" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#bf360c"></div>
+        <div class="card-stripe" style="background:#b71c1c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
+          <div class="card-badge" style="background:#ffebee;color:#b71c1c">🏥 Здравоохранение</div>
           <div class="card-title">Какие страны открыли предприятия в сфере медицины в Узбекистане?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#b71c1c'>36<span class='card-unit'> </span></div>
           <div class="card-date">21 июля 2026</div>
         </div>
       </div>
@@ -261,35 +261,35 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/69293.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69293.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">За 5 месяцев в Узбекистане произведено более 100 тысяч двигателей</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>103 293<span class='card-unit'> единицы</span></div>
           <div class="card-date">21 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69289.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69289.html" class="card-link" data-cat="Образование" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#0277bd"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e1f5fe;color:#0277bd">🎓 Образование</div>
           <div class="card-title">Состоялась онлайн-встреча по опыту Data Science Campus Национального…</div>
           <div style='height:36px'></div>
           <div class="card-date">21 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69285.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69285.html" class="card-link" data-cat="Транспорт" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#1565c0"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e3f2fd;color:#1565c0">🚆 Транспорт</div>
           <div class="card-title">Сколько пассажиров было перевезено трамваями и троллейбусами в…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#1565c0'>0.7<span class='card-unit'> млн пассажиров</span></div>
           <div class="card-date">20 июля 2026</div>
         </div>
       </div>
@@ -311,18 +311,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
           <div class="card-title">За 5 месяцев в Узбекистан было импортировано 2,5 миллиона пушек</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>2.5<span class='card-unit'> млн мячей</span></div>
           <div class="card-date">20 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69272.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69272.html" class="card-link" data-cat="Туризм" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">Сколько театров в Узбекистане?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>4.4<span class='card-unit'> млн зрителей</span></div>
           <div class="card-date">20 июля 2026</div>
         </div>
       </div>
@@ -333,7 +333,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e1f5fe;color:#0277bd">🎓 Образование</div>
           <div class="card-title">На сколько увеличилось число студентов в Узбекистане за 35 лет?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#0277bd'>1<span class='card-unit'> млн</span></div>
           <div class="card-date">20 июля 2026</div>
         </div>
       </div>
@@ -344,7 +344,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Количество предприятий с иностранным капиталом в Узбекистане впервые…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>20 502<span class='card-unit'> предприятия</span></div>
           <div class="card-date">17 июля 2026</div>
         </div>
       </div>
@@ -371,22 +371,22 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/69248.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69248.html" class="card-link" data-cat="Туризм" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">В Узбекистан больше приезжают мужчины или женщины?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>6 565 410<span class='card-unit'> иностранных гражда</span></div>
           <div class="card-date">17 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69227.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69227.html" class="card-link" data-cat="Образование" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#0277bd"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e1f5fe;color:#0277bd">🎓 Образование</div>
           <div class="card-title">Продолжается визит делегации Республики Корея в Национальный комитет…</div>
           <div style='height:36px'></div>
           <div class="card-date">16 июля 2026</div>
@@ -410,18 +410,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
           <div class="card-title">Импорт меда в Узбекистан увеличился почти в 3 раза</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>372<span class='card-unit'> тонны</span></div>
           <div class="card-date">16 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69236.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69236.html" class="card-link" data-cat="Туризм" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#00695c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">В какие страны чаще всего ездят узбекистанцы?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>3.5<span class='card-unit'> млн граждан</span></div>
           <div class="card-date">16 июля 2026</div>
         </div>
       </div>
@@ -432,7 +432,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Количество действующих в Узбекистане предприятий и организаций…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>7.2<span class='card-unit'> %</span></div>
           <div class="card-date">16 июля 2026</div>
         </div>
       </div>
@@ -454,7 +454,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fff3e0;color:#e65100">💰 Цены</div>
           <div class="card-title">Индекс цен на рынке жилья в Узбекистане  за II квартал 2026 года</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#e65100'>100<span class='card-unit'> %</span></div>
           <div class="card-date">15 июля 2026</div>
         </div>
       </div>
@@ -465,7 +465,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e1f5fe;color:#0277bd">🎓 Образование</div>
           <div class="card-title">Количество спортивных школ в Узбекистане достигло 404</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#0277bd'>41<span class='card-unit'> </span></div>
           <div class="card-date">15 июля 2026</div>
         </div>
       </div>
@@ -476,7 +476,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
           <div class="card-title">Импорт трикотажных футболок в Узбекистан увеличился в 1,9 раза</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>3.7<span class='card-unit'> млн долларов</span></div>
           <div class="card-date">15 июля 2026</div>
         </div>
       </div>
@@ -498,7 +498,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
           <div class="card-title">Сколько библиотек в Узбекистане?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#37474f'>89.2<span class='card-unit'> млн экземпляров</span></div>
           <div class="card-date">15 июля 2026</div>
         </div>
       </div>
@@ -531,7 +531,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">В каких отраслях осуществляют деятельность иностранные предприятия?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>19 921<span class='card-unit'> предприятие</span></div>
           <div class="card-date">14 июля 2026</div>
         </div>
       </div>
@@ -542,7 +542,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
           <div class="card-title">В какие страны Узбекистан экспортирует больше всего продукции?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>12.6<span class='card-unit'> млрд долларов</span></div>
           <div class="card-date">14 июля 2026</div>
         </div>
       </div>
@@ -597,7 +597,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fff3e0;color:#e65100">💰 Цены</div>
           <div class="card-title">Об изменениях в методологии расчета индексов цен на рынке жилья в…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#e65100'>48<span class='card-unit'> % сведений</span></div>
           <div class="card-date">13 июля 2026</div>
         </div>
       </div>
@@ -608,7 +608,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">🛒 Торговля</div>
           <div class="card-title">Парфюмерная продукция в основном импортируется в Узбекистан из Турции</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>1.3<span class='card-unit'> млн долларов</span></div>
           <div class="card-date">10 июля 2026</div>
         </div>
       </div>
@@ -619,18 +619,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">Увеличивается количество туристических визитов между Узбекистаном и…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>9.7<span class='card-unit'> %</span></div>
           <div class="card-date">10 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69141.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69141.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Количество ООО в Узбекистане превысило 343 тысячи</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>343.6<span class='card-unit'> тыс.</span></div>
           <div class="card-date">10 июля 2026</div>
         </div>
       </div>
@@ -663,7 +663,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
           <div class="card-title">Сколько газет в Узбекистане?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#37474f'>30.2<span class='card-unit'> млн экземпляров</span></div>
           <div class="card-date">09 июля 2026</div>
         </div>
       </div>
@@ -685,7 +685,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
           <div class="card-title">ТОП-10: крупнейшие торговые партнеры Узбекистана</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#37474f'>7.7<span class='card-unit'> млрд долларов</span></div>
           <div class="card-date">08 июля 2026</div>
         </div>
       </div>
@@ -696,7 +696,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Навоийская область лидирует: рейтинг регионов по промышленности</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>505.9<span class='card-unit'> трлн сумов</span></div>
           <div class="card-date">08 июля 2026</div>
         </div>
       </div>
@@ -740,7 +740,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e3f2fd;color:#1565c0">📈 Экономика</div>
           <div class="card-title">В структуре ВВП наибольшую долю занимает сфера услуг</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#1565c0'>447.9<span class='card-unit'> трлн сумов</span></div>
           <div class="card-date">07 июля 2026</div>
         </div>
       </div>
@@ -751,7 +751,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e1f5fe;color:#0277bd">🎓 Образование</div>
           <div class="card-title">Статистика студентов: распределение по уровням образования и регионам</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#0277bd'>1<span class='card-unit'> млн</span></div>
           <div class="card-date">07 июля 2026</div>
         </div>
       </div>
@@ -773,7 +773,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">В Узбекистане каждое четвертое предприятие работает в сфере торговли</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>62 044<span class='card-unit'> ед</span></div>
           <div class="card-date">06 июля 2026</div>
         </div>
       </div>
@@ -806,27 +806,27 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">В каких направлениях осуществляют деятельность промышленные…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>12.4<span class='card-unit'> тыс. единиц</span></div>
           <div class="card-date">06 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69066.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69066.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Теперь статистика знает все</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>1.8<span class='card-unit'> процента</span></div>
           <div class="card-date">06 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69056.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69056.html" class="card-link" data-cat="Цены" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#e65100"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fff3e0;color:#e65100">💰 Цены</div>
           <div class="card-title">СВЕДЕНИЯ о средних ценах продуктов, используемых для приготовления…</div>
           <div style='height:36px'></div>
           <div class="card-date">05 июля 2026</div>
@@ -839,7 +839,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fff3e0;color:#e65100">💰 Цены</div>
           <div class="card-title">Индекс потребительских цен (ИПЦ) в Республике Узбекистан за июнь…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#e65100'>100.6<span class='card-unit'> %</span></div>
           <div class="card-date">05 июля 2026</div>
         </div>
       </div>
@@ -850,18 +850,18 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#efebe9;color:#4e342e">🏗️ Строительство</div>
           <div class="card-title">Какие регионы лидируют по строительству?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#4e342e'>104.9<span class='card-unit'> трлн сумов</span></div>
           <div class="card-date">03 июля 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/69038.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69038.html" class="card-link" data-cat="Транспорт" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#1565c0"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#e3f2fd;color:#1565c0">🚆 Транспорт</div>
           <div class="card-title">Какие виды услуг в Узбекистане растут быстрее всего?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#1565c0'>533.1<span class='card-unit'> трлн сумов</span></div>
           <div class="card-date">03 июля 2026</div>
         </div>
       </div>
@@ -872,7 +872,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
           <div class="card-title">Каждый третий новый автомобиль - Cobalt: Какие автомобили больше…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#37474f'>19.3<span class='card-unit'> тыс. единиц</span></div>
           <div class="card-date">03 июля 2026</div>
         </div>
       </div>
@@ -894,7 +894,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#e0f2f1;color:#00695c">✈️ Туризм</div>
           <div class="card-title">Увеличивается количество туристических визитов между Узбекистаном и…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#00695c'>31.7<span class='card-unit'> %</span></div>
           <div class="card-date">03 июля 2026</div>
         </div>
       </div>
@@ -905,7 +905,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#f3e5f5;color:#7b1fa2">👥 Демография</div>
           <div class="card-title">Предварительные результаты переписи населения и сельского хозяйства,…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#7b1fa2'>0<span class='card-unit'> </span></div>
           <div class="card-date">02 июля 2026</div>
         </div>
       </div>
@@ -916,7 +916,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#f3e5f5;color:#7b1fa2">👥 Демография</div>
           <div class="card-title">Предварительные результаты переписи населения и сельского хозяйства,…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#7b1fa2'>67<span class='card-unit'> стр</span></div>
           <div class="card-date">02 июля 2026</div>
         </div>
       </div>
@@ -932,13 +932,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/69016.html" class="card-link" data-cat="Статистика" data-month="2026-07">
+    <a href="news/69016.html" class="card-link" data-cat="Промышленность" data-month="2026-07">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Сколько продали кафе и рестораны за 5 месяцев?</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>94.4<span class='card-unit'> трлн сумов</span></div>
           <div class="card-date">02 июля 2026</div>
         </div>
       </div>
@@ -1004,7 +1004,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Промышленное производство в Республике Узбекистан за январь-май 2026…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>62<span class='card-unit'> тыс. промышленных</span></div>
           <div class="card-date">30 июня 2026</div>
         </div>
       </div>
@@ -1015,7 +1015,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         <div class="card-body">
           <div class="card-badge" style="background:#f3e5f5;color:#7b1fa2">👥 Демография</div>
           <div class="card-title">Проведена конференция, посвящённая предварительным результатам…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#7b1fa2'>82.3<span class='card-unit'> процента населения</span></div>
           <div class="card-date">30 июня 2026</div>
         </div>
       </div>
@@ -1097,24 +1097,24 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f0f2f5;color:#1a1a
         </div>
       </div>
     </a>
-    <a href="news/68945.html" class="card-link" data-cat="Статистика" data-month="2026-06">
+    <a href="news/68945.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Строительные работы в Республике Узбекистан за январь-май 2026 года</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>104 943.7<span class='card-unit'> млрд сумов</span></div>
           <div class="card-date">29 июня 2026</div>
         </div>
       </div>
     </a>
-    <a href="news/68934.html" class="card-link" data-cat="Статистика" data-month="2026-06">
+    <a href="news/68934.html" class="card-link" data-cat="Промышленность" data-month="2026-06">
       <div class="card">
-        <div class="card-stripe" style="background:#37474f"></div>
+        <div class="card-stripe" style="background:#bf360c"></div>
         <div class="card-body">
-          <div class="card-badge" style="background:#eceff1;color:#37474f">📊 Статистика</div>
+          <div class="card-badge" style="background:#fbe9e7;color:#bf360c">🏭 Промышленность</div>
           <div class="card-title">Социально-экономическое положение Республики Узбекистан за…</div>
-          <div style='height:36px'></div>
+          <div class='card-num' style='color:#bf360c'>505 933.2<span class='card-unit'> млрд сум</span></div>
           <div class="card-date">29 июня 2026</div>
         </div>
       </div>
