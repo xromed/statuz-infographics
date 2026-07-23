@@ -61,13 +61,20 @@ def parse(url: str) -> dict:
     if title.strip().lower() == BAD_TITLE:
         title = ""
 
-    # Дата
+    # Дата: ищем внутри блока статьи (content), а не по всей странице —
+    # иначе можно случайно зацепить дату из сайдбара с "похожими новостями"
+    # (там перечислены другие статьи с их собственными датами) вместо даты
+    # текущей статьи. get_text() склеивает текст всех дочерних тегов, что
+    # также решает проблему, когда дата на новом шаблоне stat.uz разбита
+    # на несколько соседних HTML-узлов и не совпадает как одна строка.
+    # День может быть однозначным (например "9 июля 2026"), поэтому \d{1,2},
+    # а не \d{2}.
     date = ""
-    for tag in soup.find_all(string=re.compile(r"\d{2}\s+\w+\s+\d{4}")):
-        m = re.search(r"(\d{2}\s+\w+\s+\d{4})", tag)
-        if m:
-            date = m.group(1)
-            break
+    date_source = content if content else soup
+    date_text = date_source.get_text("\n", strip=True)
+    m = re.search(r"(\d{1,2}\s+[а-яёА-ЯЁ]+\s+\d{4})", date_text)
+    if m:
+        date = m.group(1)
 
     body_text, pdf_urls, tables = "", [], []
 
