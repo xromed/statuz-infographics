@@ -392,40 +392,40 @@ body {
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
+          <span class="counter" data-target="1500">1 500</span>
+          <span class="kpi-unit">млрд сумов</span>
+        </div>
+        <div class="kpi-label">Ташкентская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="5400">5 400</span>
+          <span class="kpi-unit">млрд сумов</span>
+        </div>
+        <div class="kpi-label">Город Ташкент -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
           <span class="counter" data-target="1.7">1.7</span>
           <span class="kpi-unit">млрд сумов</span>
         </div>
-        <div class="kpi-label">Республика Каракалпакстан -</div>
-        <span class="trend up">↑</span>
+        <div class="kpi-label">Республика Каракалпакстан</div>
+        <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
           <span class="counter" data-target="675.1">675.1</span>
           <span class="kpi-unit">млрд сумов</span>
         </div>
-        <div class="kpi-label">Андижанская область -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
-        <div class="kpi-val">
-          <span class="counter" data-target="287.1">287.1</span>
-          <span class="kpi-unit">млрд сумов</span>
-        </div>
-        <div class="kpi-label">Джизакская область -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
-        <div class="kpi-val">
-          <span class="counter" data-target="95.3">95.3</span>
-          <span class="kpi-unit">млрд сумов</span>
-        </div>
-        <div class="kpi-label">Навоийская область -</div>
+        <div class="kpi-label">Андижанская область</div>
         <span class="trend neutral">→</span>
       </div></div>
   
 <div class="chart-wrap">
   <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:320px">
+  <div style="position:relative;height:280px">
     <canvas id="mainChart"></canvas>
   </div>
 </div>
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Республика Каракалпакстан -", "Андижанская область -", "Джизакская область -", "Навоийская область -", "Наманганская область -", "Самаркандская область -", "Ташкентская область -", "Ферганская область -"],
+      labels: ["Республика Каракалпакстан", "Андижанская область", "Джизакская область", "Навоийская область", "Наманганская область", "Самаркандская область", "Ферганская область"],
       datasets: [{
-        data: [1.7, 675.1, 287.1, 95.3, 548.4, 477.9, 1500.0, 222.2],
+        data: [1.7, 675.1, 287.1, 95.3, 548.4, 477.9, 222.2],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -485,42 +485,42 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>Ташкентская область</b> занимает первое место: <b>1 500 млрд сумов</b> — это <b>39.4%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>Андижанская область</b> занимает первое место: <b>675.1 млрд сумов</b> — это <b>29.3%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔻</span>
         <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Наименьший показатель у <b>Республика Каракалпакстан</b>: <b>1.7 млрд сумов</b>. Разрыв с лидером — <b>в 882.4×</b>.</div>
+      <div class="insight-card-body">Наименьший показатель у <b>Республика Каракалпакстан</b>: <b>1.7 млрд сумов</b>. Разрыв с лидером — <b>в 397.1×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>Ташкентская область</b>, <b>Андижанская область</b>, <b>Наманганская область</b> — формируют <b>71.5%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>Андижанская область</b>, <b>Наманганская область</b>, <b>Самаркандская область</b> — формируют <b>73.7%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>476 млрд сумов</b>. Выше среднего — <b>4</b> из 8 регионов, ниже — <b>4</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>329.7 млрд сумов</b>. Выше среднего — <b>3</b> из 7 регионов, ниже — <b>4</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>3 807.7 млрд сумов</b>. Второе место занимает <b>Андижанская область</b> — 675.1 млрд сумов (17.7%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 7 регионам: <b>2 307.7 млрд сумов</b>. Второе место занимает <b>Наманганская область</b> — 548.4 млрд сумов (23.8%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 92.9%). Сильный дисбаланс между лидером и аутсайдером.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 69.3%). Умеренные различия между регионами.</div>
     </div>
   </div>
 </div>

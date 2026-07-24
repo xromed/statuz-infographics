@@ -376,26 +376,18 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="191521">191 521</span>
-          <span class="kpi-hero-unit">иностранных граждан</span>
+          <span class="counter" data-target="171732">171 732</span>
+          <span class="kpi-hero-unit">человека</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Число иностранцев, прибывших в Узбекистан с коммерческими целями,…</div>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
-          <span class="counter" data-target="171732">171 732</span>
-          <span class="kpi-unit">человека</span>
-        </div>
-        <div class="kpi-label">Афганистан -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
-        <div class="kpi-val">
           <span class="counter" data-target="13999">13 999</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">Туркменистан -</div>
+        <div class="kpi-label">Туркменистан</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
@@ -403,7 +395,15 @@ body {
           <span class="counter" data-target="3588">3 588</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">Таджикистан -</div>
+        <div class="kpi-label">Таджикистан</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="191521">191 521</span>
+          <span class="kpi-unit">иностранных граждан</span>
+        </div>
+        <div class="kpi-label">2026 года в Узбекистан с коммерческими целями прибыли</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -423,7 +423,7 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Туркменистан -", "Таджикистан -"],
+      labels: ["Туркменистан", "Таджикистан"],
       datasets: [{
         data: [13999.0, 3588.0],
         backgroundColor: grad,

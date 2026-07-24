@@ -376,26 +376,18 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#b71c1c;--bg:#ffebee">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="35401">35 401</span>
-          <span class="kpi-hero-unit">иностранный граждани</span>
+          <span class="counter" data-target="19096">19 096</span>
+          <span class="kpi-hero-unit">человек</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">С начала года в Узбекистан с целью лечения прибыли более 35 тысяч…</div>
       </div>
       <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
         <div class="kpi-val">
-          <span class="counter" data-target="19096">19 096</span>
-          <span class="kpi-unit">человек</span>
-        </div>
-        <div class="kpi-label">Таджикистан -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
-        <div class="kpi-val">
           <span class="counter" data-target="9552">9 552</span>
           <span class="kpi-unit">чел</span>
         </div>
-        <div class="kpi-label">Показатель</div>
+        <div class="kpi-label">Киргизская Р.</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
@@ -403,7 +395,7 @@ body {
           <span class="counter" data-target="4582">4 582</span>
           <span class="kpi-unit">человека</span>
         </div>
-        <div class="kpi-label">Казахстан -</div>
+        <div class="kpi-label">Казахстан</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
@@ -411,7 +403,7 @@ body {
           <span class="counter" data-target="1280">1 280</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">Афганистан -</div>
+        <div class="kpi-label">Афганистан</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
@@ -420,6 +412,14 @@ body {
           <span class="kpi-unit">человека</span>
         </div>
         <div class="kpi-label">Россия</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#b71c1c;--bg:#ffebee">
+        <div class="kpi-val">
+          <span class="counter" data-target="119">119</span>
+          <span class="kpi-unit">человек</span>
+        </div>
+        <div class="kpi-label">Другие страны</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,7 +439,7 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Таджикистан -", "Афганистан -", "Другие страны"],
+      labels: ["Таджикистан", "Афганистан", "Другие страны"],
       datasets: [{
         data: [19096.0, 1280.0, 119.0],
         backgroundColor: grad,

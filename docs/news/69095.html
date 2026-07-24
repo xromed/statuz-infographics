@@ -384,26 +384,10 @@ body {
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
-          <span class="counter" data-target="427.5">427.5</span>
-          <span class="kpi-unit">трлн сумов</span>
-        </div>
-        <div class="kpi-label">валовая добавленная стоимость отраслей -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
           <span class="counter" data-target="95.4">95.4</span>
           <span class="kpi-unit">процента</span>
         </div>
         <div class="kpi-label">валовая добавленная стоимость отраслей - 427,5 трлн сум</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
-        <div class="kpi-val">
-          <span class="counter" data-target="20.4">20.4</span>
-          <span class="kpi-unit">трлн сумов</span>
-        </div>
-        <div class="kpi-label">чистые налоги на продукты -</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
@@ -416,10 +400,26 @@ body {
       </div>
       <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
         <div class="kpi-val">
-          <span class="counter" data-target="240.1">240.1</span>
-          <span class="kpi-unit">трлн сумов</span>
+          <span class="counter" data-target="56.2">56.2</span>
+          <span class="kpi-unit">процента</span>
         </div>
-        <div class="kpi-label">сфера услуг -</div>
+        <div class="kpi-label">сфера услуг - 240,1 трлн сумов (</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="29.2">29.2</span>
+          <span class="kpi-unit">процента</span>
+        </div>
+        <div class="kpi-label">промышленности - 124,9 трлн сумов (</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="8.4">8.4</span>
+          <span class="kpi-unit">процента</span>
+        </div>
+        <div class="kpi-label">сельское, лесное и рыбное хозяйство - 36,2 трлн сумов (</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["валовая добавленная стоимость отрас", "чистые налоги на продукты -", "сфера услуг -", "промышленности -", "сельское, лесное и рыбное хозяйство", "строительство -"],
+      labels: ["валовая добавленная стоимость отрас", "чистые налоги на продукты", "сфера услуг", "промышленности", "сельское, лесное и рыбное хозяйство"],
       datasets: [{
-        data: [427.5, 20.4, 240.1, 124.9, 36.2, 26.4],
+        data: [427.5, 20.4, 240.1, 124.9, 36.2],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -485,7 +485,7 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>валовая добавленная стоимость отраслей</b> занимает первое место: <b>427.5 трлн сумов</b> — это <b>48.8%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>валовая добавленная стоимость отраслей</b> занимает первое место: <b>427.5 трлн сумов</b> — это <b>50.3%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
@@ -499,28 +499,28 @@ body {
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>валовая добавленная стоимость отраслей</b>, <b>сфера услуг</b>, <b>промышленности</b> — формируют <b>90.5%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>валовая добавленная стоимость отраслей</b>, <b>сфера услуг</b>, <b>промышленности</b> — формируют <b>93.3%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>145.9 трлн сумов</b>. Выше среднего — <b>2</b> из 6 регионов, ниже — <b>4</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>169.8 трлн сумов</b>. Выше среднего — <b>2</b> из 5 регионов, ниже — <b>3</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 6 регионам: <b>875.5 трлн сумов</b>. Второе место занимает <b>сфера услуг</b> — 240.1 трлн сумов (27.4%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 5 регионам: <b>849.1 трлн сумов</b>. Второе место занимает <b>сфера услуг</b> — 240.1 трлн сумов (28.3%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 101.1%). Сильный дисбаланс между лидером и аутсайдером.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 88.7%). Сильный дисбаланс между лидером и аутсайдером.</div>
     </div>
   </div>
 </div>

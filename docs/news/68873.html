@@ -395,7 +395,7 @@ body {
           <span class="counter" data-target="5.5">5.5</span>
           <span class="kpi-unit">млрд долларов</span>
         </div>
-        <div class="kpi-label">Машины и оборудование -</div>
+        <div class="kpi-label">Машины и оборудование</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -403,7 +403,7 @@ body {
           <span class="counter" data-target="2.5">2.5</span>
           <span class="kpi-unit">млрд долларов</span>
         </div>
-        <div class="kpi-label">Промышленные товары -</div>
+        <div class="kpi-label">Промышленные товары</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -411,7 +411,7 @@ body {
           <span class="counter" data-target="2.0">2</span>
           <span class="kpi-unit">млрд долларов</span>
         </div>
-        <div class="kpi-label">Химическая продукция -</div>
+        <div class="kpi-label">Химическая продукция</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -419,7 +419,7 @@ body {
           <span class="counter" data-target="1.9">1.9</span>
           <span class="kpi-unit">млрд долларов</span>
         </div>
-        <div class="kpi-label">Продовольственные товары -</div>
+        <div class="kpi-label">Продовольственные товары</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Объем импорта составил", "Машины и оборудование -", "Промышленные товары -", "Химическая продукция -", "Продовольственные товары -", "Прочие товары -"],
+      labels: ["Машины и оборудование", "Промышленные товары", "Химическая продукция", "Продовольственные товары", "Прочие товары"],
       datasets: [{
-        data: [16.4, 5.5, 2.5, 2.0, 1.9, 4.5],
+        data: [5.5, 2.5, 2.0, 1.9, 4.5],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -485,42 +485,42 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>Объем импорта составил</b> занимает первое место: <b>16.4 млрд долларов</b> — это <b>50.0%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>Машины и оборудование</b> занимает первое место: <b>5.5 млрд долларов</b> — это <b>33.5%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔻</span>
         <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Наименьший показатель у <b>Продовольственные товары</b>: <b>1.9 млрд долларов</b>. Разрыв с лидером — <b>в 8.6×</b>.</div>
+      <div class="insight-card-body">Наименьший показатель у <b>Продовольственные товары</b>: <b>1.9 млрд долларов</b>. Разрыв с лидером — <b>в 2.9×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>Объем импорта составил</b>, <b>Машины и оборудование</b>, <b>Прочие товары</b> — формируют <b>80.5%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>Машины и оборудование</b>, <b>Прочие товары</b>, <b>Промышленные товары</b> — формируют <b>76.2%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>5.5 млрд долларов</b>. Выше среднего — <b>2</b> из 6 регионов, ниже — <b>4</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>3.3 млрд долларов</b>. Выше среднего — <b>2</b> из 5 регионов, ниже — <b>3</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 6 регионам: <b>32.8 млрд долларов</b>. Второе место занимает <b>Машины и оборудование</b> — 5.5 млрд долларов (16.8%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 5 регионам: <b>16.4 млрд долларов</b>. Второе место занимает <b>Прочие товары</b> — 4.5 млрд долларов (27.4%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 92.7%). Сильный дисбаланс между лидером и аутсайдером.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 44.3%). Умеренные различия между регионами.</div>
     </div>
   </div>
 </div>

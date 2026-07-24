@@ -376,26 +376,18 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="19921">19 921</span>
-          <span class="kpi-hero-unit">предприятие</span>
+          <span class="counter" data-target="12480">12 480</span>
+          <span class="kpi-hero-unit">предприятий</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Число иностранных предприятий в Узбекистане составило 19 921</div>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
         <div class="kpi-val">
-          <span class="counter" data-target="12480">12 480</span>
-          <span class="kpi-unit">предприятий</span>
-        </div>
-        <div class="kpi-label">Город Ташкент -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
           <span class="counter" data-target="2726">2 726</span>
           <span class="kpi-unit">предприятий</span>
         </div>
-        <div class="kpi-label">Ташкентская область -</div>
+        <div class="kpi-label">Ташкентская область</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -403,7 +395,7 @@ body {
           <span class="counter" data-target="1168">1 168</span>
           <span class="kpi-unit">предприятий</span>
         </div>
-        <div class="kpi-label">Самаркандская область -</div>
+        <div class="kpi-label">Самаркандская область</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -420,6 +412,14 @@ body {
           <span class="kpi-unit">предприятия</span>
         </div>
         <div class="kpi-label">Андижанская область</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="431">431</span>
+          <span class="kpi-unit">предприятие</span>
+        </div>
+        <div class="kpi-label">Бухарская область</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,7 +439,7 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Город Ташкент -", "Ташкентская область -", "Самаркандская область -", "Ферганская область", "Кашкадарьинская область", "Наманганская область", "Хорезмская область", "Сурхандарьинская область"],
+      labels: ["Город Ташкент", "Ташкентская область", "Самаркандская область", "Ферганская область", "Кашкадарьинская область", "Наманганская область", "Хорезмская область", "Сурхандарьинская область"],
       datasets: [{
         data: [12480.0, 2726.0, 1168.0, 729.0, 411.0, 406.0, 266.0, 228.0],
         backgroundColor: grad,

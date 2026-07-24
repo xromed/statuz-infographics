@@ -376,42 +376,18 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="34.7">34.7</span>
-          <span class="kpi-hero-unit">трлн сумов</span>
+          <span class="counter" data-target="86.2">86.2</span>
+          <span class="kpi-hero-unit">%</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Объем горнодобывающей промышленности достиг 34,7 трлн сумов</div>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
         <div class="kpi-val">
-          <span class="counter" data-target="436.2">436.2</span>
-          <span class="kpi-unit">трлн сумов</span>
-        </div>
-        <div class="kpi-label">а долю обрабатывающей промышленности, объем которой сос</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="86.2">86.2</span>
-          <span class="kpi-unit">%</span>
-        </div>
-        <div class="kpi-label">- обрабатывающая промышленность - 436,2 трлн сумов (</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
           <span class="counter" data-target="6.9">6.9</span>
           <span class="kpi-unit">%</span>
         </div>
-        <div class="kpi-label">щая промышленность и разработка карьеров - 34,7 трлн су</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="32.4">32.4</span>
-          <span class="kpi-unit">трлн сумов</span>
-        </div>
-        <div class="kpi-label">электро-, газо-и пароснабжение и кондиционирование возд</div>
+        <div class="kpi-label">промышленность и разработка карьеров - 34,7 трлн сумов </div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -419,7 +395,31 @@ body {
           <span class="counter" data-target="6.4">6.4</span>
           <span class="kpi-unit">%</span>
         </div>
-        <div class="kpi-label">ароснабжение и кондиционирование воздуха - 32,4 трлн су</div>
+        <div class="kpi-label">и кондиционирование воздуха - 32,4 трлн сумов (</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="0.5">0.5</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">канализация, сбор и утилизация отходов - 2,7 трлн сумов</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="436.2">436.2</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">обрабатывающая промышленность</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="34.7">34.7</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">ющая промышленность и разработка карьеров</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -434,7 +434,7 @@ body {
   new Chart(document.getElementById('mainChart'), {
     type: 'doughnut',
     data: {
-      labels: ["- обрабатывающая промышленность - 4", "щая промышленность и разработка кар", "ароснабжение и кондиционирование во", "е, канализация, сбор и утилизация о"],
+      labels: ["- обрабатывающая промышленность - 4", "промышленность и разработка карьеро", "и кондиционирование воздуха - 32,4 ", "канализация, сбор и утилизация отхо"],
       datasets: [{
         data: [86.2, 6.9, 6.4, 0.5],
         backgroundColor: ["#bf360cff", "#bf360ccc", "#bf360c99", "#bf360c77"],
@@ -486,14 +486,14 @@ body {
         <span class="insight-emoji">🔻</span>
         <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Наименьший показатель у <b>е, канализация, сбор и утилизация отходо</b>: <b>0.5 %</b>. Разрыв с лидером — <b>в 172.4×</b>.</div>
+      <div class="insight-card-body">Наименьший показатель у <b>канализация, сбор и утилизация отходов</b>: <b>0.5 %</b>. Разрыв с лидером — <b>в 172.4×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>- обрабатывающая промышленность - 436,2</b>, <b>щая промышленность и разработка карьеров</b>, <b>ароснабжение и кондиционирование воздуха</b> — формируют <b>99.5%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>- обрабатывающая промышленность - 436,2</b>, <b>промышленность и разработка карьеров - 3</b>, <b>и кондиционирование воздуха - 32,4 трлн</b> — формируют <b>99.5%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
@@ -507,7 +507,7 @@ body {
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 4 регионам: <b>100 %</b>. Второе место занимает <b>щая промышленность и разработка карьеров</b> — 6.9 % (6.9%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 4 регионам: <b>100 %</b>. Второе место занимает <b>промышленность и разработка карьеров - 3</b> — 6.9 % (6.9%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">

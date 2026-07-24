@@ -387,7 +387,7 @@ body {
           <span class="counter" data-target="151.8">151.8</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">объем металлургической промышленности в Узбекистане сос</div>
+        <div class="kpi-label">металлургической промышленности в Узбекистане составил</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -395,7 +395,7 @@ body {
           <span class="counter" data-target="100.2">100.2</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Навоийская область -</div>
+        <div class="kpi-label">Навоийская область</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -403,7 +403,7 @@ body {
           <span class="counter" data-target="38.1">38.1</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Ташкентская область -</div>
+        <div class="kpi-label">Ташкентская область</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -411,7 +411,7 @@ body {
           <span class="counter" data-target="8">8</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Город Ташкент -</div>
+        <div class="kpi-label">Город Ташкент</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
@@ -419,7 +419,7 @@ body {
           <span class="counter" data-target="3.7">3.7</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">Самаркандская область -</div>
+        <div class="kpi-label">Самаркандская область</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Наманганская область -", "Сырдарьинская область -", "Джизакская область -", "Ферганская область -", "Бухарская область -", "Сурхандарьинская область -"],
+      labels: ["Навоийская область", "Ташкентская область", "Город Ташкент", "Самаркандская область"],
       datasets: [{
-        data: [538.1, 477.6, 192.0, 190.8, 132.3, 86.8],
+        data: [100.2, 38.1, 8.0, 3.7],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -459,7 +459,7 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млрд' }
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
         }
       },
       scales: {
@@ -485,42 +485,42 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>Наманганская область</b> занимает первое место: <b>538.1 млрд сумов</b> — это <b>33.3%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>Навоийская область</b> занимает первое место: <b>100.2 трлн сумов</b> — это <b>66.8%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">🔻</span>
         <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Наименьший показатель у <b>Сурхандарьинская область</b>: <b>86.8 млрд сумов</b>. Разрыв с лидером — <b>в 6.2×</b>.</div>
+      <div class="insight-card-body">Наименьший показатель у <b>Самаркандская область</b>: <b>3.7 трлн сумов</b>. Разрыв с лидером — <b>в 27.1×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>Наманганская область</b>, <b>Сырдарьинская область</b>, <b>Джизакская область</b> — формируют <b>74.7%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>Навоийская область</b>, <b>Ташкентская область</b>, <b>Город Ташкент</b> — формируют <b>97.5%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>269.6 млрд сумов</b>. Выше среднего — <b>2</b> из 6 регионов, ниже — <b>4</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>37.5 трлн сумов</b>. Выше среднего — <b>2</b> из 4 регионов, ниже — <b>2</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 6 регионам: <b>1 617.6 млрд сумов</b>. Второе место занимает <b>Сырдарьинская область</b> — 477.6 млрд сумов (29.5%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 4 регионам: <b>150 трлн сумов</b>. Второе место занимает <b>Ташкентская область</b> — 38.1 трлн сумов (25.4%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 64.2%). Умеренные различия между регионами.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 102.8%). Сильный дисбаланс между лидером и аутсайдером.</div>
     </div>
   </div>
 </div>

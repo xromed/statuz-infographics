@@ -376,26 +376,18 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#00695c;--bg:#e0f2f1">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="5351868">5 351 868</span>
-          <span class="kpi-hero-unit">иностранных граждан</span>
+          <span class="counter" data-target="2974327">2 974 327</span>
+          <span class="kpi-hero-unit">человек</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Узбекистан посетили туристы из 203 стран</div>
       </div>
       <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
         <div class="kpi-val">
-          <span class="counter" data-target="2974327">2 974 327</span>
-          <span class="kpi-unit">человек</span>
-        </div>
-        <div class="kpi-label">мужчин -</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
-        <div class="kpi-val">
           <span class="counter" data-target="2377541">2 377 541</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">женщин -</div>
+        <div class="kpi-label">женщин</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
@@ -403,7 +395,7 @@ body {
           <span class="counter" data-target="584171">584 171</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">0-18 лет -</div>
+        <div class="kpi-label">0-18 лет</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
@@ -411,7 +403,7 @@ body {
           <span class="counter" data-target="892166">892 166</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">19-30 лет -</div>
+        <div class="kpi-label">19-30 лет</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
@@ -419,7 +411,15 @@ body {
           <span class="counter" data-target="2791843">2 791 843</span>
           <span class="kpi-unit">человек</span>
         </div>
-        <div class="kpi-label">31-55 лет -</div>
+        <div class="kpi-label">31-55 лет</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
+        <div class="kpi-val">
+          <span class="counter" data-target="1083688">1 083 688</span>
+          <span class="kpi-unit">человек</span>
+        </div>
+        <div class="kpi-label">56 лет и старше</div>
         <span class="trend neutral">→</span>
       </div></div>
   
@@ -439,7 +439,7 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["мужчин -", "женщин -", "0-18 лет -", "19-30 лет -", "31-55 лет -", "56 лет и старше -"],
+      labels: ["мужчин", "женщин", "0-18 лет", "19-30 лет", "31-55 лет", "56 лет и старше"],
       datasets: [{
         data: [2974327.0, 2377541.0, 584171.0, 892166.0, 2791843.0, 1083688.0],
         backgroundColor: grad,

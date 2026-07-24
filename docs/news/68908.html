@@ -376,19 +376,11 @@ body {
   <div class="kpi-grid">
       <div class="kpi-hero" style="--c:#00695c;--bg:#e0f2f1">
         <div class="kpi-hero-val">
-          <span class="counter" data-target="18330">18 330</span>
-          <span class="kpi-hero-unit">граждан Узбекистана</span>
+          <span class="counter" data-target="17315">17 315</span>
+          <span class="kpi-hero-unit">человек</span>
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Узбекистанцы за 4 месяца 18 330 раз посетили Вьетнам</div>
-      </div>
-      <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
-        <div class="kpi-val">
-          <span class="counter" data-target="17315">17 315</span>
-          <span class="kpi-unit">человек</span>
-        </div>
-        <div class="kpi-label">Путешествие/туризм -</div>
-        <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
         <div class="kpi-val">
@@ -413,6 +405,14 @@ body {
         </div>
         <div class="kpi-label">Служебная поездка</div>
         <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#00695c;--bg:#e0f2f1">
+        <div class="kpi-val">
+          <span class="counter" data-target="18330">18 330</span>
+          <span class="kpi-unit">граждан Узбекистана</span>
+        </div>
+        <div class="kpi-label">по статистике, в январе-апреле 2026 года Вьетнам посети</div>
+        <span class="trend neutral">→</span>
       </div></div>
   
 <div class="chart-wrap">
@@ -431,7 +431,7 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Путешествие/туризм -", "Посещение родственников", "Служебная поездка"],
+      labels: ["Путешествие/туризм", "Посещение родственников", "Служебная поездка"],
       datasets: [{
         data: [17315.0, 865.0, 8.0],
         backgroundColor: grad,

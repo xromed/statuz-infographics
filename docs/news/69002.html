@@ -384,18 +384,10 @@ body {
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
         <div class="kpi-val">
-          <span class="counter" data-target="104.9">104.9</span>
-          <span class="kpi-unit">трлн сумов</span>
-        </div>
-        <div class="kpi-label">мае 2026 года в Узбекистане выполнены строительные рабо</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
-        <div class="kpi-val">
           <span class="counter" data-target="45.8">45.8</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">2022 год -</div>
+        <div class="kpi-label">год</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
@@ -403,7 +395,7 @@ body {
           <span class="counter" data-target="52.2">52.2</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">2023 год -</div>
+        <div class="kpi-label">год</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
@@ -411,7 +403,7 @@ body {
           <span class="counter" data-target="59.1">59.1</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">2024 год -</div>
+        <div class="kpi-label">год</div>
         <span class="trend neutral">→</span>
       </div>
       <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
@@ -419,13 +411,21 @@ body {
           <span class="counter" data-target="87.5">87.5</span>
           <span class="kpi-unit">трлн сумов</span>
         </div>
-        <div class="kpi-label">2025 год -</div>
+        <div class="kpi-label">год</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="104.9">104.9</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">год</div>
         <span class="trend neutral">→</span>
       </div></div>
   
 <div class="chart-wrap">
-  <div class="section-label">Динамика по годам</div>
-  <div style="position:relative;height:220px">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:280px">
     <canvas id="mainChart"></canvas>
   </div>
 </div>
@@ -433,27 +433,24 @@ body {
 (function(){
   const ctx = document.getElementById('mainChart').getContext('2d');
   const c = "#37474f";
-  const grad = ctx.createLinearGradient(0,0,0,220);
-  grad.addColorStop(0, c + '44');
-  grad.addColorStop(1, c + '00');
+  const grad = ctx.createLinearGradient(0,0,0,300);
+  grad.addColorStop(0, c + 'ff');
+  grad.addColorStop(1, c + '88');
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-      labels: ["2022", "2023", "2024", "2025", "2026"],
+      labels: ["год", "год", "год", "год", "год"],
       datasets: [{
         data: [45.8, 52.2, 59.1, 87.5, 104.9],
-        borderColor: c,
-        borderWidth: 2.5,
         backgroundColor: grad,
-        fill: true,
-        tension: 0.25,
-        spanGaps: false,
-        pointBackgroundColor: c,
-        pointRadius: 5,
-        pointHoverRadius: 7,
+        borderColor: c,
+        borderWidth: 0,
+        borderRadius: 5,
+        borderSkipped: false,
       }]
     },
     options: {
+      indexAxis: "y",
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
@@ -462,14 +459,14 @@ body {
           backgroundColor: '#1a1a2e',
           padding: 10,
           cornerRadius: 8,
-          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
         }
       },
       scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 12, family: 'Inter', weight: '600' }, color: '#546e7a' } },
-        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#90a4ae' } }
+        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
+        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
       },
-      animation: { duration: 1000, easing: 'easeOutQuart' }
+      animation: { duration: 900, easing: 'easeOutQuart' }
     }
   });
 })();
@@ -485,45 +482,45 @@ body {
     
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">📈</span>
-        <span class="insight-card-title">Общий рост</span>
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body">За 4 лет (2022–2026) показатель <b>вырос на 129.0%</b>. Среднегодовой темп роста (CAGR): <b>+23.0% в год</b>.</div>
+      <div class="insight-card-body"><b>год</b> занимает первое место: <b>104.9 трлн сумов</b> — это <b>30.0%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">🚀</span>
-        <span class="insight-card-title">Рекордный скачок</span>
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
       </div>
-      <div class="insight-card-body">Максимальный однолетний рост — в <b>2025 году</b>: с 59.1 до 87.5 трлн сумов (<b>рост 48.1%</b> за год).</div>
+      <div class="insight-card-body">Наименьший показатель у <b>год</b>: <b>45.8 трлн сумов</b>. Разрыв с лидером — <b>в 2.3×</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">📌</span>
-        <span class="insight-card-title">Минимум и максимум</span>
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Минимальное значение — <b>45.8 трлн сумов</b> (2022 г.), максимальное — <b>104.9 трлн сумов</b> (2026 г.). Амплитуда: <b>129.0%</b>.</div>
+      <div class="insight-card-body">Топ-3 — <b>год</b>, <b>год</b>, <b>год</b> — формируют <b>72.0%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">🔄</span>
-        <span class="insight-card-title">2026 vs 2025</span>
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">В последний период показатель <b>вырос на 19.9%</b>: с 87.5 до <b>104.9 трлн сумов</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>69.9 трлн сумов</b>. Выше среднего — <b>2</b> из 5 регионов, ниже — <b>3</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">📐</span>
-        <span class="insight-card-title">Среднее за период</span>
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>69.9 трлн сумов</b>. Текущий показатель <b>выше среднего</b> на 50.1%.</div>
+      <div class="insight-card-body">Суммарный объём по всем 5 регионам: <b>349.5 трлн сумов</b>. Второе место занимает <b>год</b> — 87.5 трлн сумов (25.0%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
-        <span class="insight-emoji">🔮</span>
-        <span class="insight-card-title">Прогноз на 2027</span>
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">При сохранении среднего темпа последних лет (+34.0%/год) к <b>2027 году</b> показатель вырастет до <b>~140.5 трлн сумов</b>.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>относительно равномерно</b> (коэффициент вариации: 32.3%). Показатели регионов близки к среднему.</div>
     </div>
   </div>
 </div>

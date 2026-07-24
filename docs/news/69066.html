@@ -10,8 +10,8 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --c: #bf360c;
-  --bg: #fbe9e7;
+  --c: #37474f;
+  --bg: #eceff1;
   --radius: 16px;
   --shadow: 0 2px 24px rgba(0,0,0,.09);
 }
@@ -23,7 +23,7 @@ body {
 }
 
 .nav {
-  background: #bf360c;
+  background: #37474f;
   padding: 0 20px;
   height: 54px;
   display: flex;
@@ -58,7 +58,7 @@ body {
 }
 
 .hero-card {
-  background: #bf360c;
+  background: #37474f;
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 14px;
@@ -330,7 +330,7 @@ body {
   gap: 8px;
 }
 .foot a {
-  color: #bf360c;
+  color: #37474f;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -359,165 +359,24 @@ body {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Все новости
   </a>
-  <span class="nav-title">🏭 Промышленность</span>
+  <span class="nav-title">📊 Статистика</span>
 </nav>
 
 <div class="page">
 
   <div class="hero-card">
-    <div class="hero-bg-icon">🏭</div>
+    <div class="hero-bg-icon">📊</div>
     <div class="hero-body">
-      <div class="badge">Промышленность</div>
+      <div class="badge">Статистика</div>
       <div class="hero-title">Теперь статистика знает все</div>
-      <div class='hero-period'>июля 2026</div>
+      
     </div>
   </div>
 
-  <div class="kpi-grid">
-      <div class="kpi-hero" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-hero-val">
-          <span class="counter" data-target="1.8">1.8</span>
-          <span class="kpi-hero-unit">процента</span>
-          <span class="trend neutral">→</span>
-        </div>
-        <div class="kpi-hero-label">Теперь статистика знает все</div>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="1.6">1.6</span>
-          <span class="kpi-unit">процента</span>
-        </div>
-        <div class="kpi-label">й данных, принятием решений при реписи населения и русс</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="0.6">0.6</span>
-          <span class="kpi-unit">процента</span>
-        </div>
-        <div class="kpi-label">киргизы –</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="0.5">0.5</span>
-          <span class="kpi-unit">процента</span>
-        </div>
-        <div class="kpi-label">туркмены –</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="97.3">97.3</span>
-          <span class="kpi-unit">процента</span>
-        </div>
-        <div class="kpi-label">охватила</div>
-        <span class="trend neutral">→</span>
-      </div>
-      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
-        <div class="kpi-val">
-          <span class="counter" data-target="2.7">2.7</span>
-          <span class="kpi-unit">процента были</span>
-        </div>
-        <div class="kpi-label">еся</div>
-        <span class="trend neutral">→</span>
-      </div></div>
-  
-<div class="chart-wrap">
-  <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:240px">
-    <canvas id="mainChart"></canvas>
-  </div>
-</div>
-<script>
-(function(){
-  new Chart(document.getElementById('mainChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ["й данных, принятием решений при реп", "киргизы –", "туркмены –", "охватила", "еся", "еся 2,7 процента были учтены и цифр", "Показатель", "ных городов с интеллекего размещени"],
-      datasets: [{
-        data: [1.6, 0.6, 0.5, 97.3, 2.7, 18.8, 2.2, 89.4],
-        backgroundColor: ["#bf360cff", "#bf360ccc", "#bf360c99", "#bf360c77", "#bf360c55", "#bf360c33"],
-        borderWidth: 0,
-        hoverOffset: 8,
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      cutout: '62%',
-      plugins: {
-        legend: {
-          position: 'right',
-          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
-        },
-        tooltip: {
-          backgroundColor: '#1a1a2e',
-          padding: 10,
-          cornerRadius: 8,
-          callbacks: {
-            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' процента'
-          }
-        }
-      },
-      animation: { animateRotate: true, duration: 900 }
-    }
-  });
-})();
-</script>
   
   
-<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
-  <div class="insights-header">
-    <span class="insights-icon">💡</span>
-    <span class="insights-title">Аналитика</span>
-  </div>
-  <div class="insights-grid">
-    
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🥇</span>
-        <span class="insight-card-title">Лидер</span>
-      </div>
-      <div class="insight-card-body"><b>охватила</b> занимает первое место: <b>97.3 процента</b> — это <b>45.7%</b> от суммарного объёма по всем регионам.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">🔻</span>
-        <span class="insight-card-title">Аутсайдер</span>
-      </div>
-      <div class="insight-card-body">Наименьший показатель у <b>туркмены</b>: <b>0.5 процента</b>. Разрыв с лидером — <b>в 194.6×</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📊</span>
-        <span class="insight-card-title">Концентрация</span>
-      </div>
-      <div class="insight-card-body">Топ-3 — <b>охватила</b>, <b>ных городов с интеллекего размещении в р</b>, <b>еся 2,7 процента были учтены и цифровые</b> — формируют <b>96.4%</b> от общего объёма.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">⚖️</span>
-        <span class="insight-card-title">Баланс</span>
-      </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>26.6 процента</b>. Выше среднего — <b>2</b> из 8 регионов, ниже — <b>6</b>.</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">💰</span>
-        <span class="insight-card-title">Итого</span>
-      </div>
-      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>213.1 процента</b>. Второе место занимает <b>ных городов с интеллекего размещении в р</b> — 89.4 процента (42.0%).</div>
-    </div>
-    <div class="insight-card">
-      <div class="insight-card-head">
-        <span class="insight-emoji">📏</span>
-        <span class="insight-card-title">Неравномерность</span>
-      </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 146.3%). Сильный дисбаланс между лидером и аутсайдером.</div>
-    </div>
-  </div>
-</div>
+  
+  
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69066-teper-statistika-znaet-vse" target="_blank" rel="noopener">

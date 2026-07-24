@@ -44,6 +44,22 @@ def _detect_category(text: str) -> str:
     return "Статистика"
 
 
+def _trim_label(text: str, max_len: int = 60) -> str:
+    """Обрезает метку до max_len символов, но не посреди слова.
+    Наивная нарезка text[-max_len:] может отрезать слово точно
+    посередине (например «...года объем...» -> «...а объем...»,
+    потеряв «год» и оставив висячую «а»). Если после обрезки
+    первый символ — не начало слова, отбрасываем этот обрывок."""
+    text = text.strip()
+    if len(text) <= max_len:
+        return text
+    trimmed = text[-max_len:]
+    sp = trimmed.find(" ")
+    if 0 < sp < 20:
+        trimmed = trimmed[sp + 1:]
+    return trimmed.strip()
+
+
 def _extract_numbers(text: str) -> list:
     """Ищет числа с единицами измерения в тексте."""
     results = []
@@ -56,6 +72,35 @@ def _extract_numbers(text: str) -> list:
     # Паттерн 2: "Название - ЧИСЛО единица" (региональные данные)
     regional_pattern = r'([А-ЯЁа-яёA-Za-z][^\n\-–—]{2,40})\s*[-–—]\s*([\d][,.\d]*)\s*(трлн|млрд|млн|тыс\.?(?!\w))\s*([а-яёА-ЯЁ]{0,12})'
     seen_vals = set()
+
+    # Региональные/построчные "Название - число единица" сканируем ПЕРВЫМИ (но
+    # добавляем в results в конце функции), чтобы застолбить их значения в
+    # seen_vals с пометкой kind="part" раньше общего паттерна 1. Иначе общий
+    # паттерн 1 (которому не важен префикс "Регион -") матчит те же самые числа
+    # первым, помечает их kind="value" и они начинают выглядеть как отдельные
+    # "итоговые" показатели наравне с настоящим общим итогом — из-за чего
+    # _build_chart_data не может отличить "итог" от "часть разбивки".
+    regional_results = []
+    for m in re.finditer(regional_pattern, text, re.IGNORECASE | re.MULTILINE):
+        label = _trim_label(m.group(1).strip().rstrip(" \t-–—"), max_len=55)
+        val   = m.group(2).replace(",", ".")
+        ctx4  = (m.group(4) or "").strip()
+        unit  = m.group(3) + (" " + ctx4 if ctx4 and len(ctx4) >= 3 else "")
+        key   = f"{val}{m.group(3)}"
+        if key in seen_vals:
+            continue
+        try:
+            float(val)
+        except ValueError:
+            continue
+        seen_vals.add(key)
+        regional_results.append({
+            "value": val,
+            "unit":  unit.strip(),
+            "label": label,
+            "trend": "neutral",
+            "kind": "part",
+        })
 
     for m in re.finditer(pattern, text, re.IGNORECASE):
         val = m.group(1).strip().replace(" ", "").replace(",", ".")
@@ -75,7 +120,7 @@ def _extract_numbers(text: str) -> list:
         if context_word and len(context_word) < 3:
             context_word = ""
 
-        # Убираем дубликаты по значению
+        # Убираем дубликаты по значению (в т.ч. уже застолблённые regional_pattern)
         key = f"{val}{unit}"
         if key in seen_vals:
             continue
@@ -85,7 +130,7 @@ def _extract_numbers(text: str) -> list:
         start = max(0, m.start() - 120)
         snippet = text[start:m.start()].strip()
         parts = re.split(r'[.!?\n]', snippet)
-        label = parts[-1].strip().lstrip(" ,;:—")[-60:]
+        label = _trim_label(parts[-1].strip().lstrip(" ,;:—"))
 
         # Определяем тренд
         trend = "neutral"
@@ -102,6 +147,12 @@ def _extract_numbers(text: str) -> list:
                 "unit": full_unit,
                 "label": label or "Показатель",
                 "trend": trend,
+                # "value" — агрегированный/общий показатель (итог, рост в %,
+                # главная цифра из заголовка). "part" — сравнимая составляющая
+                # разбивки (регион, возрастная группа и т.п.). Используется
+                # в _build_chart_data, чтобы не смешивать итог с его частями
+                # на одном графике.
+                "kind": "value",
             })
 
     # Паттерн для "лет/года" — только дробные числа, не годы
@@ -121,33 +172,16 @@ def _extract_numbers(text: str) -> list:
         start = max(0, m.start() - 120)
         snippet = text[start:m.start()].strip()
         parts = re.split(r'[.!?\n]', snippet)
-        label = parts[-1].strip().lstrip(" ,;:—")[-60:]
+        label = _trim_label(parts[-1].strip().lstrip(" ,;:—"))
         trend = "neutral"
         ctx_before = text[max(0, m.start()-80):m.start()].lower()
         if re.search(r'вырос|увелич|прирост|рост|повыс|больше', ctx_before):
             trend = "up"
-        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend})
+        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend, "kind": "value"})
 
-    # Паттерн 2: региональные данные "Название - 12,7 трлн сумов"
-    for m in re.finditer(regional_pattern, text, re.IGNORECASE | re.MULTILINE):
-        label = m.group(1).strip().rstrip(" \t-–—")[-55:]
-        val   = m.group(2).replace(",", ".")
-        ctx4  = (m.group(4) or "").strip()
-        unit  = m.group(3) + (" " + ctx4 if ctx4 and len(ctx4) >= 3 else "")
-        key   = f"{val}{m.group(3)}"
-        if key in seen_vals:
-            continue
-        try:
-            float(val)
-        except ValueError:
-            continue
-        seen_vals.add(key)
-        results.append({
-            "value": val,
-            "unit":  unit.strip(),
-            "label": label,
-            "trend": "neutral",
-        })
+    # Региональные результаты добавляем в конец — застолблены в seen_vals выше,
+    # поэтому общий паттерн 1 их уже не продублирует.
+    results.extend(regional_results)
 
     return results[:12]
 
@@ -161,7 +195,7 @@ def _extract_grouped_counts(text: str) -> list:
     seen = set()
     pattern = r'([\d]{1,3}(?:[ \t]\d{3})+)[ \t]+([а-яёА-ЯЁ]{2,20}(?:[ \t][а-яёА-ЯЁ]{2,20})?)'
     for m in re.finditer(pattern, text):
-        val = re.sub(r'[ \t ]', '', m.group(1))
+        val = re.sub(r'[ \t ]', '', m.group(1))
         try:
             float(val)
         except ValueError:
@@ -174,14 +208,14 @@ def _extract_grouped_counts(text: str) -> list:
         start = max(0, m.start() - 120)
         snippet = text[start:m.start()].strip()
         parts = re.split(r'[.!?\n]', snippet)
-        label = parts[-1].strip().lstrip(" ,;:—-")[-60:]
+        label = _trim_label(parts[-1].strip().lstrip(" ,;:—-"))
         trend = "neutral"
         ctx_before = text[max(0, m.start() - 80):m.start()].lower()
         if re.search(r'вырос|увелич|прирост|рост|повыс|больше', ctx_before):
             trend = "up"
         elif re.search(r'снизил|уменьш|сократил|упал|меньше|снижен', ctx_before):
             trend = "down"
-        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend})
+        results.append({"value": val, "unit": unit, "label": label or "Показатель", "trend": trend, "kind": "value"})
     return results
 
 
@@ -216,7 +250,7 @@ def _extract_dash_items(text: str) -> list:
         if key in seen:
             continue
         seen.add(key)
-        results.append({"value": val, "unit": unit, "label": label[:55], "trend": "neutral"})
+        results.append({"value": val, "unit": unit, "label": label[:55], "trend": "neutral", "kind": "part"})
     return results
 
 
@@ -266,63 +300,44 @@ def _year_from_label(s: dict) -> int:
 
 
 def _build_chart_data(key_stats: list) -> list:
-    """Выбирает показатели для диаграммы.
-
-    Два режима:
-    1) Временной ряд — только показатели с реально распознанным годом
-       в подписи. Остальные (заголовок-итог, нечисловые ярлыки) сюда
-       никогда не попадают, иначе на line-графике year-точки вперемешку
-       с произвольным текстом рисуются как единая гладкая кривая.
-       Пропущенные годы внутри диапазона заполняются None (разрыв на
-       графике), чтобы не "заглаживать" дыры в данных.
-    2) Структура/части — сравнение категорий (регионы, отрасли и т.п.).
-       Первый показатель (key_stats[0]) почти всегда совпадает с главной
-       цифрой в заголовке ("Х достигло N трлн сумов") — это ИТОГ, а не
-       сравнимая категория, поэтому в диаграмму частей он не включается
-       (иначе "итого" рисуется как ещё один бар рядом со своими же
-       составляющими).
-    """
+    """Выбирает показатели с одинаковыми единицами для диаграммы."""
     if not key_stats:
         return []
 
-    dated = [s for s in key_stats if _year_from_label(s) != 9999]
-    if len(dated) >= 2:
-        by_year = {}
-        for s in dated:
-            y = _year_from_label(s)
-            if y not in by_year:  # первое вхождение года
-                by_year[y] = s
-        years = sorted(by_year)
-        if len(years) >= 2:
-            span = years[-1] - years[0] + 1
-            if span <= 12:
-                filled = []
-                for y in range(years[0], years[-1] + 1):
-                    if y in by_year:
-                        filled.append(by_year[y])
-                    else:
-                        filled.append({
-                            "value": None,
-                            "unit": dated[0].get("unit", ""),
-                            "label": str(y),
-                            "trend": "neutral",
-                        })
-                return filled[:12]
-            return [by_year[y] for y in years][:8]
-
     from collections import defaultdict
-    candidates = key_stats[1:] if len(key_stats) > 1 else key_stats
     groups = defaultdict(list)
-    for s in candidates:
+    for s in key_stats:
         unit_base = s["unit"].split()[0] if s["unit"] else "ед."
-        if _safe_float(s["value"]) is not None:
+        try:
+            float(s["value"])
             groups[unit_base].append(s)
+        except ValueError:
+            pass
 
     best = max(groups.values(), key=len, default=[])
+
+    # Если в группе одновременно есть "part" (сравнимые между собой составляющие —
+    # регионы, возрастные группы и т.п.) и "value" (агрегированный итог, темп роста,
+    # главная цифра из заголовка) — для графика оставляем только "part". Иначе итог
+    # попадает на диаграмму как будто это ещё один регион и визуально забивает
+    # реальное сравнение, вводя в заблуждение (итог — это сумма частей, а не
+    # отдельная сравнимая категория).
+    parts_only = [s for s in best if s.get("kind") == "part"]
+    if parts_only:
+        best = parts_only
+
+    # Раньше здесь был запасной вариант "если ни в одной группе нет >=2
+    # сравнимых по единице измерения значений — берём любые 8 чисел подряд".
+    # Это давало графики, где вперемешку оказывались триллионы сумов, проценты
+    # и штуки предприятий — визуально бессмысленное сравнение разных величин.
+    # Теперь: нет хотя бы двух чисел с ОДИНАКОВОЙ единицей — графика не строим
+    # вовсе (site_builder аккуратно скрывает блок графика при пустом chart_data).
     result = best[:8] if len(best) >= 2 else []
 
-    if not result:
-        result = [s for s in candidates if _safe_float(s["value"]) is not None][:8]
+    # Если метки содержат годы — сортируем хронологически
+    years = [_year_from_label(s) for s in result]
+    if sum(1 for y in years if y != 9999) >= 2:
+        result = sorted(result, key=_year_from_label)
 
     return result
 
@@ -334,17 +349,7 @@ def _safe_float(val):
         return None
 
 
-def _dehyphenate(text: str) -> str:
-    """Склеивает слова, перенесённые по слогам через дефис на конце строки —
-    типичный артефакт pdfplumber на многоколоночных PDF-релизах Госкомстата
-    ("пере-\nписи" -> "переписи"). Без этого regex-экстрактор хватает
-    случайные обрывки слов вокруг чисел вместо настоящих подписей."""
-    text = re.sub(r'-\s*\n\s*(?=[а-яёa-z])', '', text)
-    return text
-
-
 def analyze(title: str, body: str, tables: list) -> dict:
-    body = _dehyphenate(body)
     full_text = title + "\n" + body
 
     category = _detect_category(full_text)
@@ -357,7 +362,16 @@ def analyze(title: str, body: str, tables: list) -> dict:
     # то же число другими словами и иначе "перебивает" реальную единицу измерения.
     if len(key_stats) < 4:
         seen_vals = {s["value"] for s in key_stats}
-        for extra in _extract_grouped_counts(body) + _extract_dash_items(body):
+        # _extract_dash_items идёт ПЕРВЫМ: формат "Метка - число единица" структурно
+        # однозначен (это всегда сравнимая часть разбивки, kind="part"), тогда как
+        # _extract_grouped_counts — более общий паттерн "число единица" без метки-
+        # разделителя, который не может отличить часть разбивки от отдельного
+        # итога и поэтому всегда помечает kind="value". Если запустить его первым,
+        # он "застолбит" числа из той же построчной разбивки (например,
+        # "Таджикистан - 19 096 человек" при числах с разделителем разрядов) как
+        # value, и часть строк разбивки в графике окажется рядом с настоящим
+        # итогом как будто это два разных типа данных.
+        for extra in _extract_dash_items(body) + _extract_grouped_counts(body):
             if extra["value"] not in seen_vals:
                 key_stats.append(extra)
                 seen_vals.add(extra["value"])
@@ -377,6 +391,7 @@ def analyze(title: str, body: str, tables: list) -> dict:
                         "unit": "",
                         "label": str(labels[0])[:55],
                         "trend": "neutral",
+                        "kind": "part",
                     })
                 except ValueError:
                     pass
