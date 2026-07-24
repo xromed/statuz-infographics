@@ -425,7 +425,7 @@ body {
   
 <div class="chart-wrap">
   <div class="section-label">Структура показателей</div>
-  <div style="position:relative;height:280px">
+  <div style="position:relative;height:320px">
     <canvas id="mainChart"></canvas>
   </div>
 </div>
@@ -439,9 +439,9 @@ body {
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Торговля", "Сельское, лесное и рыбное хозяйство", "Промышленность", "Услуги по проживанию и питанию", "Строительство", "Здравоохранение и оказание социальн", "Информация и связь"],
+      labels: ["Торговля", "Сельское, лесное и рыбное хозяйство", "Промышленность", "Услуги по проживанию и питанию", "Строительство", "Здравоохранение и оказание социальн", "Информация и связь", "Другие виды"],
       datasets: [{
-        data: [162867.0, 130890.0, 63312.0, 33547.0, 32691.0, 15127.0, 13436.0],
+        data: [162867.0, 130890.0, 63312.0, 33547.0, 32691.0, 15127.0, 13436.0, 126348.0],
         backgroundColor: grad,
         borderColor: c,
         borderWidth: 0,
@@ -485,7 +485,7 @@ body {
         <span class="insight-emoji">🥇</span>
         <span class="insight-card-title">Лидер</span>
       </div>
-      <div class="insight-card-body"><b>Торговля</b> занимает первое место: <b>162 867 </b> — это <b>36.0%</b> от суммарного объёма по всем регионам.</div>
+      <div class="insight-card-body"><b>Торговля</b> занимает первое место: <b>162 867 </b> — это <b>28.2%</b> от суммарного объёма по всем регионам.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
@@ -499,28 +499,28 @@ body {
         <span class="insight-emoji">📊</span>
         <span class="insight-card-title">Концентрация</span>
       </div>
-      <div class="insight-card-body">Топ-3 — <b>Торговля</b>, <b>Сельское, лесное и рыбное хозяйство</b>, <b>Промышленность</b> — формируют <b>79.0%</b> от общего объёма.</div>
+      <div class="insight-card-body">Топ-3 — <b>Торговля</b>, <b>Сельское, лесное и рыбное хозяйство</b>, <b>Другие виды</b> — формируют <b>72.7%</b> от общего объёма.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">⚖️</span>
         <span class="insight-card-title">Баланс</span>
       </div>
-      <div class="insight-card-body">Среднее значение по всем регионам: <b>64 552.9 </b>. Выше среднего — <b>2</b> из 7 регионов, ниже — <b>5</b>.</div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>72 277.2 </b>. Выше среднего — <b>3</b> из 8 регионов, ниже — <b>5</b>.</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">💰</span>
         <span class="insight-card-title">Итого</span>
       </div>
-      <div class="insight-card-body">Суммарный объём по всем 7 регионам: <b>451 870 </b>. Второе место занимает <b>Сельское, лесное и рыбное хозяйство</b> — 130 890  (29.0%).</div>
+      <div class="insight-card-body">Суммарный объём по всем 8 регионам: <b>578 218 </b>. Второе место занимает <b>Сельское, лесное и рыбное хозяйство</b> — 130 890  (22.6%).</div>
     </div>
     <div class="insight-card">
       <div class="insight-card-head">
         <span class="insight-emoji">📏</span>
         <span class="insight-card-title">Неравномерность</span>
       </div>
-      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 85.1%). Сильный дисбаланс между лидером и аутсайдером.</div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 76.5%). Умеренные различия между регионами.</div>
     </div>
   </div>
 </div>

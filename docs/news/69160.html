@@ -369,7 +369,7 @@ body {
     <div class="hero-body">
       <div class="badge">Транспорт</div>
       <div class="hero-title">За 5 месяцев объем транспортных услуг достиг 85,3 трлн сумов</div>
-      
+      <div class='hero-period'>2026 год</div>
     </div>
   </div>
 
@@ -381,10 +381,143 @@ body {
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">За 5 месяцев объем транспортных услуг достиг 85,3 трлн сумов</div>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="52.1">52.1</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">автомобильный транспорт -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="15.2">15.2</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">вспомогательная транспортная деятельность -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="13.8">13.8</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">воздушным транспортом -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="10.0">10</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">железнодорожным транспортом -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#1565c0;--bg:#e3f2fd">
+        <div class="kpi-val">
+          <span class="counter" data-target="8.9">8.9</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">трубопроводный транспорт -</div>
+        <span class="trend neutral">→</span>
       </div></div>
   
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:240px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  new Chart(document.getElementById('mainChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ["автомобильный транспорт -", "вспомогательная транспортная деятел", "воздушным транспортом -", "железнодорожным транспортом -", "трубопроводный транспорт -"],
+      datasets: [{
+        data: [52.1, 15.2, 13.8, 10.0, 8.9],
+        backgroundColor: ["#1565c0ff", "#1565c0cc", "#1565c099", "#1565c077", "#1565c055"],
+        borderWidth: 0,
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: {
+            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
+          }
+        }
+      },
+      animation: { animateRotate: true, duration: 900 }
+    }
+  });
+})();
+</script>
   
   
+<div class="insights-block" style="--c:#1565c0;--bg:#e3f2fd">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>автомобильный транспорт</b> занимает первое место: <b>52.1 %</b> — это <b>52.1%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b>трубопроводный транспорт</b>: <b>8.9 %</b>. Разрыв с лидером — <b>в 5.9×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
+      </div>
+      <div class="insight-card-body">Топ-3 — <b>автомобильный транспорт</b>, <b>вспомогательная транспортная деятельност</b>, <b>воздушным транспортом</b> — формируют <b>81.1%</b> от общего объёма.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>20 %</b>. Выше среднего — <b>1</b> из 5 регионов, ниже — <b>4</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 5 регионам: <b>100 %</b>. Второе место занимает <b>вспомогательная транспортная деятельност</b> — 15.2 % (15.2%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>крайне неравномерно</b> (коэффициент вариации: 81.1%). Сильный дисбаланс между лидером и аутсайдером.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69160-5-ojda-transport-khizmatlari-azhmi-85-3-trln-s-mga-etdi-3" target="_blank" rel="noopener">

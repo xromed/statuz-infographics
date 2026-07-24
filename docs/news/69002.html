@@ -369,7 +369,7 @@ body {
     <div class="hero-body">
       <div class="badge">Статистика</div>
       <div class="hero-title">Объем строительных работ в Узбекистане вырос на 14,5 %</div>
-      
+      <div class='hero-period'>2026 год</div>
     </div>
   </div>
 
@@ -381,10 +381,152 @@ body {
           <span class="trend up">↑</span>
         </div>
         <div class="kpi-hero-label">Объем строительных работ в Узбекистане вырос на 14,5 %</div>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="104.9">104.9</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">мае 2026 года в Узбекистане выполнены строительные рабо</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="45.8">45.8</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">2022 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="52.2">52.2</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">2023 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="59.1">59.1</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">2024 год -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#37474f;--bg:#eceff1">
+        <div class="kpi-val">
+          <span class="counter" data-target="87.5">87.5</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">2025 год -</div>
+        <span class="trend neutral">→</span>
       </div></div>
   
+<div class="chart-wrap">
+  <div class="section-label">Динамика по годам</div>
+  <div style="position:relative;height:220px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "#37474f";
+  const grad = ctx.createLinearGradient(0,0,0,220);
+  grad.addColorStop(0, c + '44');
+  grad.addColorStop(1, c + '00');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["2022", "2023", "2024", "2025", "2026"],
+      datasets: [{
+        data: [45.8, 52.2, 59.1, 87.5, 104.9],
+        borderColor: c,
+        borderWidth: 2.5,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.25,
+        spanGaps: false,
+        pointBackgroundColor: c,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: ctx => ctx.raw == null ? '  нет данных' : '  ' + ctx.raw.toLocaleString('ru-RU') + ' трлн' }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 12, family: 'Inter', weight: '600' }, color: '#546e7a' } },
+        y: { grid: { color: 'rgba(0,0,0,.05)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#90a4ae' } }
+      },
+      animation: { duration: 1000, easing: 'easeOutQuart' }
+    }
+  });
+})();
+</script>
   
   
+<div class="insights-block" style="--c:#37474f;--bg:#eceff1">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📈</span>
+        <span class="insight-card-title">Общий рост</span>
+      </div>
+      <div class="insight-card-body">За 4 лет (2022–2026) показатель <b>вырос на 129.0%</b>. Среднегодовой темп роста (CAGR): <b>+23.0% в год</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🚀</span>
+        <span class="insight-card-title">Рекордный скачок</span>
+      </div>
+      <div class="insight-card-body">Максимальный однолетний рост — в <b>2025 году</b>: с 59.1 до 87.5 трлн сумов (<b>рост 48.1%</b> за год).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📌</span>
+        <span class="insight-card-title">Минимум и максимум</span>
+      </div>
+      <div class="insight-card-body">Минимальное значение — <b>45.8 трлн сумов</b> (2022 г.), максимальное — <b>104.9 трлн сумов</b> (2026 г.). Амплитуда: <b>129.0%</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔄</span>
+        <span class="insight-card-title">2026 vs 2025</span>
+      </div>
+      <div class="insight-card-body">В последний период показатель <b>вырос на 19.9%</b>: с 87.5 до <b>104.9 трлн сумов</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📐</span>
+        <span class="insight-card-title">Среднее за период</span>
+      </div>
+      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>69.9 трлн сумов</b>. Текущий показатель <b>выше среднего</b> на 50.1%.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔮</span>
+        <span class="insight-card-title">Прогноз на 2027</span>
+      </div>
+      <div class="insight-card-body">При сохранении среднего темпа последних лет (+34.0%/год) к <b>2027 году</b> показатель вырастет до <b>~140.5 трлн сумов</b>.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69002-zbekistonda-urilish-ishlari-azhmi-14-5-foizga-sdi-3" target="_blank" rel="noopener">

@@ -12,6 +12,36 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; StatBot/1.0)"}
 # Такой "заголовок" никогда не должен попадать в данные.
 BAD_TITLE = "национальный комитет республики узбекистан по статистике"
 
+# Этот блок — фиксированный подвал сайта (адрес комитета), он есть на любой
+# странице. Используем его как надёжный правый ограничитель при вырезании
+# текста статьи из текста всей страницы (см. фолбэк ниже).
+FOOTER_MARKER = "Национальный комитет Республики Узбекистан по статистике"
+
+# Минимальная длина текста статьи, ниже которой мы не доверяем результату
+# основного парсинга (например "Loading..." — заглушка JS-виджета) и
+# переключаемся на фолбэк по всей странице.
+MIN_BODY_LEN = 40
+
+
+def _extract_pdf_urls(node) -> list:
+    """Ищет ссылки на PDF внутри переданного узла (может быть content или
+    soup целиком — используется в обоих случаях)."""
+    pdf_urls = []
+    for iframe in node.find_all("iframe"):
+        src = iframe.get("src", "")
+        if "viewer.html" in src and "file=" in src:
+            pdf_url = unquote(src.split("file=")[-1])
+            if pdf_url.endswith(".pdf"):
+                pdf_urls.append(pdf_url)
+
+    for a in node.find_all("a", href=True):
+        if a["href"].endswith(".pdf"):
+            full = BASE + a["href"] if a["href"].startswith("/") else a["href"]
+            if full not in pdf_urls:
+                pdf_urls.append(full)
+
+    return pdf_urls
+
 
 def parse(url: str) -> dict:
     try:
@@ -79,18 +109,7 @@ def parse(url: str) -> dict:
     body_text, pdf_urls, tables = "", [], []
 
     if content:
-        for iframe in content.find_all("iframe"):
-            src = iframe.get("src", "")
-            if "viewer.html" in src and "file=" in src:
-                pdf_url = unquote(src.split("file=")[-1])
-                if pdf_url.endswith(".pdf"):
-                    pdf_urls.append(pdf_url)
-
-        for a in content.find_all("a", href=True):
-            if a["href"].endswith(".pdf"):
-                full = BASE + a["href"] if a["href"].startswith("/") else a["href"]
-                if full not in pdf_urls:
-                    pdf_urls.append(full)
+        pdf_urls = _extract_pdf_urls(content)
 
         for table in content.find_all("table"):
             rows = []
@@ -104,6 +123,49 @@ def parse(url: str) -> dict:
         for tag in content(["script", "style", "iframe"]):
             tag.decompose()
         body_text = content.get_text("\n", strip=True)[:4000]
+
+    # Фолбэк: на текущем шаблоне stat.uz div.item-page/article/#content
+    # часто вообще не находится (content is None), либо находится, но тело
+    # внутри него — просто JS-заглушка вида "Loading..." (реальный текст
+    # подгружается скриптом, которого requests не исполняет). В обоих
+    # случаях используем текст всей страницы и вырезаем статью между двумя
+    # надёжными ориентирами: заголовком статьи (title, уже определён выше)
+    # и неизменным подвалом сайта (FOOTER_MARKER), который встречается
+    # ровно один раз — перед адресом комитета в самом низу страницы.
+    if title and (not content or len(body_text.strip()) < MIN_BODY_LEN):
+        full_text = soup.get_text("\n", strip=True)
+        footer_idx = full_text.find(FOOTER_MARKER)
+        if footer_idx != -1:
+            # rfind — берём последнее вхождение заголовка ПЕРЕД подвалом:
+            # это заголовок непосредственно над телом статьи, а не более
+            # ранние упоминания (например в <title> страницы или в меню).
+            title_idx = full_text.rfind(title, 0, footer_idx)
+            if title_idx != -1:
+                slice_start = title_idx + len(title)
+                fallback_text = full_text[slice_start:footer_idx]
+                # Убираем дату (уже извлечена отдельно в `date`) и голые
+                # ссылки на PDF — это не текст статьи.
+                fallback_text = re.sub(
+                    r"^\s*\d{1,2}\s+[а-яёА-ЯЁ]+\s+\d{4}\s*", "", fallback_text
+                )
+                fallback_text = re.sub(r"https?://\S+", "", fallback_text).strip()
+                fallback_text = re.sub(r"\n{2,}", "\n\n", fallback_text)
+
+                # Если после чистки почти ничего не осталось — это чисто
+                # PDF-релиз (страница содержит только "Loading..." и ссылку
+                # на PDF, без инлайн-текста). В этом случае намеренно
+                # оставляем body_text пустым, а не набиваем туда "Loading...":
+                # для таких статей ничего не изменится, пока не появится
+                # отдельная логика скачивания/OCR PDF.
+                if len(fallback_text) >= MIN_BODY_LEN:
+                    body_text = fallback_text[:4000]
+                elif not content:
+                    body_text = ""
+
+        # Если content вообще не найден, ссылки на PDF нужно поискать по
+        # всей странице (иначе pdf_urls потеряется вместе с content).
+        if not content:
+            pdf_urls = _extract_pdf_urls(soup)
 
     return {
         "title": title,

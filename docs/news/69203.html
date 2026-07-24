@@ -369,7 +369,7 @@ body {
     <div class="hero-body">
       <div class="badge">Промышленность</div>
       <div class="hero-title">Объем металлургической промышленности превысил 151 трлн сумов</div>
-      
+      <div class='hero-period'>2026 год</div>
     </div>
   </div>
 
@@ -381,10 +381,149 @@ body {
           <span class="trend neutral">→</span>
         </div>
         <div class="kpi-hero-label">Объем металлургической промышленности превысил 151 трлн сумов</div>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="151.8">151.8</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">объем металлургической промышленности в Узбекистане сос</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="100.2">100.2</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">Навоийская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="38.1">38.1</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">Ташкентская область -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="8">8</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">Город Ташкент -</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#bf360c;--bg:#fbe9e7">
+        <div class="kpi-val">
+          <span class="counter" data-target="3.7">3.7</span>
+          <span class="kpi-unit">трлн сумов</span>
+        </div>
+        <div class="kpi-label">Самаркандская область -</div>
+        <span class="trend neutral">→</span>
       </div></div>
   
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:280px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  const ctx = document.getElementById('mainChart').getContext('2d');
+  const c = "#bf360c";
+  const grad = ctx.createLinearGradient(0,0,0,300);
+  grad.addColorStop(0, c + 'ff');
+  grad.addColorStop(1, c + '88');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Наманганская область -", "Сырдарьинская область -", "Джизакская область -", "Ферганская область -", "Бухарская область -", "Сурхандарьинская область -"],
+      datasets: [{
+        data: [538.1, 477.6, 192.0, 190.8, 132.3, 86.8],
+        backgroundColor: grad,
+        borderColor: c,
+        borderWidth: 0,
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' млрд' }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#78909c' } },
+        y: { grid: { display: false, color: 'rgba(0,0,0,.04)' }, ticks: { font: { size: 11, family: 'Inter' }, color: '#546e7a' } }
+      },
+      animation: { duration: 900, easing: 'easeOutQuart' }
+    }
+  });
+})();
+</script>
   
   
+<div class="insights-block" style="--c:#bf360c;--bg:#fbe9e7">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>Наманганская область</b> занимает первое место: <b>538.1 млрд сумов</b> — это <b>33.3%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b>Сурхандарьинская область</b>: <b>86.8 млрд сумов</b>. Разрыв с лидером — <b>в 6.2×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📊</span>
+        <span class="insight-card-title">Концентрация</span>
+      </div>
+      <div class="insight-card-body">Топ-3 — <b>Наманганская область</b>, <b>Сырдарьинская область</b>, <b>Джизакская область</b> — формируют <b>74.7%</b> от общего объёма.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>269.6 млрд сумов</b>. Выше среднего — <b>2</b> из 6 регионов, ниже — <b>4</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 6 регионам: <b>1 617.6 млрд сумов</b>. Второе место занимает <b>Сырдарьинская область</b> — 477.6 млрд сумов (29.5%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>неравномерно</b> (коэффициент вариации: 64.2%). Умеренные различия между регионами.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69203-metallurgiya-sanoati-azhmi-151-trln-s-mdan-oshdi-3" target="_blank" rel="noopener">
