@@ -369,14 +369,141 @@ body {
     <div class="hero-body">
       <div class="badge">Цены</div>
       <div class="hero-title">Индекс цен на рынке жилья в Узбекистане  за II квартал 2026 года</div>
-      <div class='hero-period'>2026 год</div>
+      <div class='hero-period'>июля 2026</div>
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="100">100</span>
+          <span class="kpi-hero-unit">%</span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">Индекс цен на рынке жилья в Узбекистане  за II квартал 2026 года</div>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="1.3">1.3</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">квартале 2026 года цены на жилую недвижимость повысилис</div>
+        <span class="trend up">↑</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="4.0">4</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">к предыдущему кварталу и на</div>
+        <span class="trend up">↑</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="1.2">1.2</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">квартиры по отношению к I кварталу 2026 года стал выше </div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="5.5">5.5</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">по отношению ко II кварталу 2025 года на</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="1.4">1.4</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">на</div>
+        <span class="trend up">↑</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:240px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  new Chart(document.getElementById('mainChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ["Динамика индексов цен на рынке жиль", "по отношению ко II кварталу 2025 го", "на 1,4 %, по сравнению со II кварта", "квартале 2026 года цены на жилую не", "квартиры по отношению к I кварталу ", "к предыдущему кварталу и на", "на", "на"],
+      datasets: [{
+        data: [100.0, 5.5, 2.0, 1.3, 1.2, 4.0, 1.4, 0.7],
+        backgroundColor: ["#e65100ff", "#e65100cc", "#e6510099", "#e6510077", "#e6510055", "#e6510033"],
+        borderWidth: 0,
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: {
+            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
+          }
+        }
+      },
+      animation: { animateRotate: true, duration: 900 }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#e65100;--bg:#fff3e0">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📈</span>
+        <span class="insight-card-title">Общий рост</span>
+      </div>
+      <div class="insight-card-body">За 2 лет (2024–2026) показатель <b>снизился на 99.3%</b>. Среднегодовой темп роста (CAGR): <b>-91.6% в год</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔄</span>
+        <span class="insight-card-title">2026 vs 2026</span>
+      </div>
+      <div class="insight-card-body">В последний период показатель <b>снизился на 50.0%</b>: с 1.4 до <b>0.7 %</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📐</span>
+        <span class="insight-card-title">Среднее за период</span>
+      </div>
+      <div class="insight-card-body">Среднее значение за весь период наблюдений: <b>14.5 %</b>. Текущий показатель <b>ниже среднего</b> на 95.2%.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔮</span>
+        <span class="insight-card-title">Прогноз на 2027</span>
+      </div>
+      <div class="insight-card-body">При сохранении среднего темпа последних лет (-57.5%/год) к <b>2027 году</b> показатель снизится до <b>~0.3 %</b>.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69215-indeks-tsen-na-rynke-zhil-ya-v-uzbekistane-za-ii-kvartal-2026-goda" target="_blank" rel="noopener">

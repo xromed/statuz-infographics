@@ -369,14 +369,132 @@ body {
     <div class="hero-body">
       <div class="badge">Цены</div>
       <div class="hero-title">Об изменениях в методологии расчета индексов цен на рынке жилья в…</div>
-      
+      <div class='hero-period'>июля 2026</div>
     </div>
   </div>
 
+  <div class="kpi-grid">
+      <div class="kpi-hero" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-hero-val">
+          <span class="counter" data-target="48">48</span>
+          <span class="kpi-hero-unit">% сведений</span>
+          <span class="trend neutral">→</span>
+        </div>
+        <div class="kpi-hero-label">Об изменениях в методологии расчета индексов цен на рынке жилья в…</div>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="52">52</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">сведений о ценах, а на другие источники —</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="150">150</span>
+          <span class="kpi-unit">тыс. цен</span>
+        </div>
+        <div class="kpi-label">ежеквартально фиксировалось порядка</div>
+        <span class="trend neutral">→</span>
+      </div>
+      <div class="kpi-card" style="--c:#e65100;--bg:#fff3e0">
+        <div class="kpi-val">
+          <span class="counter" data-target="12">12</span>
+          <span class="kpi-unit"></span>
+        </div>
+        <div class="kpi-label">+998 90 355-00</div>
+        <span class="trend neutral">→</span>
+      </div></div>
+  
+<div class="chart-wrap">
+  <div class="section-label">Структура показателей</div>
+  <div style="position:relative;height:240px">
+    <canvas id="mainChart"></canvas>
+  </div>
+</div>
+<script>
+(function(){
+  new Chart(document.getElementById('mainChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ["uz приходится", "сведений о ценах, а на другие источ"],
+      datasets: [{
+        data: [48.0, 52.0],
+        backgroundColor: ["#e65100ff", "#e65100cc"],
+        borderWidth: 0,
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: {
+          position: 'right',
+          labels: { font: { size: 11, family: 'Inter' }, color: '#546e7a', padding: 10 }
+        },
+        tooltip: {
+          backgroundColor: '#1a1a2e',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: {
+            label: ctx => '  ' + ctx.raw.toLocaleString('ru-RU') + ' %'
+          }
+        }
+      },
+      animation: { animateRotate: true, duration: 900 }
+    }
+  });
+})();
+</script>
   
   
-  
-  
+<div class="insights-block" style="--c:#e65100;--bg:#fff3e0">
+  <div class="insights-header">
+    <span class="insights-icon">💡</span>
+    <span class="insights-title">Аналитика</span>
+  </div>
+  <div class="insights-grid">
+    
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🥇</span>
+        <span class="insight-card-title">Лидер</span>
+      </div>
+      <div class="insight-card-body"><b>сведений о ценах, а на другие источники</b> занимает первое место: <b>52 % сведений</b> — это <b>52.0%</b> от суммарного объёма по всем регионам.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">🔻</span>
+        <span class="insight-card-title">Аутсайдер</span>
+      </div>
+      <div class="insight-card-body">Наименьший показатель у <b>uz приходится</b>: <b>48 % сведений</b>. Разрыв с лидером — <b>в 1.1×</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">⚖️</span>
+        <span class="insight-card-title">Баланс</span>
+      </div>
+      <div class="insight-card-body">Среднее значение по всем регионам: <b>50 % сведений</b>. Выше среднего — <b>1</b> из 2 регионов, ниже — <b>1</b>.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">💰</span>
+        <span class="insight-card-title">Итого</span>
+      </div>
+      <div class="insight-card-body">Суммарный объём по всем 2 регионам: <b>100 % сведений</b>. Второе место занимает <b>uz приходится</b> — 48 % сведений (48.0%).</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-head">
+        <span class="insight-emoji">📏</span>
+        <span class="insight-card-title">Неравномерность</span>
+      </div>
+      <div class="insight-card-body">Распределение по регионам — <b>относительно равномерно</b> (коэффициент вариации: 4.0%). Показатели регионов близки к среднему.</div>
+    </div>
+  </div>
+</div>
 
   <div class="foot">
     <a href="https://stat.uz/ru/press-tsentr/novosti-goskomstata/69156-ob-izmeneniyakh-v-metodologii-rascheta-indeksov-tsen-na-rynke-zhil-ya-v-respublike-uzbekistan" target="_blank" rel="noopener">
