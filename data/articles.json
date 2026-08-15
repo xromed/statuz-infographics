@@ -23614,5 +23614,43 @@
       "chart_type": "bar",
       "img_path": "img/69773.png"
     }
+  },
+  {
+    "id": "69792",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69792-registr-14-08-2026-1",
+    "title": "Информация о демографии предприятий и организаций в Республике Узбекистан",
+    "date": "",
+    "body_text": "Поделиться\nИнформация о демографии предприятий и организаций в Республике Узбекистан\n14 августа 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Информация о демографии предприятий и организаций в Республике…",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "августа 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/69792.png"
+    }
+  },
+  {
+    "id": "69788",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/69788-deyatel-nost-spetsial-nykh-ekonomicheskikh-zon-malykh-promyshlennykh-zon-tekhnoparkov-klasterov-i-molodjozhnye-promyshlennye-i-predprinimatel-skie-zony-za-yanvar-iyun-2026-goda-1",
+    "title": "Деятельность Специальных экономических зон, малых промышленных зон,  технопарков, кластеров и молодёжные промышленные и предпринимательские зоны за январь-июнь 2026 года",
+    "date": "",
+    "body_text": "Поделиться\nДеятельность Специальных экономических зон, малых промышленных зон,  технопарков, кластеров и молодёжные промышленные и предпринимательские зоны за январь-июнь 2026 года\n14 августа 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Деятельность Специальных экономических зон, малых промышленных зон,…",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "июнь 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/69788.png"
+    }
   }
 ]
