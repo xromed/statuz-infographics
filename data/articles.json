@@ -29653,5 +29653,43 @@
       "chart_type": "bar",
       "img_path": "img/70070.png"
     }
+  },
+  {
+    "id": "70086",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70086-1549821-3",
+    "title": "СВЕДЕНИЯ   о средних ценах продуктов, используемых для приготовления  плова, по регионам Республики Узбекистан",
+    "date": "",
+    "body_text": "Поделиться\nСВЕДЕНИЯ   о средних ценах продуктов, используемых для приготовления  плова, по регионам Республики Узбекистан\n05 сентября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "СВЕДЕНИЯ о средних ценах продуктов, используемых для приготовления…",
+      "category": "Статистика",
+      "main_value": "",
+      "main_unit": "",
+      "period": "сентября 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70086.png"
+    }
+  },
+  {
+    "id": "70082",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70082-zbekiston-respublikasida-istemol-narkhlari-indeksi-ini-2026-jil-avgust-oji-2",
+    "title": "Индекс потребительских цен (ИПЦ) в Республике Узбекистан  за август 2026 года",
+    "date": "",
+    "body_text": "Поделиться\nИндекс потребительских цен (ИПЦ) в Республике Узбекистан  за август 2026 года\n05 сентября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Индекс потребительских цен (ИПЦ) в Республике Узбекистан за август…",
+      "category": "Цены",
+      "main_value": "",
+      "main_unit": "",
+      "period": "август 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70082.png"
+    }
   }
 ]
