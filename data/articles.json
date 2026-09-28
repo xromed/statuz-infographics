@@ -37123,5 +37123,43 @@
       "chart_type": "bar",
       "img_path": "img/70361.png"
     }
+  },
+  {
+    "id": "70388",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70388-stroitel-stvo-v-respublike-uzbekistan-za-yanvar-avgust-2026-goda",
+    "title": "Строительство в Республике Узбекистан  за январь-август 2026 года",
+    "date": "",
+    "body_text": "Поделиться\nСтроительство в Республике Узбекистан  за январь-август 2026 года\n28 сентября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Строительство в Республике Узбекистан  за январь-август 2026 года",
+      "category": "Строительство",
+      "main_value": "",
+      "main_unit": "",
+      "period": "август 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70388.png"
+    }
+  },
+  {
+    "id": "70378",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70378-sotsial-no-ekonomicheskoe-polozhenie-respubliki-uzbekistan-za-yanvar-avgust-2026-goda",
+    "title": "Социально-экономическое положение Республики Узбекистан  За январь-август 2026 года",
+    "date": "",
+    "body_text": "Поделиться\nСоциально-экономическое положение Республики Узбекистан  За январь-август 2026 года\n28 сентября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Социально-экономическое положение Республики Узбекистан За…",
+      "category": "Статистика",
+      "main_value": "",
+      "main_unit": "",
+      "period": "август 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70378.png"
+    }
   }
 ]
