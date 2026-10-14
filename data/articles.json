@@ -40904,5 +40904,96 @@
       "chart_type": "bar",
       "img_path": "img/70580.png"
     }
+  },
+  {
+    "id": "70584",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70584-zbekistonda-talimga-davlat-kharazhatlari-5-jilda-2-barobardan-zijod-oshdi-3",
+    "title": "Государственные расходы на образование в Узбекистане за 5 лет выросли более чем в 2 раза",
+    "date": "",
+    "body_text": "Поделиться\nГосударственные расходы на образование в Узбекистане за 5 лет выросли более чем в 2 раза\n14 октября 2026\nПо данным Национального комитета по статистике, в 2025 году государственные расходы на образование в Узбекистане составили 84,2 трлн сумов.\nПо сравнению с 2021 годом этот показатель увеличился в 2,1 раза в текущих ценах.\nГосударственные расходы на образование за последние 5 лет составили:\n2021 год — 39,6 трлн сумов;\n2022 год — 50,3 трлн сумов;\n2023 год — 61,2 трлн сумов;\n2024 год — 71,2 трлн сумов;\n2025 год — 84,2 трлн сумов.",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Государственные расходы на образование в Узбекистане за 5 лет…",
+      "category": "Образование",
+      "main_value": "39.6",
+      "main_unit": "трлн сумов",
+      "period": "октября 2026",
+      "key_stats": [
+        {
+          "value": "39.6",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "50.3",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "61.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "71.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "84.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "39.6",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "50.3",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "61.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "71.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "84.2",
+          "unit": "трлн сумов",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/70584.png"
+    }
   }
 ]
