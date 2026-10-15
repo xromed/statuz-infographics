@@ -41639,5 +41639,24 @@
       "chart_type": "bar",
       "img_path": "img/70588.png"
     }
+  },
+  {
+    "id": "70604",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70604-registr-15-10-2026-1",
+    "title": "Информация о демографии предприятий и организаций в Республике Узбекистан",
+    "date": "",
+    "body_text": "Поделиться\nИнформация о демографии предприятий и организаций в Республике Узбекистан\n15 октября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Информация о демографии предприятий и организаций в Республике…",
+      "category": "Промышленность",
+      "main_value": "",
+      "main_unit": "",
+      "period": "октября 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70604.png"
+    }
   }
 ]
