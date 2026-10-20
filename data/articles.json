@@ -43576,5 +43576,166 @@
       "chart_type": "bar",
       "img_path": "img/70641.png"
     }
+  },
+  {
+    "id": "70659",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70659-zbekistonda-niko-lar-soni-35-jilda-andaj-zgardi-3",
+    "title": "Как изменилось количество браков в Узбекистане за 35 лет?",
+    "date": "",
+    "body_text": "Поделиться\nКак изменилось количество браков в Узбекистане за 35 лет?\n20 октября 2026\nПо данным Национального комитета по статистике, в январе-июне 2026 года в Узбекистане было зарегистрировано 92,3 тысячи браков.\nЕсли в 1991 году в нашей стране было зарегистрировано 270,3 тысячи браков, то в 2025 году этот показатель составил 267,1 тысячи. В период с 1991 по 2025 год самый высокий показатель был зафиксирован в 2018 году — 311,4 тысячи.\nКоличество зарегистрированных браков в Узбекистане по годам следующее:\n1991 г. — 270,3 тыс.;\n1995 г. - 170,8 тыс.;\n2000 г. — 168,9 тыс.;\n2005 г. — 184,0 тыс.;\n2010 г. — 292,3 тыс.;\n2015 г. — 287,6 тыс.;\n2018 г. — 311,4 тыс.;\n2020 год - 296,8 тыс.;\n2021 год - 305,2 тыс.;\n2022 год - 296,7 тыс.;\n2023 год - 283,8 тыс.;\n2024 год - 271,8 тыс.;\n2025 год - 267,1 тысячи.",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Как изменилось количество браков в Узбекистане за 35 лет?",
+      "category": "Статистика",
+      "main_value": "270.3",
+      "main_unit": "тыс.",
+      "period": "октября 2026",
+      "key_stats": [
+        {
+          "value": "270.3",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "170.8",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "168.9",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "184.0",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "292.3",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "287.6",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "311.4",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "296.8",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "305.2",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "296.7",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "283.8",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "271.8",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        }
+      ],
+      "chart_data": [
+        {
+          "value": "270.3",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "170.8",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "168.9",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "184.0",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "292.3",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "287.6",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "311.4",
+          "unit": "тыс.",
+          "label": "г.",
+          "trend": "neutral",
+          "kind": "part"
+        },
+        {
+          "value": "296.8",
+          "unit": "тыс.",
+          "label": "год",
+          "trend": "neutral",
+          "kind": "part"
+        }
+      ],
+      "chart_type": "bar",
+      "img_path": "img/70659.png"
+    }
   }
 ]
