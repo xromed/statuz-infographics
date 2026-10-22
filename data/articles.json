@@ -44731,5 +44731,24 @@
       "chart_type": "bar",
       "img_path": "img/70677.png"
     }
+  },
+  {
+    "id": "70695",
+    "url": "https://stat.uz/ru/press-tsentr/novosti-goskomstata/70695-zdravookhranenie-v-respublike-uzbekistan-na-konets-2025-goda",
+    "title": "Здравоохранение в Республике Узбекистан (на конец 2025 года)",
+    "date": "",
+    "body_text": "Поделиться\nЗдравоохранение в Республике Узбекистан (на конец 2025 года)\n15 октября 2026\nLoading...",
+    "tables_raw": [],
+    "analysis": {
+      "headline": "Здравоохранение в Республике Узбекистан (на конец 2025 года)",
+      "category": "Здравоохранение",
+      "main_value": "",
+      "main_unit": "",
+      "period": "октября 2026",
+      "key_stats": [],
+      "chart_data": [],
+      "chart_type": "none",
+      "img_path": "img/70695.png"
+    }
   }
 ]
